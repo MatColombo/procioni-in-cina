@@ -220,3 +220,69 @@
   .day-map-panel{grid-template-columns:1fr}
   .day-map{height:260px}
 }
+
+/* Long-form attraction essays */
+.attr-details summary{padding:13px 16px;align-items:center}
+.attr-details summary>span:first-child{font-size:11.5px;letter-spacing:.02em}
+.attr-details summary .read-time{display:inline-flex;align-items:center;gap:5px;margin-left:auto;margin-right:8px;color:var(--muted);font-weight:500;white-space:nowrap}
+.attr-details summary .read-time i{font-size:14px;color:var(--gold)}
+.attr-detail-body{padding:0 18px 20px}
+.essay-intro{margin:3px -2px 17px;padding:17px 18px 16px;border-radius:12px;background:linear-gradient(135deg,rgba(143,29,29,.08),rgba(169,130,44,.11));border:1px solid rgba(143,29,29,.12)}
+.essay-intro .essay-kicker{display:block;margin-bottom:5px;font:600 10px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.11em;color:var(--seal)}
+.essay-intro h4{margin:0 0 6px;font:700 18px/1.25 'Noto Serif TC',serif;color:var(--ink)}
+.essay-intro p{margin:0;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.story-block{padding:15px 0;border-top:1px dashed rgba(73,45,31,.16)}
+.story-block h4{font-size:15px;margin-bottom:9px}
+.story-block.longform p,.story-block.practical-note p{font-size:13.5px;line-height:1.78;color:#51483f;margin:0 0 12px;max-width:76ch}
+.story-block.longform p:last-child,.story-block.practical-note p:last-child{margin-bottom:0}
+.story-block.longform .lead-paragraph::first-letter{float:left;font:700 40px/.82 'Noto Serif TC',serif;color:var(--seal);padding:7px 7px 0 0}
+.anecdote-section{position:relative}
+.anecdote-section:before{content:'“';position:absolute;right:5px;top:1px;font:700 58px/1 'Noto Serif TC',serif;color:rgba(169,130,44,.16)}
+.practical-note{margin-top:3px;padding:14px 15px;background:rgba(63,99,85,.07);border:1px solid rgba(63,99,85,.13);border-radius:10px}
+.practical-note h4{color:var(--jade-dark)}
+@media (max-width:680px){
+  .attr-details summary{flex-wrap:wrap}
+  .attr-details summary .read-time{order:3;width:100%;margin:2px 0 0;font-size:9.5px}
+  .attr-detail-body{padding:0 14px 16px}
+  .essay-intro{padding:15px}
+  .essay-intro h4{font-size:16px}
+  .story-block.longform p,.story-block.practical-note p{font-size:13px;line-height:1.72}
+}
+
+/* Compact, collapsible attraction filters */
+.attraction-filter-shell{margin-bottom:22px}
+.mobile-filter-toggle{display:none}
+.filter-field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.filter-field>span{font:600 9px 'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-left:2px}
+.filter-search-field{min-width:0}
+.filter-actions{display:flex;gap:7px;flex-wrap:wrap;grid-column:1/-1}
+.mobile-filter-close{display:none}
+.attraction-controls{margin-bottom:0;grid-template-columns:minmax(220px,1.3fr) minmax(145px,.65fr) minmax(145px,.65fr) auto}
+.attraction-controls input,.attraction-controls select{width:100%;min-height:40px}
+
+@media(max-width:720px){
+  .attractions-page .sidebar{position:static;top:auto;z-index:auto;margin-bottom:12px}
+  .attractions-page .city-nav{padding-bottom:1px}
+  .attraction-filter-shell{position:relative;margin:0 0 18px}
+  .mobile-filter-toggle{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;border:1px solid rgba(123,23,26,.18);border-radius:14px;background:rgba(255,253,247,.96);box-shadow:0 8px 22px rgba(73,35,22,.07);padding:11px 13px;color:var(--seal-dark);cursor:pointer}
+  .mobile-filter-label,.mobile-filter-meta{display:flex;align-items:center;gap:7px}
+  .mobile-filter-label{font:700 12px 'IBM Plex Mono',monospace}
+  .mobile-filter-label i{font-size:17px;color:var(--gold)}
+  .mobile-filter-meta{font:600 10px 'IBM Plex Mono',monospace;color:var(--muted);white-space:nowrap}
+  .filter-chevron{font-size:16px;transition:transform .18s ease}
+  .attraction-filter-shell.is-open .filter-chevron{transform:rotate(180deg)}
+  .attraction-filter-shell:not(.is-open) .attraction-controls{display:none}
+  .attraction-controls{position:static;top:auto;z-index:auto;display:grid;grid-template-columns:1fr;margin:8px 0 0;padding:12px;border-radius:14px;box-shadow:0 10px 28px rgba(73,35,22,.09);max-height:none;overflow:visible}
+  .attraction-controls input,.attraction-controls select,.attraction-count,.filter-actions{grid-column:auto}
+  .filter-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .filter-actions .tool-btn{justify-content:center;min-height:40px}
+  .mobile-filter-close{display:inline-flex;grid-column:1/-1}
+  .attraction-city{scroll-margin-top:72px}
+  .attraction-card{scroll-margin-top:72px}
+}
+
+@media(max-width:420px){
+  .mobile-filter-meta>span{max-width:105px;overflow:hidden;text-overflow:ellipsis}
+  .filter-actions{grid-template-columns:1fr}
+  .mobile-filter-close{grid-column:auto}
+}

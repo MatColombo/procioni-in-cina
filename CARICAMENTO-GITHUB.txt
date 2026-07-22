@@ -1,0 +1,17 @@
+CARICAMENTO SU GITHUB PAGES — BUILD navigation-repair-20260722-1
+
+1. Estrai lo ZIP.
+2. Nella root del repository elimina gli eventuali vecchi file .js e .css duplicati fuori da assets/.
+3. Carica TUTTO il contenuto estratto: i quattro HTML, README.md, CARICAMENTO-GITHUB.txt, manifest.json, .nojekyll e la cartella assets/.
+4. Conferma la sostituzione dei file esistenti.
+5. Attendi il completamento di “pages build and deployment”.
+6. Apri il sito in una finestra privata oppure aggiorna con Ctrl+F5.
+
+ASSOCIAZIONE CORRETTA:
+index.html = Sintesi
+itinerario-dettagliato.html = Piano ora per ora
+cibi.html = Cibi e bevande
+attrazioni.html = Attrazioni
+
+PULIZIA CONSIGLIATA
+Elimina dalla root i vecchi duplicati indicati in DELETE-OLD-ROOT-FILES.txt. Non eliminare i file dentro assets/.

@@ -64,7 +64,7 @@
     const p = item.place ? entity(item.place) : null;
     const anchor = p ? `stop-${day.id}-${zone.id}-${item.place}-${index}` : '';
     const title = p && isAttraction(item.place)
-      ? `<a href="attrazioni.html#attr-${esc(item.place)}">${esc(item.title)}</a>`
+      ? `<a href="attrazioni.html?v=20260722-4#attr-${esc(item.place)}">${esc(item.title)}</a>`
       : esc(item.title);
     const entityLine = p && item.title !== p.name
       ? `<div class="entity-name"><small>${esc(p.name)}</small></div>` : '';
@@ -73,7 +73,7 @@
     ).join('');
     const links = p ? `
       <div class="item-links">
-        ${isAttraction(item.place) ? `<a class="item-link details" href="attrazioni.html#attr-${esc(item.place)}"><i class="ti ti-info-circle"></i>Dettagli</a>` : ''}
+        ${isAttraction(item.place) ? `<a class="item-link details" href="attrazioni.html?v=20260722-4#attr-${esc(item.place)}"><i class="ti ti-info-circle"></i>Dettagli</a>` : ''}
         <a class="item-link google" href="${googleMap(p)}" target="_blank" rel="noopener"><i class="ti ti-brand-google-maps"></i>Google Maps</a>
         <a class="item-link amap" href="${amap(p)}" target="_blank" rel="noopener"><i class="ti ti-navigation"></i>高德 AMap</a>
       </div>` : '';
@@ -103,7 +103,7 @@
             if (!a) return '';
             const anchor = `nearby-${day.id}-${zone.id}-${n.place}`;
             return `<article class="nearby-card" id="${anchor}">
-              <a href="attrazioni.html#attr-${esc(a.id)}">${esc(a.name)}</a>
+              <a href="attrazioni.html?v=20260722-4#attr-${esc(a.id)}">${esc(a.name)}</a>
               <span class="nearby-distance">${esc(n.distance)}</span>
               <p>${esc(n.reason)}</p>
               <div class="item-links">

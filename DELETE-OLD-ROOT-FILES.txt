@@ -1,0 +1,13 @@
+FILE VECCHI DA ELIMINARE DALLA ROOT DEL REPOSITORY
+
+Questi file erano duplicati o avevano contenuti del tipo sbagliato. Le versioni corrette, quando necessarie, si trovano in assets/.
+
+- attraction-editorial.js
+- attractions.js
+- detailed-itinerary.js
+- index-additions.css
+- site-shell.css
+- travel-data.js
+- travel-pages.css
+
+Non eliminare i file omonimi dentro assets/.

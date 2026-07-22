@@ -1,0 +1,62 @@
+{
+  ".nojekyll": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "CARICAMENTO-GITHUB.txt": {
+    "bytes": 792,
+    "sha256": "be875eb1a90ec66c6b06aa45848b25d91f6cf7fb355147027a202f8471e30441"
+  },
+  "DELETE-OLD-ROOT-FILES.txt": {
+    "bytes": 373,
+    "sha256": "039d8520af871ae14057d1b0eb20777cd8582b17a13d3fee6f4089d080439870"
+  },
+  "README.md": {
+    "bytes": 1318,
+    "sha256": "7d4e723fb5d50dbab77d027532410f757276ad462de9fc9009f833133a27281d"
+  },
+  "assets/detailed-itinerary.js": {
+    "bytes": 13974,
+    "sha256": "9e43ef901f22b1ab97ddf2aac6bbd37c27ba5f43fabe848de517af199de13956"
+  },
+  "assets/food.js": {
+    "bytes": 1386,
+    "sha256": "a04da59b2628bef9f97b2ac6a3b576693d17d6db3d31b251dfa5faf58c4281ff"
+  },
+  "assets/global-navigation.css": {
+    "bytes": 8597,
+    "sha256": "a7ecbdcb5df3f9af01ce1c90fbe7358bbd6c52b23a6f0e874fe540db91fe63e1"
+  },
+  "assets/index-additions.css": {
+    "bytes": 2901,
+    "sha256": "741bd8bbf9a6a9a1cc0fb1809beeccb0fc021ca99f0c49d09f895897053bdc51"
+  },
+  "assets/site-shell.css": {
+    "bytes": 10320,
+    "sha256": "99615b429f637ff2bae3726dc4833b2a0cf72470243a1698d5669e75a71e3588"
+  },
+  "assets/travel-data.js": {
+    "bytes": 172689,
+    "sha256": "cdc953b204b46f75c497d39410c0868baf180387205d3261a376146cebd1c552"
+  },
+  "assets/travel-pages.css": {
+    "bytes": 23969,
+    "sha256": "ed1f1a63d6e3779c50de38f9504594b049cab9c8bae84cb1fcb448249a857937"
+  },
+  "attrazioni.html": {
+    "bytes": 251288,
+    "sha256": "ca65de4d9dcf9b04c3ca92c165e76eda8c1ac5893a7f123e4729f505c58f0cd7"
+  },
+  "cibi.html": {
+    "bytes": 147092,
+    "sha256": "869e952f1f4beca83fd5c70052657f769f8bf2cdd0362e7a70d52a0cd75059fb"
+  },
+  "index.html": {
+    "bytes": 91648,
+    "sha256": "19c47d954260c9fe0cffea62b3dbfcc90b1d0bfc47fb6f34d9bc284d6f7d328e"
+  },
+  "itinerario-dettagliato.html": {
+    "bytes": 7367,
+    "sha256": "c5c34ed4ee62885903c78fea275330ef428ea0eb2129a89e5e0e5e3420ef4efe"
+  }
+}

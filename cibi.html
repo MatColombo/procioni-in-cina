@@ -1,90 +1,967 @@
 <!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
-<title>Cina 2026 — Attrazioni dettagliate</title>
-<meta name="theme-color" content="#8F1D1D">
-<meta name="description" content="Schede delle attrazioni del viaggio in Cina 2026, con storia, costi, indirizzi, Google Maps, AMap e collegamenti all'itinerario.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/2.47.0/tabler-icons.min.css">
-<link rel="stylesheet" href="assets/site-shell.css">
-<link rel="stylesheet" href="assets/travel-pages.css">
-</head>
-<body class="attractions-page">
-<header class="hero">
-  <div class="hero-inner">
-    <p class="eyebrow">Guida collegata · Cina 2026</p>
-    <h1>景点<br>Attrazioni</h1>
-    <p class="lead">Ogni luogo citato nell'itinerario dettagliato ha dati pratici, collegamenti alle giornate e un mini-saggio per comprenderne storia, trasformazioni, significato e particolari da osservare.</p>
-    <div class="stats">
-      <div class="stat"><strong>103</strong><span>mini-saggi</span></div>
-      <div class="stat"><strong>5</strong><span>destinazioni</span></div>
-      <div class="stat"><strong>206+</strong><span>link mappe</span></div>
-      <div class="stat"><strong>100%</strong><span>collegate al piano</span></div>
-    </div>
-    <div class="hero-actions">
-      <a class="hero-action" href="itinerario-dettagliato.html"><i class="ti ti-route"></i>Apri l'itinerario ora per ora</a>
-      <a class="hero-action" href="index.html"><i class="ti ti-layout-dashboard"></i>Torna alla sintesi</a>
-    </div>
-  </div>
-</header>
-
-<nav class="quicknav" aria-label="Navigazione principale">
-  <a class="page-tab" href="index.html">Sintesi</a>
-  <a class="page-tab" href="itinerario-dettagliato.html">Itinerario dettagliato</a>
-  <a class="page-tab" href="cibi.html">Cibi</a>
-  <a class="page-tab active" href="attrazioni.html">Attrazioni</a>
-  <span class="nav-divider"></span>
-  <a href="#attr-city-hong-kong">Hong Kong</a>
-  <a href="#attr-city-guilin">Guilin e Yangshuo</a>
-  <a href="#attr-city-zhangjiajie">Zhangjiajie</a>
-  <a href="#attr-city-xian">Xi'an</a>
-  <a href="#attr-city-shanghai">Shanghai</a>
-</nav>
-
-<div class="shell">
-  <aside class="sidebar">
-    <div class="sidebar-title"><i class="ti ti-building-pagoda"></i>Città</div>
-    <nav class="city-nav" id="attraction-city-nav" aria-label="Città delle attrazioni"></nav>
-  </aside>
-
-  <main class="content">
-    <div class="notice attr-source-note">
-      <strong>Dati pratici, contesto e lettura culturale</strong><br>
-      Le sezioni editoriali trasformano ogni scheda in una lettura di alcuni minuti. I prezzi sono indicativi per adulto e possono dipendere da stagione, pacchetto o fascia. Il pulsante ufficiale compare quando esiste un sito affidabile identificato.
-      <small>Ogni pulsante “Itinerario” riporta alla menzione precisa della scheda; dalla timeline si torna qui sullo stesso luogo.</small>
-    </div>
-
-    <div class="attraction-controls">
-      <input id="attraction-search" type="search" placeholder="Cerca nome, quartiere, tipo, storia…">
-      <select id="city-filter" aria-label="Filtra per città"></select>
-      <select id="type-filter" aria-label="Filtra per tipo"></select>
-      <span class="attraction-count" id="attraction-count">103 attrazioni</span>
-      <button class="tool-btn" id="expand-attractions" type="button"><i class="ti ti-arrows-diagonal"></i>Apri dettagli</button>
-      <button class="tool-btn" id="collapse-attractions" type="button"><i class="ti ti-fold"></i>Comprimi</button>
-    </div>
-
-    <div class="no-results" id="no-attractions">
-      <h2>Nessuna attrazione trovata</h2>
-      <p>Modifica ricerca o filtri.</p>
-    </div>
-    <div id="attractions-root"></div>
-
-    <section class="source-box">
-      <h2>Metodo e aggiornamento</h2>
-      <p>Le schede e i mini-saggi sono stati costruiti per la visita del 9–22 agosto 2026. I testi distinguono il dato specifico della singola attrazione dal contesto generale della città e dalla chiave di lettura proposta al visitatore. Dove la tariffa pubblica è variabile viene mostrata una fascia; dove l'accesso è gratuito ma richiede prenotazione viene indicato esplicitamente.</p>
-      <p>Riferimenti principali: siti ufficiali delle singole attrazioni quando disponibili e fonti istituzionali o specialistiche per il contesto generale. Tra queste: <a href="https://www.discoverhongkong.com/eng/" target="_blank" rel="noopener">Hong Kong Tourism Board</a>, <a href="https://visitguilin.org/" target="_blank" rel="noopener">Visit Guilin</a>, <a href="https://whc.unesco.org/en/list/640" target="_blank" rel="noopener">UNESCO — Wulingyuan</a>, <a href="https://whc.unesco.org/en/list/441" target="_blank" rel="noopener">UNESCO — Mausoleo del Primo Imperatore Qin</a>, <a href="https://en.shaanxi.gov.cn/tourism/" target="_blank" rel="noopener">Shaanxi Tourism</a> e <a href="https://www.shanghaimuseum.net/" target="_blank" rel="noopener">Shanghai Museum</a>. I mini-saggi hanno finalità divulgativa e non sostituiscono una guida accademica. Per orari, chiusure e tariffe prevalgono sempre il biglietto e l'avviso ufficiale.</p>
-    </section>
-  </main>
+<html lang="it"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover" name="viewport"/><title>Cina 2026 — Guida ai cibi</title><meta content="#8F1D1D" name="theme-color"/><meta content="Guida gastronomica per Hong Kong, Guilin, Zhangjiajie, Xi'an e Shanghai con piatti, dolci, bevande, tè, prezzi e piccantezza." name="description"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/2.47.0/tabler-icons.min.css" rel="stylesheet"/><link href="assets/site-shell.css" rel="stylesheet"/><link rel="stylesheet" href="assets/global-navigation.css">
+<meta name="china-site-build" content="navigation-repair-20260722-1">
+</head><body class="food-page">
+<header class="hero"><div class="hero-inner"><p class="eyebrow">Guida gastronomica · Cina 2026</p><h1>吃喝<br/>Cibi e bevande</h1><p class="lead">Una guida pratica alle specialità delle cinque tappe: ingredienti principali, prezzi indicativi, piccantezza confrontata con lo standard europeo e ricerca dei locali su Google e Dianping.</p><div class="stats"><div class="stat"><strong>85</strong><span>specialità</span></div><div class="stat"><strong>50</strong><span>piatti salati</span></div><div class="stat"><strong>15</strong><span>dolci</span></div><div class="stat"><strong>20</strong><span>bevande e tè</span></div></div></div></header>
+<nav class="quicknav site-nav" aria-label="Navigazione principale"><div class="site-nav__inner"><a class="site-brand" href="index.html" aria-label="Cina 2026 — pagina di sintesi"><span class="site-brand__mark" aria-hidden="true">中</span><span class="site-brand__name">Cina 2026<small>guida di viaggio</small></span></a><div class="site-tabs" role="list"><a class="page-tab" href="index.html" role="listitem"><i class="ti ti-layout-dashboard" aria-hidden="true"></i><span class="tab-label-full">Sintesi</span><span class="tab-label-short">Sintesi</span></a><a class="page-tab" href="itinerario-dettagliato.html" role="listitem"><i class="ti ti-calendar-time" aria-hidden="true"></i><span class="tab-label-full">Itinerario dettagliato</span><span class="tab-label-short">Dettagliato</span></a><a class="page-tab active" href="cibi.html" role="listitem" aria-current="page"><i class="ti ti-bowl-chopsticks" aria-hidden="true"></i><span class="tab-label-full">Cibi</span><span class="tab-label-short">Cibi</span></a><a class="page-tab" href="attrazioni.html" role="listitem"><i class="ti ti-building-pagoda" aria-hidden="true"></i><span class="tab-label-full">Attrazioni</span><span class="tab-label-short">Attrazioni</span></a></div></div></nav><nav class="section-nav" aria-label="Sezioni di questa pagina"><span class="section-nav__label"><i class="ti ti-map-2" aria-hidden="true"></i>In questa pagina</span><a href="#hong-kong">Hong Kong</a><a href="#guilin">Guilin e Yangshuo</a><a href="#zhangjiajie">Zhangjiajie</a><a href="#xian">Xi'an</a><a href="#shanghai">Shanghai</a></nav>
+<div class="shell"><aside class="sidebar"><div class="sidebar-title"><i class="ti ti-bowl-chopsticks"></i>Città e cucine</div><nav class="city-nav"><a href="#hong-kong"><span>香港</span> Hong Kong</a><a href="#guilin"><span>桂林</span> Guilin e Yangshuo</a><a href="#zhangjiajie"><span>张家界</span> Zhangjiajie</a><a href="#xian"><span>西安</span> Xi’an</a><a href="#shanghai"><span>上海</span> Shanghai</a></nav></aside><main class="content">
+<div class="notice"><strong>Come leggere prezzi e piccantezza</strong><br/>Le fasce sono stime per una porzione in locale informale o ristorante medio nel 2026. I piatti condivisi e i ristoranti turistici possono costare di più. La scala 0–5 confronta il calore con un palato europeo medio.<small>Dianping può richiedere l’app, il login o la selezione della città. I risultati sono ordinati dalla piattaforma e possono cambiare.</small></div>
+<div aria-label="Filtri" class="controls"><input id="food-search" placeholder="Cerca piatto, ingrediente o nome cinese…" type="search"/><button class="filter-btn active" data-filter="all">Tutto</button><button class="filter-btn" data-filter="dish">Piatti</button><button class="filter-btn" data-filter="dessert">Dolci</button><button class="filter-btn" data-filter="drink">Bevande</button><button class="filter-btn" data-filter="tea">Tè</button></div>
+<section class="city-section" id="hong-kong">
+<div class="city-title"><span class="seal">香港</span><div><h2>Hong Kong</h2><p class="city-intro">Cucina cantonese urbana: dim sum, arrosti, noodle shop e cha chaan teng. I sapori sono spesso delicati, sapidi o dolci; il peperoncino è normalmente facoltativo.</p></div></div>
+<div class="city-actions"><a class="small-link" href="itinerario-dettagliato.html#giorno-10-ago"><i class="ti ti-route"></i>Apri nell’itinerario</a><a class="small-link" href="https://www.discoverhongkong.com/eng/food-and-drink.html" rel="noopener noreferrer" target="_blank"><i class="ti ti-book"></i>Fonte gastronomica</a></div>
+<section class="category" data-category-section="dish"><h3><i class="ti ti-bowl-chopsticks"></i>Piatti salati <small>(10)</small></h3><div class="food-grid"><article class="food-card" data-category="dish" data-search="har gow 虾饺 ravioli di gambero al vapore con involucro sottile e leggermente traslucido. hong kong gamberi|amido di frumento|bambù">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">虾饺</span></div>
+<h4>Har gow</h4>
+<p class="desc">Ravioli di gambero al vapore con involucro sottile e leggermente traslucido.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">gamberi</span><span class="ingredient">amido di frumento</span><span class="ingredient">bambù</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$35–65</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
 </div>
-
-<footer>Cina 2026 · Attrazioni collegate all'itinerario</footer>
-<noscript><div class="notice" style="margin:20px">Questa pagina richiede JavaScript per generare schede e filtri.</div></noscript>
-<script src="assets/travel-data.js"></script>
-<script src="assets/attraction-editorial.js"></script>
-<script src="assets/attractions.js"></script>
-</body>
-</html>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%99%BE%E9%A5%BA%22+%22Har+gow%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E8%99%BE%E9%A5%BA" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="siu mai 烧卖 cestino aperto al vapore con maiale e gambero, classico ordine da yum cha. hong kong maiale|gamberi|fungo shiitake">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">烧卖</span></div>
+<h4>Siu mai</h4>
+<p class="desc">Cestino aperto al vapore con maiale e gambero, classico ordine da yum cha.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">gamberi</span><span class="ingredient">fungo shiitake</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$30–60</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%83%A7%E5%8D%96%22+%22Siu+mai%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E7%83%A7%E5%8D%96" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="char siu 叉烧 maiale arrosto cantonese laccato, dolce-sapido e spesso servito con riso. hong kong maiale|miele o maltosio|salsa di soia">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">叉烧</span></div>
+<h4>Char siu</h4>
+<p class="desc">Maiale arrosto cantonese laccato, dolce-sapido e spesso servito con riso.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">miele o maltosio</span><span class="ingredient">salsa di soia</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$55–110</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%8F%89%E7%83%A7%22+%22Char+siu%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E5%8F%89%E7%83%A7" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="oca arrosto 烧鹅 oca dalla pelle croccante e carne succosa, servita con salsa alle prugne. hong kong oca|cinque spezie|salsa di prugne">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">烧鹅</span></div>
+<h4>Oca arrosto</h4>
+<p class="desc">Oca dalla pelle croccante e carne succosa, servita con salsa alle prugne.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">oca</span><span class="ingredient">cinque spezie</span><span class="ingredient">salsa di prugne</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$90–180</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%83%A7%E9%B9%85%22+%22Oca+arrosto%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E7%83%A7%E9%B9%85" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="wonton noodles 云吞面 noodles elastici in brodo limpido con wonton ripieni di gambero e maiale. hong kong noodles all’uovo|gamberi|maiale">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">云吞面</span></div>
+<h4>Wonton noodles</h4>
+<p class="desc">Noodles elastici in brodo limpido con wonton ripieni di gambero e maiale.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">noodles all’uovo</span><span class="ingredient">gamberi</span><span class="ingredient">maiale</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$40–75</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E4%BA%91%E5%90%9E%E9%9D%A2%22+%22Wonton+noodles%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E4%BA%91%E5%90%9E%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="noodles con punta di petto 牛腩面 brodo aromatico con manzo brasato e noodles; comfort food da noodle shop. hong kong manzo|noodles|ravanello daikon">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">牛腩面</span></div>
+<h4>Noodles con punta di petto</h4>
+<p class="desc">Brodo aromatico con manzo brasato e noodles; comfort food da noodle shop.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">manzo</span><span class="ingredient">noodles</span><span class="ingredient">ravanello daikon</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$45–85</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%89%9B%E8%85%A9%E9%9D%A2%22+%22Noodles+con+punta+di+petto%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E7%89%9B%E8%85%A9%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="polpette di pesce al curry 咖喱鱼蛋 spuntino da strada elastico e saporito, immerso in salsa al curry. hong kong pesce|curry|amido">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">咖喱鱼蛋</span></div>
+<h4>Polpette di pesce al curry</h4>
+<p class="desc">Spuntino da strada elastico e saporito, immerso in salsa al curry.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pesce</span><span class="ingredient">curry</span><span class="ingredient">amido</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$18–35</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>2/5</strong><div aria-label="Piccantezza 2 su 5" class="heat"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Spesso peperoncino nella salsa; peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%92%96%E5%96%B1%E9%B1%BC%E8%9B%8B%22+%22Polpette+di+pesce+al+curry%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E5%92%96%E5%96%B1%E9%B1%BC%E8%9B%8B" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="riso in pentola di terracotta 煲仔饭 riso cotto in claypot con fondo croccante e condimenti sapidi. hong kong riso|salsiccia cinese|salsa di soia">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">煲仔饭</span></div>
+<h4>Riso in pentola di terracotta</h4>
+<p class="desc">Riso cotto in claypot con fondo croccante e condimenti sapidi.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso</span><span class="ingredient">salsiccia cinese</span><span class="ingredient">salsa di soia</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$65–120</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%85%B2%E4%BB%94%E9%A5%AD%22+%22Riso+in+pentola+di+terracotta%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E7%85%B2%E4%BB%94%E9%A5%AD" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="cheung fun 肠粉 sfoglie morbide di riso arrotolate, semplici o farcite, condite con salsa dolce di soia. hong kong farina di riso|salsa di soia|gamberi o manzo">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">肠粉</span></div>
+<h4>Cheung fun</h4>
+<p class="desc">Sfoglie morbide di riso arrotolate, semplici o farcite, condite con salsa dolce di soia.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">farina di riso</span><span class="ingredient">salsa di soia</span><span class="ingredient">gamberi o manzo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$25–55</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%82%A0%E7%B2%89%22+%22Cheung+fun%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E8%82%A0%E7%B2%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="riso al forno con cotoletta di maiale 焗猪扒饭 piatto da cha chaan teng con riso, maiale, salsa di pomodoro e formaggio gratinato. hong kong maiale|riso|pomodoro">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">焗猪扒饭</span></div>
+<h4>Riso al forno con cotoletta di maiale</h4>
+<p class="desc">Piatto da cha chaan teng con riso, maiale, salsa di pomodoro e formaggio gratinato.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">riso</span><span class="ingredient">pomodoro</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$55–95</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Possibile peperone dolce, dipende dal locale</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%84%97%E7%8C%AA%E6%89%92%E9%A5%AD%22+%22Riso+al+forno+con+cotoletta+di+maiale%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E7%84%97%E7%8C%AA%E6%89%92%E9%A5%AD" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="dessert"><h3><i class="ti ti-cake"></i>Dolci <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="dessert" data-search="egg tart 蛋挞 tortina con guscio friabile o sfogliato e crema all’uovo liscia. hong kong uova|burro|farina">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">蛋挞</span></div>
+<h4>Egg tart</h4>
+<p class="desc">Tortina con guscio friabile o sfogliato e crema all’uovo liscia.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">uova</span><span class="ingredient">burro</span><span class="ingredient">farina</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%9B%8B%E6%8C%9E%22+%22Egg+tart%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E8%9B%8B%E6%8C%9E" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="mango pomelo sago 杨枝甘露 dessert freddo cremoso e fruttato con mango, pomelo e perle di sago. hong kong mango|pomelo|sago">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">杨枝甘露</span></div>
+<h4>Mango pomelo sago</h4>
+<p class="desc">Dessert freddo cremoso e fruttato con mango, pomelo e perle di sago.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">mango</span><span class="ingredient">pomelo</span><span class="ingredient">sago</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$35–60</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%9D%A8%E6%9E%9D%E7%94%98%E9%9C%B2%22+%22Mango+pomelo+sago%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E6%9D%A8%E6%9E%9D%E7%94%98%E9%9C%B2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="crema dolce al sesamo nero 芝麻糊 zuppa dolce calda, densa e tostata, tipica delle dessert house. hong kong sesamo nero|riso|zucchero">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">芝麻糊</span></div>
+<h4>Crema dolce al sesamo nero</h4>
+<p class="desc">Zuppa dolce calda, densa e tostata, tipica delle dessert house.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">sesamo nero</span><span class="ingredient">riso</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$25–45</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%8A%9D%E9%BA%BB%E7%B3%8A%22+%22Crema+dolce+al+sesamo+nero%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E8%8A%9D%E9%BA%BB%E7%B3%8A" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="drink"><h3><i class="ti ti-glass"></i>Bevande <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="drink" data-search="milk tea di hong kong 港式奶茶 tè nero molto filtrato con latte evaporato: intenso, tannico e cremoso. hong kong tè nero|latte evaporato|zucchero">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">港式奶茶</span></div>
+<h4>Milk tea di Hong Kong</h4>
+<p class="desc">Tè nero molto filtrato con latte evaporato: intenso, tannico e cremoso.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">tè nero</span><span class="ingredient">latte evaporato</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$18–30</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%B8%AF%E5%BC%8F%E5%A5%B6%E8%8C%B6%22+%22Milk+tea+di+Hong+Kong%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E6%B8%AF%E5%BC%8F%E5%A5%B6%E8%8C%B6" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="yuanyang 鸳鸯 miscela tipica di tè al latte e caffè, servita calda o fredda. hong kong tè nero|caffè|latte evaporato">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">鸳鸯</span></div>
+<h4>Yuanyang</h4>
+<p class="desc">Miscela tipica di tè al latte e caffè, servita calda o fredda.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">tè nero</span><span class="ingredient">caffè</span><span class="ingredient">latte evaporato</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$20–32</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%B8%B3%E9%B8%AF%22+%22Yuanyang%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E9%B8%B3%E9%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="succo di canna da zucchero 甘蔗汁 bevanda fresca spremuta, dolce e vegetale, comune nei mercati. hong kong canna da zucchero|ghiaccio|lime opzionale">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">甘蔗汁</span></div>
+<h4>Succo di canna da zucchero</h4>
+<p class="desc">Bevanda fresca spremuta, dolce e vegetale, comune nei mercati.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">canna da zucchero</span><span class="ingredient">ghiaccio</span><span class="ingredient">lime opzionale</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$18–35</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%94%98%E8%94%97%E6%B1%81%22+%22Succo+di+canna+da+zucchero%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E7%94%98%E8%94%97%E6%B1%81" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="tea"><h3><i class="ti ti-leaf"></i>Tè della zona <small>(1)</small></h3><div class="food-grid"><article class="food-card" data-category="tea" data-search="pu’er da yum cha 普洱茶 tè fermentato spesso ordinato con il dim sum; non è coltivato a hong kong ma è centrale nella cultura locale delle case da tè. hong kong foglie di pu’er|acqua|tempo di infusione">
+<div class="card-top"><span class="kind">Tè della zona</span><span class="cn-name">普洱茶</span></div>
+<h4>Pu’er da yum cha</h4>
+<p class="desc">Tè fermentato spesso ordinato con il dim sum; non è coltivato a Hong Kong ma è centrale nella cultura locale delle case da tè.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">foglie di pu’er</span><span class="ingredient">acqua</span><span class="ingredient">tempo di infusione</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>HK$15–40 a persona</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%99%AE%E6%B4%B1%E8%8C%B6%22+%22Pu%E2%80%99er+da+yum+cha%22+%E9%A6%99%E6%B8%AF" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/341/0_%E6%99%AE%E6%B4%B1%E8%8C%B6" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section>
+</section><section class="city-section" id="guilin">
+<div class="city-title"><span class="seal">桂林</span><div><h2>Guilin e Yangshuo</h2><p class="city-intro">Sapori del Guangxi settentrionale: riso, taro, pesce di fiume, ingredienti montani, sottaceti e profumo di osmanto. Il piccante è presente ma spesso regolabile.</p></div></div>
+<div class="city-actions"><a class="small-link" href="itinerario-dettagliato.html#giorno-12-ago"><i class="ti ti-route"></i>Apri nell’itinerario</a><a class="small-link" href="https://visitguilin.org/things-to-do/food-and-drink/cuisine/" rel="noopener noreferrer" target="_blank"><i class="ti ti-book"></i>Fonte gastronomica</a></div>
+<section class="category" data-category-section="dish"><h3><i class="ti ti-bowl-chopsticks"></i>Piatti salati <small>(10)</small></h3><div class="food-grid"><article class="food-card" data-category="dish" data-search="guilin rice noodles 桂林米粉 noodles di riso con brasato, arachidi, cipollotto e condimenti aggiunti al banco. guilin e yangshuo noodles di riso|maiale o manzo|arachidi">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">桂林米粉</span></div>
+<h4>Guilin rice noodles</h4>
+<p class="desc">Noodles di riso con brasato, arachidi, cipollotto e condimenti aggiunti al banco.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">noodles di riso</span><span class="ingredient">maiale o manzo</span><span class="ingredient">arachidi</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>2/5</strong><div aria-label="Piccantezza 2 su 5" class="heat"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino e peperoni sottaceto facoltativi</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%A1%82%E6%9E%97%E7%B1%B3%E7%B2%89%22+%22Guilin+rice+noodles%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%A1%82%E6%9E%97%E7%B1%B3%E7%B2%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="beer fish di yangshuo 阳朔啤酒鱼 pesce di fiume cotto con birra, pomodoro e aromi; specialità simbolo di yangshuo. guilin e yangshuo pesce di fiume|birra|pomodoro">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">阳朔啤酒鱼</span></div>
+<h4>Beer fish di Yangshuo</h4>
+<p class="desc">Pesce di fiume cotto con birra, pomodoro e aromi; specialità simbolo di Yangshuo.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pesce di fiume</span><span class="ingredient">birra</span><span class="ingredient">pomodoro</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 80–160</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>2/5</strong><div aria-label="Piccantezza 2 su 5" class="heat"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Spesso peperoncino; possibile peperone verde</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%98%B3%E6%9C%94%E5%95%A4%E9%85%92%E9%B1%BC%22+%22Beer+fish+di+Yangshuo%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E9%98%B3%E6%9C%94%E5%95%A4%E9%85%92%E9%B1%BC" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="maiale con taro di lipu 荔浦芋扣肉 strati di pancetta brasata e taro, morbidi e ricchi, cotti al vapore. guilin e yangshuo pancetta di maiale|taro di lipu|salsa di soia">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">荔浦芋扣肉</span></div>
+<h4>Maiale con taro di Lipu</h4>
+<p class="desc">Strati di pancetta brasata e taro, morbidi e ricchi, cotti al vapore.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pancetta di maiale</span><span class="ingredient">taro di Lipu</span><span class="ingredient">salsa di soia</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 45–90</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%8D%94%E6%B5%A6%E8%8A%8B%E6%89%A3%E8%82%89%22+%22Maiale+con+taro+di+Lipu%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E8%8D%94%E6%B5%A6%E8%8A%8B%E6%89%A3%E8%82%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pollo nel bambù di longji 龙脊竹筒鸡 pollo cotto in una canna di bambù, profumato e succoso. guilin e yangshuo pollo|zenzero|bambù">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">龙脊竹筒鸡</span></div>
+<h4>Pollo nel bambù di Longji</h4>
+<p class="desc">Pollo cotto in una canna di bambù, profumato e succoso.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pollo</span><span class="ingredient">zenzero</span><span class="ingredient">bambù</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 70–130</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>1/5</strong><div aria-label="Piccantezza 1 su 5" class="heat"><span class="on"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino possibile, peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%BE%99%E8%84%8A%E7%AB%B9%E7%AD%92%E9%B8%A1%22+%22Pollo+nel+bamb%C3%B9+di+Longji%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E9%BE%99%E8%84%8A%E7%AB%B9%E7%AD%92%E9%B8%A1" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="lumache ripiene del fiume li 漓江田螺酿 gusci di lumaca farciti con carne tritata ed erbe, poi brasati. guilin e yangshuo lumache|maiale|menta o erbe locali">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">漓江田螺酿</span></div>
+<h4>Lumache ripiene del fiume Li</h4>
+<p class="desc">Gusci di lumaca farciti con carne tritata ed erbe, poi brasati.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">lumache</span><span class="ingredient">maiale</span><span class="ingredient">menta o erbe locali</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 45–85</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>2/5</strong><div aria-label="Piccantezza 2 su 5" class="heat"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Spesso peperoncino; peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%BC%93%E6%B1%9F%E7%94%B0%E8%9E%BA%E9%85%BF%22+%22Lumache+ripiene+del+fiume+Li%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%BC%93%E6%B1%9F%E7%94%B0%E8%9E%BA%E9%85%BF" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="noodles vegetariani della monaca 尼姑素面 noodles in brodo vegetale con funghi, germogli e verdure. guilin e yangshuo noodles|funghi|verdure">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">尼姑素面</span></div>
+<h4>Noodles vegetariani della monaca</h4>
+<p class="desc">Noodles in brodo vegetale con funghi, germogli e verdure.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">noodles</span><span class="ingredient">funghi</span><span class="ingredient">verdure</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 15–30</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No, salvo condimento aggiunto</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%B0%BC%E5%A7%91%E7%B4%A0%E9%9D%A2%22+%22Noodles+vegetariani+della+monaca%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E5%B0%BC%E5%A7%91%E7%B4%A0%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="anatra anziana con gingko 白果炖老鸭 zuppa lenta e delicata con anatra e noci di gingko. guilin e yangshuo anatra|gingko|zenzero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">白果炖老鸭</span></div>
+<h4>Anatra anziana con gingko</h4>
+<p class="desc">Zuppa lenta e delicata con anatra e noci di gingko.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">anatra</span><span class="ingredient">gingko</span><span class="ingredient">zenzero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 70–130</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%99%BD%E6%9E%9C%E7%82%96%E8%80%81%E9%B8%AD%22+%22Anatra+anziana+con+gingko%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E7%99%BD%E6%9E%9C%E7%82%96%E8%80%81%E9%B8%AD" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="riso nel bambù 竹筒饭 riso glutinoso cotto nel bambù con carne o verdure, dal profumo affumicato. guilin e yangshuo riso glutinoso|maiale|funghi">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">竹筒饭</span></div>
+<h4>Riso nel bambù</h4>
+<p class="desc">Riso glutinoso cotto nel bambù con carne o verdure, dal profumo affumicato.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">maiale</span><span class="ingredient">funghi</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 15–35</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%AB%B9%E7%AD%92%E9%A5%AD%22+%22Riso+nel+bamb%C3%B9%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E7%AB%B9%E7%AD%92%E9%A5%AD" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pesciolini con verdure sottaceto 酸菜炒小鱼 piccoli pesci saltati con verdure fermentate, sapidi e leggermente acidi. guilin e yangshuo pesciolini|verdure sottaceto|zenzero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">酸菜炒小鱼</span></div>
+<h4>Pesciolini con verdure sottaceto</h4>
+<p class="desc">Piccoli pesci saltati con verdure fermentate, sapidi e leggermente acidi.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pesciolini</span><span class="ingredient">verdure sottaceto</span><span class="ingredient">zenzero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 35–70</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>2/5</strong><div aria-label="Piccantezza 2 su 5" class="heat"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino frequente; peperone possibile</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%85%B8%E8%8F%9C%E7%82%92%E5%B0%8F%E9%B1%BC%22+%22Pesciolini+con+verdure+sottaceto%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E9%85%B8%E8%8F%9C%E7%82%92%E5%B0%8F%E9%B1%BC" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="zongzi di guilin 桂林粽子 riso glutinoso avvolto in foglia, spesso con maiale, fagioli o castagne. guilin e yangshuo riso glutinoso|maiale|fagioli mungo">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">桂林粽子</span></div>
+<h4>Zongzi di Guilin</h4>
+<p class="desc">Riso glutinoso avvolto in foglia, spesso con maiale, fagioli o castagne.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">maiale</span><span class="ingredient">fagioli mungo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%A1%82%E6%9E%97%E7%B2%BD%E5%AD%90%22+%22Zongzi+di+Guilin%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%A1%82%E6%9E%97%E7%B2%BD%E5%AD%90" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="dessert"><h3><i class="ti ti-cake"></i>Dolci <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="dessert" data-search="torta all’osmanto 桂花糕 dolce morbido o gelatinoso profumato con fiori di osmanto. guilin e yangshuo osmanto|farina di riso|zucchero">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">桂花糕</span></div>
+<h4>Torta all’osmanto</h4>
+<p class="desc">Dolce morbido o gelatinoso profumato con fiori di osmanto.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">osmanto</span><span class="ingredient">farina di riso</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–25</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%A1%82%E8%8A%B1%E7%B3%95%22+%22Torta+all%E2%80%99osmanto%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%A1%82%E8%8A%B1%E7%B3%95" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="taro caramellato 拔丝芋头 cubetti di taro fritti rivestiti da fili di caramello croccante. guilin e yangshuo taro|zucchero|olio">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">拔丝芋头</span></div>
+<h4>Taro caramellato</h4>
+<p class="desc">Cubetti di taro fritti rivestiti da fili di caramello croccante.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">taro</span><span class="ingredient">zucchero</span><span class="ingredient">olio</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 28–50</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%8B%94%E4%B8%9D%E8%8A%8B%E5%A4%B4%22+%22Taro+caramellato%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%8B%94%E4%B8%9D%E8%8A%8B%E5%A4%B4" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="torta di castagna d’acqua 马蹄糕 dolce compatto e traslucido con consistenza elastica e gusto delicato. guilin e yangshuo castagna d’acqua|amido|zucchero">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">马蹄糕</span></div>
+<h4>Torta di castagna d’acqua</h4>
+<p class="desc">Dolce compatto e traslucido con consistenza elastica e gusto delicato.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">castagna d’acqua</span><span class="ingredient">amido</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–25</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%A9%AC%E8%B9%84%E7%B3%95%22+%22Torta+di+castagna+d%E2%80%99acqua%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E9%A9%AC%E8%B9%84%E7%B3%95" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="drink"><h3><i class="ti ti-glass"></i>Bevande <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="drink" data-search="liquore sanhua 桂林三花酒 baijiu di riso limpido e forte, una delle specialità storiche di guilin. guilin e yangshuo riso|acqua|qu di fermentazione">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">桂林三花酒</span></div>
+<h4>Liquore Sanhua</h4>
+<p class="desc">Baijiu di riso limpido e forte, una delle specialità storiche di Guilin.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso</span><span class="ingredient">acqua</span><span class="ingredient">qu di fermentazione</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–30 al bicchiere</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%A1%82%E6%9E%97%E4%B8%89%E8%8A%B1%E9%85%92%22+%22Liquore+Sanhua%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%A1%82%E6%9E%97%E4%B8%89%E8%8A%B1%E9%85%92" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="vino all’osmanto 桂花酒 bevanda alcolica dolce e floreale, generalmente più facile del baijiu. guilin e yangshuo osmanto|vino di riso|zucchero">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">桂花酒</span></div>
+<h4>Vino all’osmanto</h4>
+<p class="desc">Bevanda alcolica dolce e floreale, generalmente più facile del baijiu.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">osmanto</span><span class="ingredient">vino di riso</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 15–35 al bicchiere</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%A1%82%E8%8A%B1%E9%85%92%22+%22Vino+all%E2%80%99osmanto%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E6%A1%82%E8%8A%B1%E9%85%92" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="infuso di monk fruit 罗汉果饮 bevanda dolce naturale e rinfrescante preparata con luo han guo locale. guilin e yangshuo monk fruit|acqua|miele opzionale">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">罗汉果饮</span></div>
+<h4>Infuso di monk fruit</h4>
+<p class="desc">Bevanda dolce naturale e rinfrescante preparata con luo han guo locale.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">monk fruit</span><span class="ingredient">acqua</span><span class="ingredient">miele opzionale</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%BD%97%E6%B1%89%E6%9E%9C%E9%A5%AE%22+%22Infuso+di+monk+fruit%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E7%BD%97%E6%B1%89%E6%9E%9C%E9%A5%AE" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="tea"><h3><i class="ti ti-leaf"></i>Tè della zona <small>(1)</small></h3><div class="food-grid"><article class="food-card" data-category="tea" data-search="tè di longji 龙脊茶 tè coltivato nell’area delle terrazze di longji, fresco e vegetale. guilin e yangshuo foglie di tè verde|acqua|germogli giovani">
+<div class="card-top"><span class="kind">Tè della zona</span><span class="cn-name">龙脊茶</span></div>
+<h4>Tè di Longji</h4>
+<p class="desc">Tè coltivato nell’area delle terrazze di Longji, fresco e vegetale.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">foglie di tè verde</span><span class="ingredient">acqua</span><span class="ingredient">germogli giovani</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 20–50 per teiera</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%BE%99%E8%84%8A%E8%8C%B6%22+%22T%C3%A8+di+Longji%22+%E6%A1%82%E6%9E%97" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/267/0_%E9%BE%99%E8%84%8A%E8%8C%B6" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section>
+</section><section class="city-section" id="zhangjiajie">
+<div class="city-title"><span class="seal">张家界</span><div><h2>Zhangjiajie</h2><p class="city-intro">Cucina Tujia e Hunan occidentale: affumicatura, fermentazione, sottaceti e peperoncino. È la tappa mediamente più piccante dell’itinerario.</p></div></div>
+<div class="city-actions"><a class="small-link" href="itinerario-dettagliato.html#giorno-14-ago"><i class="ti ti-route"></i>Apri nell’itinerario</a><a class="small-link" href="https://enghunan.gov.cn/hneng/Tourism/TourHunan/Zhangjiajie_1/Dining_12/202509/t20250925_33979435.html" rel="noopener noreferrer" target="_blank"><i class="ti ti-book"></i>Fonte gastronomica</a></div>
+<section class="category" data-category-section="dish"><h3><i class="ti ti-bowl-chopsticks"></i>Piatti salati <small>(10)</small></h3><div class="food-grid"><article class="food-card" data-category="dish" data-search="sanxiaguo, pentola dei tre ingredienti 三下锅 pentola rustica con tre ingredienti scelti, spesso pancetta, frattaglie, tofu o verdure. zhangjiajie pancetta affumicata|tofu|verdure">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">三下锅</span></div>
+<h4>Sanxiaguo, pentola dei tre ingredienti</h4>
+<p class="desc">Pentola rustica con tre ingredienti scelti, spesso pancetta, frattaglie, tofu o verdure.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pancetta affumicata</span><span class="ingredient">tofu</span><span class="ingredient">verdure</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 70–130</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>4/5</strong><div aria-label="Piccantezza 4 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Sì: peperoncino abbondante; possibile peperone verde</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E4%B8%89%E4%B8%8B%E9%94%85%22+%22Sanxiaguo%2C+pentola+dei+tre+ingredienti%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E4%B8%89%E4%B8%8B%E9%94%85" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pancetta affumicata tujia 土家腊肉 carne stagionata e affumicata, saltata o cotta con verdure. zhangjiajie pancetta di maiale|sale|fumo di legna">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">土家腊肉</span></div>
+<h4>Pancetta affumicata Tujia</h4>
+<p class="desc">Carne stagionata e affumicata, saltata o cotta con verdure.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pancetta di maiale</span><span class="ingredient">sale</span><span class="ingredient">fumo di legna</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 55–100</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Spesso peperoncino o peperone verde</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%9C%9F%E5%AE%B6%E8%85%8A%E8%82%89%22+%22Pancetta+affumicata+Tujia%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%9C%9F%E5%AE%B6%E8%85%8A%E8%82%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="maiale affumicato con peperoni 尖椒炒腊肉 fette di carne affumicata saltate con peperoni verdi piccanti. zhangjiajie maiale affumicato|peperoni verdi|aglio">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">尖椒炒腊肉</span></div>
+<h4>Maiale affumicato con peperoni</h4>
+<p class="desc">Fette di carne affumicata saltate con peperoni verdi piccanti.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale affumicato</span><span class="ingredient">peperoni verdi</span><span class="ingredient">aglio</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 45–85</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>4/5</strong><div aria-label="Piccantezza 4 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Sì: peperoni verdi, spesso piccanti</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%B0%96%E6%A4%92%E7%82%92%E8%85%8A%E8%82%89%22+%22Maiale+affumicato+con+peperoni%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%B0%96%E6%A4%92%E7%82%92%E8%85%8A%E8%82%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="hezha tujia 土家合渣 stufato morbido di okara o soia macinata con verdure; rustico e saziante. zhangjiajie soia|verdure|cipollotto">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">土家合渣</span></div>
+<h4>Hezha Tujia</h4>
+<p class="desc">Stufato morbido di okara o soia macinata con verdure; rustico e saziante.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">soia</span><span class="ingredient">verdure</span><span class="ingredient">cipollotto</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 25–50</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>1/5</strong><div aria-label="Piccantezza 1 su 5" class="heat"><span class="on"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino servito spesso a parte</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%9C%9F%E5%AE%B6%E5%90%88%E6%B8%A3%22+%22Hezha+Tujia%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%9C%9F%E5%AE%B6%E5%90%88%E6%B8%A3" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="tofu di sangue affumicato 血豆腐 impasto di sangue e tofu insaccato o affumicato, dal sapore intenso. zhangjiajie sangue di maiale|tofu|spezie">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">血豆腐</span></div>
+<h4>Tofu di sangue affumicato</h4>
+<p class="desc">Impasto di sangue e tofu insaccato o affumicato, dal sapore intenso.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">sangue di maiale</span><span class="ingredient">tofu</span><span class="ingredient">spezie</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 35–65</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Spesso peperoncino; peperone possibile</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%A1%80%E8%B1%86%E8%85%90%22+%22Tofu+di+sangue+affumicato%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E8%A1%80%E8%B1%86%E8%85%90" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pesce acido tujia 土家酸鱼 pesce fermentato o marinato, poi cotto con aromi acidi e piccanti. zhangjiajie pesce|riso fermentato|peperoncino">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">土家酸鱼</span></div>
+<h4>Pesce acido Tujia</h4>
+<p class="desc">Pesce fermentato o marinato, poi cotto con aromi acidi e piccanti.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pesce</span><span class="ingredient">riso fermentato</span><span class="ingredient">peperoncino</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 60–110</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>4/5</strong><div aria-label="Piccantezza 4 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Sì: peperoncino; peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%9C%9F%E5%AE%B6%E9%85%B8%E9%B1%BC%22+%22Pesce+acido+Tujia%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%9C%9F%E5%AE%B6%E9%85%B8%E9%B1%BC" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="noodles di radice di felce 蕨根粉 noodles scuri e freddi con salsa agrodolce, aglio e olio piccante. zhangjiajie amido di felce|aceto|aglio">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">蕨根粉</span></div>
+<h4>Noodles di radice di felce</h4>
+<p class="desc">Noodles scuri e freddi con salsa agrodolce, aglio e olio piccante.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">amido di felce</span><span class="ingredient">aceto</span><span class="ingredient">aglio</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 18–35</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino frequente, niente peperone</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%95%A8%E6%A0%B9%E7%B2%89%22+%22Noodles+di+radice+di+felce%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E8%95%A8%E6%A0%B9%E7%B2%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="maiale al vapore con farina di riso 土家粉蒸肉 maiale marinato ricoperto di riso speziato e cotto al vapore. zhangjiajie maiale|farina di riso|cinque spezie">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">土家粉蒸肉</span></div>
+<h4>Maiale al vapore con farina di riso</h4>
+<p class="desc">Maiale marinato ricoperto di riso speziato e cotto al vapore.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">farina di riso</span><span class="ingredient">cinque spezie</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 45–80</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>2/5</strong><div aria-label="Piccantezza 2 su 5" class="heat"><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino possibile, peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%9C%9F%E5%AE%B6%E7%B2%89%E8%92%B8%E8%82%89%22+%22Maiale+al+vapore+con+farina+di+riso%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%9C%9F%E5%AE%B6%E7%B2%89%E8%92%B8%E8%82%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pollo stufato con rock ear 岩耳炖鸡 zuppa montana con pollo e fungo rock ear raccolto sulle pareti rocciose. zhangjiajie pollo|fungo rock ear|zenzero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">岩耳炖鸡</span></div>
+<h4>Pollo stufato con rock ear</h4>
+<p class="desc">Zuppa montana con pollo e fungo rock ear raccolto sulle pareti rocciose.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pollo</span><span class="ingredient">fungo rock ear</span><span class="ingredient">zenzero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 80–150</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%B2%A9%E8%80%B3%E7%82%96%E9%B8%A1%22+%22Pollo+stufato+con+rock+ear%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%B2%A9%E8%80%B3%E7%82%96%E9%B8%A1" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="tofu con cobite 泥鳅钻豆腐 piatto tradizionale con cobiti e tofu in brodo saporito. zhangjiajie cobite|tofu|zenzero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">泥鳅钻豆腐</span></div>
+<h4>Tofu con cobite</h4>
+<p class="desc">Piatto tradizionale con cobiti e tofu in brodo saporito.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">cobite</span><span class="ingredient">tofu</span><span class="ingredient">zenzero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 55–95</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Spesso peperoncino; possibile peperone verde</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%B3%A5%E9%B3%85%E9%92%BB%E8%B1%86%E8%85%90%22+%22Tofu+con+cobite%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E6%B3%A5%E9%B3%85%E9%92%BB%E8%B1%86%E8%85%90" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="dessert"><h3><i class="ti ti-cake"></i>Dolci <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="dessert" data-search="ciba tujia 土家糍粑 tortina di riso glutinoso pestato, grigliata o fritta, con zucchero. zhangjiajie riso glutinoso|zucchero|sesamo">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">土家糍粑</span></div>
+<h4>Ciba Tujia</h4>
+<p class="desc">Tortina di riso glutinoso pestato, grigliata o fritta, con zucchero.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">zucchero</span><span class="ingredient">sesamo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–25</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%9C%9F%E5%AE%B6%E7%B3%8D%E7%B2%91%22+%22Ciba+Tujia%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%9C%9F%E5%AE%B6%E7%B3%8D%E7%B2%91" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="dolce di radice di kudzu 葛根糕 dolce compatto e leggermente gelatinoso a base di amido di kudzu. zhangjiajie kudzu|zucchero|acqua">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">葛根糕</span></div>
+<h4>Dolce di radice di kudzu</h4>
+<p class="desc">Dolce compatto e leggermente gelatinoso a base di amido di kudzu.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">kudzu</span><span class="ingredient">zucchero</span><span class="ingredient">acqua</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–25</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%91%9B%E6%A0%B9%E7%B3%95%22+%22Dolce+di+radice+di+kudzu%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E8%91%9B%E6%A0%B9%E7%B3%95" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="baba fritto allo zucchero 糖油粑粑 dischi di riso glutinoso fritti e glassati con zucchero bruno. zhangjiajie riso glutinoso|zucchero bruno|olio">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">糖油粑粑</span></div>
+<h4>Baba fritto allo zucchero</h4>
+<p class="desc">Dischi di riso glutinoso fritti e glassati con zucchero bruno.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">zucchero bruno</span><span class="ingredient">olio</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–20</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%B3%96%E6%B2%B9%E7%B2%91%E7%B2%91%22+%22Baba+fritto+allo+zucchero%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E7%B3%96%E6%B2%B9%E7%B2%91%E7%B2%91" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="drink"><h3><i class="ti ti-glass"></i>Bevande <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="drink" data-search="vino di riso tujia 土家米酒 fermentato di riso dolce e torbido, con gradazione generalmente moderata. zhangjiajie riso glutinoso|acqua|lievito di riso">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">土家米酒</span></div>
+<h4>Vino di riso Tujia</h4>
+<p class="desc">Fermentato di riso dolce e torbido, con gradazione generalmente moderata.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">acqua</span><span class="ingredient">lievito di riso</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 15–35</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%9C%9F%E5%AE%B6%E7%B1%B3%E9%85%92%22+%22Vino+di+riso+Tujia%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E5%9C%9F%E5%AE%B6%E7%B1%B3%E9%85%92" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="distillato di mais 苞谷烧 distillato rurale di mais, secco e molto alcolico. zhangjiajie mais|acqua|qu di fermentazione">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">苞谷烧</span></div>
+<h4>Distillato di mais</h4>
+<p class="desc">Distillato rurale di mais, secco e molto alcolico.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">mais</span><span class="ingredient">acqua</span><span class="ingredient">qu di fermentazione</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–30 al bicchiere</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%8B%9E%E8%B0%B7%E7%83%A7%22+%22Distillato+di+mais%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E8%8B%9E%E8%B0%B7%E7%83%A7" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="succo di kiwi selvatico 野生猕猴桃汁 bevanda fruttata e acidula legata ai prodotti montani dell’area. zhangjiajie kiwi|acqua|zucchero">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">野生猕猴桃汁</span></div>
+<h4>Succo di kiwi selvatico</h4>
+<p class="desc">Bevanda fruttata e acidula legata ai prodotti montani dell’area.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">kiwi</span><span class="ingredient">acqua</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–22</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%87%8E%E7%94%9F%E7%8C%95%E7%8C%B4%E6%A1%83%E6%B1%81%22+%22Succo+di+kiwi+selvatico%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E9%87%8E%E7%94%9F%E7%8C%95%E7%8C%B4%E6%A1%83%E6%B1%81" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="tea"><h3><i class="ti ti-leaf"></i>Tè della zona <small>(1)</small></h3><div class="food-grid"><article class="food-card" data-category="tea" data-search="mao yan mei, vine tea 莓茶 infuso locale di vite del tè, leggermente dolce-amaro e molto diffuso nei negozi di zhangjiajie. zhangjiajie foglie di vine tea|acqua|germogli essiccati">
+<div class="card-top"><span class="kind">Tè della zona</span><span class="cn-name">莓茶</span></div>
+<h4>Mao Yan Mei, vine tea</h4>
+<p class="desc">Infuso locale di vite del tè, leggermente dolce-amaro e molto diffuso nei negozi di Zhangjiajie.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">foglie di vine tea</span><span class="ingredient">acqua</span><span class="ingredient">germogli essiccati</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 20–50 per teiera</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%8E%93%E8%8C%B6%22+%22Mao+Yan+Mei%2C+vine+tea%22+%E5%BC%A0%E5%AE%B6%E7%95%8C" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/344/0_%E8%8E%93%E8%8C%B6" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section>
+</section><section class="city-section" id="xian">
+<div class="city-title"><span class="seal">西安</span><div><h2>Xi’an</h2><p class="city-intro">Cucina dello Shaanxi basata su grano, noodles tirati a mano, aceto, agnello e influenze Hui della Via della Seta. Il piccante è spesso dato dall’olio al peperoncino e può essere ridotto.</p></div></div>
+<div class="city-actions"><a class="small-link" href="itinerario-dettagliato.html#giorno-17-ago"><i class="ti ti-route"></i>Apri nell’itinerario</a><a class="small-link" href="https://en.xa.gov.cn/ztzl/Xianstourismboom/DiningAccommodation/1939983920515317762.html" rel="noopener noreferrer" target="_blank"><i class="ti ti-book"></i>Fonte gastronomica</a></div>
+<section class="category" data-category-section="dish"><h3><i class="ti ti-bowl-chopsticks"></i>Piatti salati <small>(10)</small></h3><div class="food-grid"><article class="food-card" data-category="dish" data-search="roujiamo 腊汁肉夹馍 pane baiji croccante farcito con maiale brasato e tritato. xi’an pane baiji|maiale|spezie da brasato">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">腊汁肉夹馍</span></div>
+<h4>Roujiamo</h4>
+<p class="desc">Pane baiji croccante farcito con maiale brasato e tritato.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pane baiji</span><span class="ingredient">maiale</span><span class="ingredient">spezie da brasato</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–25</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%85%8A%E6%B1%81%E8%82%89%E5%A4%B9%E9%A6%8D%22+%22Roujiamo%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E8%85%8A%E6%B1%81%E8%82%89%E5%A4%B9%E9%A6%8D" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="yangrou paomo 羊肉泡馍 pane spezzettato a mano immerso in brodo ricco di agnello con vermicelli. xi’an agnello|pane mo|vermicelli">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">羊肉泡馍</span></div>
+<h4>Yangrou paomo</h4>
+<p class="desc">Pane spezzettato a mano immerso in brodo ricco di agnello con vermicelli.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">agnello</span><span class="ingredient">pane mo</span><span class="ingredient">vermicelli</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 30–65</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%BE%8A%E8%82%89%E6%B3%A1%E9%A6%8D%22+%22Yangrou+paomo%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E7%BE%8A%E8%82%89%E6%B3%A1%E9%A6%8D" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="biang biang noodles 油泼biangbiang面 larghi nastri di pasta con aglio, aceto e olio caldo versato sul peperoncino. xi’an farina di grano|peperoncino|aceto">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">油泼biangbiang面</span></div>
+<h4>Biang biang noodles</h4>
+<p class="desc">Larghi nastri di pasta con aglio, aceto e olio caldo versato sul peperoncino.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">farina di grano</span><span class="ingredient">peperoncino</span><span class="ingredient">aceto</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 18–38</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>4/5</strong><div aria-label="Piccantezza 4 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Sì: peperoncino, niente peperone dolce</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%B2%B9%E6%B3%BCbiangbiang%E9%9D%A2%22+%22Biang+biang+noodles%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E6%B2%B9%E6%B3%BCbiangbiang%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="liangpi 凉皮 noodles freddi elastici con salsa all’aceto, sesamo e olio piccante. xi’an amido di grano o riso|aceto|sesamo">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">凉皮</span></div>
+<h4>Liangpi</h4>
+<p class="desc">Noodles freddi elastici con salsa all’aceto, sesamo e olio piccante.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">amido di grano o riso</span><span class="ingredient">aceto</span><span class="ingredient">sesamo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–22</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino frequente; peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%87%89%E7%9A%AE%22+%22Liangpi%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E5%87%89%E7%9A%AE" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="noodles saozi di qishan 岐山臊子面 noodles in brodo agrodolce e piccante con carne tritata e verdure a cubetti. xi’an noodles|maiale|aceto">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">岐山臊子面</span></div>
+<h4>Noodles saozi di Qishan</h4>
+<p class="desc">Noodles in brodo agrodolce e piccante con carne tritata e verdure a cubetti.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">noodles</span><span class="ingredient">maiale</span><span class="ingredient">aceto</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 16–32</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino presente; possibile peperone</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%B2%90%E5%B1%B1%E8%87%8A%E5%AD%90%E9%9D%A2%22+%22Noodles+saozi+di+Qishan%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E5%B2%90%E5%B1%B1%E8%87%8A%E5%AD%90%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pollo “zucca” 葫芦鸡 pollo intero prima bollito e poi fritto, con pelle croccante e carne tenera. xi’an pollo|spezie|olio">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">葫芦鸡</span></div>
+<h4>Pollo “zucca”</h4>
+<p class="desc">Pollo intero prima bollito e poi fritto, con pelle croccante e carne tenera.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pollo</span><span class="ingredient">spezie</span><span class="ingredient">olio</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 60–110</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>1/5</strong><div aria-label="Piccantezza 1 su 5" class="heat"><span class="on"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino in polvere spesso servito a parte</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%91%AB%E8%8A%A6%E9%B8%A1%22+%22Pollo+%E2%80%9Czucca%E2%80%9D%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E8%91%AB%E8%8A%A6%E9%B8%A1" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="hulutou paomo 葫芦头泡馍 zuppa robusta con pane spezzato e intestino di maiale, tipica di xi’an. xi’an intestino di maiale|pane mo|brodo">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">葫芦头泡馍</span></div>
+<h4>Hulutou paomo</h4>
+<p class="desc">Zuppa robusta con pane spezzato e intestino di maiale, tipica di Xi’an.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">intestino di maiale</span><span class="ingredient">pane mo</span><span class="ingredient">brodo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 25–50</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>1/5</strong><div aria-label="Piccantezza 1 su 5" class="heat"><span class="on"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Peperoncino opzionale, niente peperone</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%91%AB%E8%8A%A6%E5%A4%B4%E6%B3%A1%E9%A6%8D%22+%22Hulutou+paomo%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E8%91%AB%E8%8A%A6%E5%A4%B4%E6%B3%A1%E9%A6%8D" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="baozi con brodo 灌汤包 baozi sottili e succosi, spesso di manzo o agnello nelle zone hui. xi’an farina|manzo o agnello|brodo gelificato">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">灌汤包</span></div>
+<h4>Baozi con brodo</h4>
+<p class="desc">Baozi sottili e succosi, spesso di manzo o agnello nelle zone Hui.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">farina</span><span class="ingredient">manzo o agnello</span><span class="ingredient">brodo gelificato</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 18–40</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%81%8C%E6%B1%A4%E5%8C%85%22+%22Baozi+con+brodo%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E7%81%8C%E6%B1%A4%E5%8C%85" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="spiedini di manzo o agnello 烤肉串 spiedini alla griglia con cumino, sale e peperoncino, tipici del quartiere musulmano. xi’an agnello o manzo|cumino|peperoncino">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">烤肉串</span></div>
+<h4>Spiedini di manzo o agnello</h4>
+<p class="desc">Spiedini alla griglia con cumino, sale e peperoncino, tipici del quartiere musulmano.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">agnello o manzo</span><span class="ingredient">cumino</span><span class="ingredient">peperoncino</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 3–8 per spiedino</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Sì: peperoncino in polvere; niente peperone</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%83%A4%E8%82%89%E4%B8%B2%22+%22Spiedini+di+manzo+o+agnello%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E7%83%A4%E8%82%89%E4%B8%B2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="hula tang 胡辣汤 zuppa densa e pepata con verdure, carne e spezie riscaldanti. xi’an brodo|pepe|polpette o carne">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">胡辣汤</span></div>
+<h4>Hula tang</h4>
+<p class="desc">Zuppa densa e pepata con verdure, carne e spezie riscaldanti.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">brodo</span><span class="ingredient">pepe</span><span class="ingredient">polpette o carne</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>3/5</strong><div aria-label="Piccantezza 3 su 5" class="heat"><span class="on"></span><span class="on"></span><span class="on"></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> Può contenere peperoncino; peperone raro</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%83%A1%E8%BE%A3%E6%B1%A4%22+%22Hula+tang%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E8%83%A1%E8%BE%A3%E6%B1%A4" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="dessert"><h3><i class="ti ti-cake"></i>Dolci <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="dessert" data-search="tortina fritta di cachi 柿子饼 impasto di cachi ripieno e fritto, morbido e molto dolce. xi’an cachi|farina|zucchero o noci">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">柿子饼</span></div>
+<h4>Tortina fritta di cachi</h4>
+<p class="desc">Impasto di cachi ripieno e fritto, morbido e molto dolce.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">cachi</span><span class="ingredient">farina</span><span class="ingredient">zucchero o noci</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 6–15</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%9F%BF%E5%AD%90%E9%A5%BC%22+%22Tortina+fritta+di+cachi%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E6%9F%BF%E5%AD%90%E9%A5%BC" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="crystal cake 水晶饼 pasticcino friabile con ripieno dolce e lucido di zucchero e grasso. xi’an farina|zucchero|grasso vegetale o strutto">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">水晶饼</span></div>
+<h4>Crystal cake</h4>
+<p class="desc">Pasticcino friabile con ripieno dolce e lucido di zucchero e grasso.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">farina</span><span class="ingredient">zucchero</span><span class="ingredient">grasso vegetale o strutto</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 5–15</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%B0%B4%E6%99%B6%E9%A5%BC%22+%22Crystal+cake%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E6%B0%B4%E6%99%B6%E9%A5%BC" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="zenggao 甑糕 dolce al vapore di riso glutinoso, datteri rossi e fagioli. xi’an riso glutinoso|datteri rossi|fagioli rossi">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">甑糕</span></div>
+<h4>Zenggao</h4>
+<p class="desc">Dolce al vapore di riso glutinoso, datteri rossi e fagioli.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">datteri rossi</span><span class="ingredient">fagioli rossi</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%94%91%E7%B3%95%22+%22Zenggao%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E7%94%91%E7%B3%95" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="drink"><h3><i class="ti ti-glass"></i>Bevande <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="drink" data-search="bingfeng 冰峰 aranciata gassata locale, simbolo pop di xi’an e compagna classica di roujiamo e liangpi. xi’an acqua gassata|aroma d’arancia|zucchero">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">冰峰</span></div>
+<h4>Bingfeng</h4>
+<p class="desc">Aranciata gassata locale, simbolo pop di Xi’an e compagna classica di roujiamo e liangpi.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">acqua gassata</span><span class="ingredient">aroma d’arancia</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 4–8</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%86%B0%E5%B3%B0%22+%22Bingfeng%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E5%86%B0%E5%B3%B0" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="suanmeitang 酸梅汤 bevanda fredda di prugne affumicate, agrodolce e rinfrescante. xi’an prugne affumicate|biancospino|zucchero">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">酸梅汤</span></div>
+<h4>Suanmeitang</h4>
+<p class="desc">Bevanda fredda di prugne affumicate, agrodolce e rinfrescante.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">prugne affumicate</span><span class="ingredient">biancospino</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 6–15</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%85%B8%E6%A2%85%E6%B1%A4%22+%22Suanmeitang%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E9%85%B8%E6%A2%85%E6%B1%A4" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="huanggui choujiu 黄桂稠酒 vino di riso denso, dolce e profumato all’osmanto, a bassa gradazione. xi’an riso glutinoso|osmanto|lievito di riso">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">黄桂稠酒</span></div>
+<h4>Huanggui choujiu</h4>
+<p class="desc">Vino di riso denso, dolce e profumato all’osmanto, a bassa gradazione.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">osmanto</span><span class="ingredient">lievito di riso</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 12–30</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%BB%84%E6%A1%82%E7%A8%A0%E9%85%92%22+%22Huanggui+choujiu%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E9%BB%84%E6%A1%82%E7%A8%A0%E9%85%92" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="tea"><h3><i class="ti ti-leaf"></i>Tè della zona <small>(1)</small></h3><div class="food-grid"><article class="food-card" data-category="tea" data-search="jingyang fu tea 泾阳茯茶 tè scuro fermentato dello shaanxi con note terrose e “fiori dorati” naturali. xi’an foglie di tè scuro|acqua|fermentazione">
+<div class="card-top"><span class="kind">Tè della zona</span><span class="cn-name">泾阳茯茶</span></div>
+<h4>Jingyang Fu tea</h4>
+<p class="desc">Tè scuro fermentato dello Shaanxi con note terrose e “fiori dorati” naturali.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">foglie di tè scuro</span><span class="ingredient">acqua</span><span class="ingredient">fermentazione</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 20–55 per teiera</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%B3%BE%E9%98%B3%E8%8C%AF%E8%8C%B6%22+%22Jingyang+Fu+tea%22+%E8%A5%BF%E5%AE%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/17/0_%E6%B3%BE%E9%98%B3%E8%8C%AF%E8%8C%B6" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section>
+</section><section class="city-section" id="shanghai">
+<div class="city-title"><span class="seal">上海</span><div><h2>Shanghai</h2><p class="city-intro">Cucina benbang e Jiangnan: salsa di soia, zucchero, vino di riso, granchio e consistenze morbide. In media è poco piccante e leggermente più dolce di altre cucine cinesi.</p></div></div>
+<div class="city-actions"><a class="small-link" href="itinerario-dettagliato.html#giorno-20-ago"><i class="ti ti-route"></i>Apri nell’itinerario</a><a class="small-link" href="https://www.meet-in-shanghai.net/en/guide/taste-your-way-through-shanghai-food-coffee-and-vibrant-neighborhoods-907063/" rel="noopener noreferrer" target="_blank"><i class="ti ti-book"></i>Fonte gastronomica</a></div>
+<section class="category" data-category-section="dish"><h3><i class="ti ti-bowl-chopsticks"></i>Piatti salati <small>(10)</small></h3><div class="food-grid"><article class="food-card" data-category="dish" data-search="xiaolongbao 小笼包 ravioli al vapore ripieni di maiale e brodo caldo, da aprire con cautela. shanghai maiale|farina|brodo gelificato">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">小笼包</span></div>
+<h4>Xiaolongbao</h4>
+<p class="desc">Ravioli al vapore ripieni di maiale e brodo caldo, da aprire con cautela.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">farina</span><span class="ingredient">brodo gelificato</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 20–55</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%B0%8F%E7%AC%BC%E5%8C%85%22+%22Xiaolongbao%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E5%B0%8F%E7%AC%BC%E5%8C%85" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="shengjianbao 生煎包 panini ripieni cotti in padella, croccanti sotto e succosi dentro. shanghai maiale|farina|sesamo">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">生煎包</span></div>
+<h4>Shengjianbao</h4>
+<p class="desc">Panini ripieni cotti in padella, croccanti sotto e succosi dentro.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">farina</span><span class="ingredient">sesamo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–25</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%94%9F%E7%85%8E%E5%8C%85%22+%22Shengjianbao%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E7%94%9F%E7%85%8E%E5%8C%85" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="noodles all’olio di cipollotto 葱油拌面 noodles semplici con olio profumato al cipollotto e salsa di soia. shanghai noodles|cipollotto|salsa di soia">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">葱油拌面</span></div>
+<h4>Noodles all’olio di cipollotto</h4>
+<p class="desc">Noodles semplici con olio profumato al cipollotto e salsa di soia.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">noodles</span><span class="ingredient">cipollotto</span><span class="ingredient">salsa di soia</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 15–35</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%91%B1%E6%B2%B9%E6%8B%8C%E9%9D%A2%22+%22Noodles+all%E2%80%99olio+di+cipollotto%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E8%91%B1%E6%B2%B9%E6%8B%8C%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="maiale brasato rosso 本帮红烧肉 pancetta brasata lentamente in salsa di soia, zucchero e vino di riso. shanghai pancetta di maiale|salsa di soia|zucchero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">本帮红烧肉</span></div>
+<h4>Maiale brasato rosso</h4>
+<p class="desc">Pancetta brasata lentamente in salsa di soia, zucchero e vino di riso.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pancetta di maiale</span><span class="ingredient">salsa di soia</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 55–110</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%9C%AC%E5%B8%AE%E7%BA%A2%E7%83%A7%E8%82%89%22+%22Maiale+brasato+rosso%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E6%9C%AC%E5%B8%AE%E7%BA%A2%E7%83%A7%E8%82%89" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="costine agrodolci 糖醋小排 costine glassate con aceto e zucchero, lucide e tenere. shanghai costine di maiale|aceto|zucchero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">糖醋小排</span></div>
+<h4>Costine agrodolci</h4>
+<p class="desc">Costine glassate con aceto e zucchero, lucide e tenere.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">costine di maiale</span><span class="ingredient">aceto</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 45–85</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%B3%96%E9%86%8B%E5%B0%8F%E6%8E%92%22+%22Costine+agrodolci%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E7%B3%96%E9%86%8B%E5%B0%8F%E6%8E%92" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="polpette testa di leone 狮子头 grandi polpette di maiale brasate con verdure, morbide e succose. shanghai maiale|castagna d’acqua|cavolo">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">狮子头</span></div>
+<h4>Polpette testa di leone</h4>
+<p class="desc">Grandi polpette di maiale brasate con verdure, morbide e succose.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">maiale</span><span class="ingredient">castagna d’acqua</span><span class="ingredient">cavolo</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 45–85</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%8B%AE%E5%AD%90%E5%A4%B4%22+%22Polpette+testa+di+leone%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E7%8B%AE%E5%AD%90%E5%A4%B4" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pollo ubriaco 醉鸡 pollo freddo marinato nel vino shaoxing, aromatico e delicato. shanghai pollo|vino shaoxing|zenzero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">醉鸡</span></div>
+<h4>Pollo ubriaco</h4>
+<p class="desc">Pollo freddo marinato nel vino Shaoxing, aromatico e delicato.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pollo</span><span class="ingredient">vino Shaoxing</span><span class="ingredient">zenzero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 38–70</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%86%89%E9%B8%A1%22+%22Pollo+ubriaco%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E9%86%89%E9%B8%A1" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="anatra otto tesori 八宝鸭 anatra ripiena di riso glutinoso, castagne, funghi e altri ingredienti. shanghai anatra|riso glutinoso|castagne">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">八宝鸭</span></div>
+<h4>Anatra otto tesori</h4>
+<p class="desc">Anatra ripiena di riso glutinoso, castagne, funghi e altri ingredienti.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">anatra</span><span class="ingredient">riso glutinoso</span><span class="ingredient">castagne</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 120–240</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E5%85%AB%E5%AE%9D%E9%B8%AD%22+%22Anatra+otto+tesori%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E5%85%AB%E5%AE%9D%E9%B8%AD" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="noodles alla polpa di granchio 蟹粉面 noodles con salsa ricca di polpa e uova di granchio, tipicamente stagionali. shanghai granchio|noodles|zenzero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">蟹粉面</span></div>
+<h4>Noodles alla polpa di granchio</h4>
+<p class="desc">Noodles con salsa ricca di polpa e uova di granchio, tipicamente stagionali.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">granchio</span><span class="ingredient">noodles</span><span class="ingredient">zenzero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 70–180</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%9F%B9%E7%B2%89%E9%9D%A2%22+%22Noodles+alla+polpa+di+granchio%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E8%9F%B9%E7%B2%89%E9%9D%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dish" data-search="pesce affumicato alla shanghai 上海熏鱼 pesce fritto e poi marinato in salsa dolce-sapida; non sempre realmente affumicato. shanghai pesce|salsa di soia|zucchero">
+<div class="card-top"><span class="kind">Piatti salati</span><span class="cn-name">上海熏鱼</span></div>
+<h4>Pesce affumicato alla Shanghai</h4>
+<p class="desc">Pesce fritto e poi marinato in salsa dolce-sapida; non sempre realmente affumicato.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">pesce</span><span class="ingredient">salsa di soia</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 35–70</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E4%B8%8A%E6%B5%B7%E7%86%8F%E9%B1%BC%22+%22Pesce+affumicato+alla+Shanghai%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E4%B8%8A%E6%B5%B7%E7%86%8F%E9%B1%BC" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="dessert"><h3><i class="ti ti-cake"></i>Dolci <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="dessert" data-search="qingtuan 青团 dolcetto verde di riso glutinoso, spesso ripieno di pasta di fagioli rossi. shanghai riso glutinoso|artemisia o succo verde|fagioli rossi">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">青团</span></div>
+<h4>Qingtuan</h4>
+<p class="desc">Dolcetto verde di riso glutinoso, spesso ripieno di pasta di fagioli rossi.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">artemisia o succo verde</span><span class="ingredient">fagioli rossi</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 6–15</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%9D%92%E5%9B%A2%22+%22Qingtuan%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E9%9D%92%E5%9B%A2" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="tiaotougao 条头糕 rotolo morbido di riso glutinoso con ripieno di fagioli rossi. shanghai riso glutinoso|fagioli rossi|zucchero">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">条头糕</span></div>
+<h4>Tiaotougao</h4>
+<p class="desc">Rotolo morbido di riso glutinoso con ripieno di fagioli rossi.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso glutinoso</span><span class="ingredient">fagioli rossi</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 10–22</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E6%9D%A1%E5%A4%B4%E7%B3%95%22+%22Tiaotougao%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E6%9D%A1%E5%A4%B4%E7%B3%95" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="dessert" data-search="palmier di shanghai 蝴蝶酥 sfoglia caramellata a forma di farfalla, eredità delle pasticcerie storiche cittadine. shanghai burro|farina|zucchero">
+<div class="card-top"><span class="kind">Dolci</span><span class="cn-name">蝴蝶酥</span></div>
+<h4>Palmier di Shanghai</h4>
+<p class="desc">Sfoglia caramellata a forma di farfalla, eredità delle pasticcerie storiche cittadine.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">burro</span><span class="ingredient">farina</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 12–30</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E8%9D%B4%E8%9D%B6%E9%85%A5%22+%22Palmier+di+Shanghai%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E8%9D%B4%E8%9D%B6%E9%85%A5" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="drink"><h3><i class="ti ti-glass"></i>Bevande <small>(3)</small></h3><div class="food-grid"><article class="food-card" data-category="drink" data-search="salt soda 盐汽水 bibita gassata leggermente salata, storicamente usata per rinfrescarsi d’estate. shanghai acqua gassata|sale|zucchero">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">盐汽水</span></div>
+<h4>Salt soda</h4>
+<p class="desc">Bibita gassata leggermente salata, storicamente usata per rinfrescarsi d’estate.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">acqua gassata</span><span class="ingredient">sale</span><span class="ingredient">zucchero</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 4–10</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%9B%90%E6%B1%BD%E6%B0%B4%22+%22Salt+soda%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E7%9B%90%E6%B1%BD%E6%B0%B4" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="suanmeitang di shanghai 酸梅汤 infuso freddo di prugna affumicata, dolce-acido e molto comune nei ristoranti. shanghai prugne affumicate|zucchero|osmanto">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">酸梅汤</span></div>
+<h4>Suanmeitang di Shanghai</h4>
+<p class="desc">Infuso freddo di prugna affumicata, dolce-acido e molto comune nei ristoranti.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">prugne affumicate</span><span class="ingredient">zucchero</span><span class="ingredient">osmanto</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 8–18</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E9%85%B8%E6%A2%85%E6%B1%A4%22+%22Suanmeitang+di+Shanghai%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E9%85%B8%E6%A2%85%E6%B1%A4" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article><article class="food-card" data-category="drink" data-search="vino di riso shikumen 石库门上海老酒 huangjiu ambrato e morbido prodotto in stile locale, bevuto a temperatura ambiente o tiepido. shanghai riso|acqua|qu di fermentazione">
+<div class="card-top"><span class="kind">Bevande</span><span class="cn-name">石库门上海老酒</span></div>
+<h4>Vino di riso Shikumen</h4>
+<p class="desc">Huangjiu ambrato e morbido prodotto in stile locale, bevuto a temperatura ambiente o tiepido.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">riso</span><span class="ingredient">acqua</span><span class="ingredient">qu di fermentazione</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 15–40 al bicchiere</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%9F%B3%E5%BA%93%E9%97%A8%E4%B8%8A%E6%B5%B7%E8%80%81%E9%85%92%22+%22Vino+di+riso+Shikumen%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E7%9F%B3%E5%BA%93%E9%97%A8%E4%B8%8A%E6%B5%B7%E8%80%81%E9%85%92" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section><section class="category" data-category-section="tea"><h3><i class="ti ti-leaf"></i>Tè della zona <small>(1)</small></h3><div class="food-grid"><article class="food-card" data-category="tea" data-search="biluochun del jiangnan 碧螺春 tè verde aromatico della vicina area del lago tai, molto rappresentativo della cultura del tè del jiangnan frequentata da shanghai. shanghai germogli di tè verde|acqua|foglie giovani">
+<div class="card-top"><span class="kind">Tè della zona</span><span class="cn-name">碧螺春</span></div>
+<h4>Biluochun del Jiangnan</h4>
+<p class="desc">Tè verde aromatico della vicina area del lago Tai, molto rappresentativo della cultura del tè del Jiangnan frequentata da Shanghai.</p>
+<div aria-label="Ingredienti principali" class="ingredient-list"><span class="ingredient">germogli di tè verde</span><span class="ingredient">acqua</span><span class="ingredient">foglie giovani</span></div>
+<div class="facts">
+<div class="fact"><span class="fact-label">Prezzo indicativo</span><strong>RMB 25–60 per teiera</strong></div>
+<div class="fact"><span class="fact-label">Piccantezza europea</span><strong>0/5</strong><div aria-label="Piccantezza 0 su 5" class="heat"><span class=""></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div></div>
+<div class="pepper"><b>Peperoncino / peperoni:</b> No</div>
+</div>
+<div class="card-links"><a class="google" href="https://www.google.com/search?q=%22%E7%A2%A7%E8%9E%BA%E6%98%A5%22+%22Biluochun+del+Jiangnan%22+%E4%B8%8A%E6%B5%B7" rel="noopener noreferrer" target="_blank"><i class="ti ti-brand-google"></i>Google: piatto esatto</a><a class="dianping" href="https://www.dianping.com/search/keyword/1/0_%E7%A2%A7%E8%9E%BA%E6%98%A5" rel="noopener noreferrer" target="_blank"><i class="ti ti-star"></i>Dianping: locali</a></div>
+</article></div></section>
+</section>
+<section class="sources"><h2>Fonti e metodo</h2><p>La selezione parte da fonti turistiche ufficiali o locali e dalla cucina regionale documentata. Ingredienti, livello di piccantezza e prezzi sono sintesi operative per la pianificazione: ricette e listini variano da locale a locale.</p><ul><li><a href="https://www.discoverhongkong.com/eng/food-and-drink.html" rel="noopener noreferrer" target="_blank">Hong Kong — fonte locale o turistica</a></li><li><a href="https://visitguilin.org/things-to-do/food-and-drink/cuisine/" rel="noopener noreferrer" target="_blank">Guilin e Yangshuo — fonte locale o turistica</a></li><li><a href="https://enghunan.gov.cn/hneng/Tourism/TourHunan/Zhangjiajie_1/Dining_12/202509/t20250925_33979435.html" rel="noopener noreferrer" target="_blank">Zhangjiajie — fonte locale o turistica</a></li><li><a href="https://en.xa.gov.cn/ztzl/Xianstourismboom/DiningAccommodation/1939983920515317762.html" rel="noopener noreferrer" target="_blank">Xi’an — fonte locale o turistica</a></li><li><a href="https://www.meet-in-shanghai.net/en/guide/taste-your-way-through-shanghai-food-coffee-and-vibrant-neighborhoods-907063/" rel="noopener noreferrer" target="_blank">Shanghai — fonte locale o turistica</a></li><li><a href="https://www.dianping.com/" rel="noopener noreferrer" target="_blank">Dianping — ricerca dei locali e classifiche dinamiche</a></li></ul></section>
+</main></div><footer>Cina 2026 · Guida gastronomica · Ultimo aggiornamento luglio 2026</footer><script src="assets/food.js"></script></body></html>
