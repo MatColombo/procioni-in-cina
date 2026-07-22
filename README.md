@@ -1,19 +1,102 @@
-# Cina 2026 — sito GitHub Pages
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<title>Cina 2026 — Itinerario dettagliato ora per ora</title>
+<meta name="theme-color" content="#8F1D1D">
+<meta name="description" content="Itinerario Cina 2026 ora per ora, con mappe giornaliere, trasporti, alternative vicine e collegamenti alle attrazioni.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/2.47.0/tabler-icons.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/site-shell.css">
+<link rel="stylesheet" href="assets/travel-pages.css">
+</head>
+<body class="itinerary-page">
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Piano operativo · 9–22 agosto 2026</p>
+    <h1>行程<br>Itinerario dettagliato</h1>
+    <p class="lead">Giornate ora per ora, tempi rilassati, modalità di spostamento, bici, alternative vicine e una mappa numerata per ogni giorno.</p>
+    <div class="stats">
+      <div class="stat"><strong>14</strong><span>giornate</span></div>
+      <div class="stat"><strong>103</strong><span>attrazioni collegate</span></div>
+      <div class="stat"><strong>14</strong><span>mappe numerate</span></div>
+      <div class="stat"><strong>5</strong><span>destinazioni</span></div>
+    </div>
+    <div class="hero-actions">
+      <a class="hero-action" href="attrazioni.html"><i class="ti ti-building-pagoda"></i>Apri tutte le attrazioni</a>
+      <a class="hero-action" href="index.html"><i class="ti ti-layout-dashboard"></i>Torna alla sintesi</a>
+    </div>
+  </div>
+</header>
 
-Sito statico multipagina pronto per GitHub Pages.
+<nav class="quicknav" aria-label="Navigazione principale">
+  <a class="page-tab" href="index.html">Sintesi</a>
+  <a class="page-tab active" href="itinerario-dettagliato.html">Itinerario dettagliato</a>
+  <a class="page-tab" href="cibi.html">Cibi</a>
+  <a class="page-tab" href="attrazioni.html">Attrazioni</a>
+  <span class="nav-divider"></span>
+  <a href="#giorno-10-ago">Hong Kong</a>
+  <a href="#giorno-12-ago">Guilin</a>
+  <a href="#giorno-14-ago">Zhangjiajie</a>
+  <a href="#giorno-17-ago">Xi'an</a>
+  <a href="#giorno-20-ago">Shanghai</a>
+</nav>
 
-## Pagine
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-title"><i class="ti ti-calendar-event"></i>Giorno per giorno</div>
+    <nav class="day-nav" id="day-nav" aria-label="Timeline dettagliata"></nav>
+    <div class="legend-mini">
+      <span><i class="legend-dot core"></i>Visita principale</span>
+      <span><i class="legend-dot transfer"></i>Trasferimento</span>
+      <span><i class="legend-dot extra"></i>Relax / pasto / extra</span>
+    </div>
+  </aside>
 
-- `index.html` — sintesi del viaggio, hotel, spostamenti e costi
-- `itinerario-dettagliato.html` — piano ora per ora con 14 mappe numerate
-- `attrazioni.html` — 103 schede collegate bidirezionalmente all'itinerario
-- `cibi.html` — piatti, dolci, bevande e tè per città
-- `assets/` — fogli di stile, dati e script condivisi
+  <main class="content content-wide">
+    <div class="notice">
+      <strong>Come usare questa pagina</strong><br>
+      Ogni giornata ha tappe numerate, timeline, mappe Google/AMap e un occhiello con alternative vicine. I collegamenti alla pagina Attrazioni sono bidirezionali.
+      <small>Prezzi e orari sono stati verificati o stimati al 22 luglio 2026. Biglietto, fascia prenotata e comunicazioni ufficiali restano la fonte definitiva.</small>
+    </div>
+    <div class="notice">
+      <strong>Due punti da correggere prima della partenza</strong><br>
+      L'orario Guilin–Zhangjiajie delle 14:45 non coincide con i diretti pubblicamente visibili nel controllo di luglio 2026; inoltre mancano l'orario del treno notturno Xi'an–Shanghai e quello del volo da Shanghai. Le giornate interessate includono avvisi e calcolatori.
+    </div>
+    <div class="page-tools">
+      <button class="tool-btn" id="open-zones" type="button"><i class="ti ti-layout-list"></i>Apri tutte le zone</button>
+      <button class="tool-btn" id="close-zones" type="button"><i class="ti ti-fold"></i>Comprimi</button>
+      <button class="tool-btn" id="print-page" type="button"><i class="ti ti-printer"></i>Stampa / PDF</button>
+      <span class="tools-spacer"></span>
+      <span class="updated-pill">Aggiornato 22 lug 2026</span>
+    </div>
 
-## Pubblicazione
+    <div id="itinerary-root"></div>
 
-Carica tutti i file e la cartella `assets` nella root del repository. In GitHub: `Settings → Pages → Deploy from a branch → main / root`.
+    <section class="source-box">
+      <h2>Fonti operative principali</h2>
+      <p>La pagina combina l'itinerario di base con dati pubblici correnti e stime prudenti. Prima dell'acquisto ricontrolla sempre la data precisa.</p>
+      <ul>
+        <li><a href="https://www.highspeed.mtr.com.hk/en/trip-planner.html?id=WEK2GLX&sortBy=EAT" target="_blank" rel="noopener">MTR High Speed Rail — Hong Kong West Kowloon / Guilin West</a></li>
+        <li><a href="https://www.12306.cn/" target="_blank" rel="noopener">China Railway 12306 — biglietti e stazioni definitive</a></li>
+        <li><a href="https://www.np360.com.hk/en/" target="_blank" rel="noopener">Ngong Ping 360 — fasce, manutenzioni e prezzi</a></li>
+        <li><a href="https://whhlyt.hunan.gov.cn/" target="_blank" rel="noopener">Cultura e turismo dello Hunan — aree di Zhangjiajie</a></li>
+        <li><a href="https://www.bmy.com.cn/" target="_blank" rel="noopener">Museo del Mausoleo di Qin Shi Huang</a></li>
+        <li><a href="https://www.shanghaimuseum.net/mu/frontend/pg/en/index" target="_blank" rel="noopener">Shanghai Museum — sede East, orari e mostre</a></li>
+      </ul>
+      <p>Le mappe integrate usano OpenStreetMap solo come visualizzazione del percorso. Per la navigazione sul posto usa 高德 AMap dai pulsanti delle singole tappe.</p>
+    </section>
+  </main>
+</div>
 
-## Nota operativa
-
-Prezzi e orari sono indicativi e aggiornati al 22 luglio 2026. Biglietti, fasce prenotate e avvisi ufficiali prevalgono sempre.
+<footer>Cina 2026 · Itinerario dettagliato · 9–22 agosto 2026</footer>
+<noscript><div class="notice" style="margin:20px">Questa pagina richiede JavaScript per generare timeline e mappe.</div></noscript>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/travel-data.js"></script>
+<script src="assets/detailed-itinerary.js"></script>
+</body>
+</html>

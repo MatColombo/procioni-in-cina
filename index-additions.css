@@ -1,0 +1,120 @@
+(() => {
+  const cityContext = {
+    'hong-kong': `Hong Kong si comprende meglio come un territorio di sovrapposizioni: villaggi e templi della società cantonese, infrastrutture nate con la città portuale ottocentesca, edilizia coloniale, ricostruzione del dopoguerra e trasformazioni rapidissime della metropoli contemporanea. Il valore dei suoi luoghi non dipende quindi soltanto dall'età, ma dal modo in cui usi quotidiani, culto, commercio e memoria continuano a convivere nello stesso spazio.`,
+    'guilin': `Guilin e Yangshuo appartengono a uno dei paesaggi carsici più riconoscibili della Cina meridionale. Acqua, calcari, grotte e rilievi isolati hanno alimentato per secoli la tradizione estetica dello shanshui, la rappresentazione di “montagne e acque” come forma di conoscenza e contemplazione. Anche i luoghi più turistici vanno letti dentro questo rapporto fra geologia, agricoltura, insediamenti fluviali e costruzione culturale del paesaggio.`,
+    'zhangjiajie': `La regione di Zhangjiajie non è soltanto un insieme di belvedere spettacolari. Wulingyuan, iscritto nella Lista del Patrimonio Mondiale UNESCO nel 1992, comprende migliaia di pilastri e picchi di arenaria quarzosa, gole, corsi d'acqua, grotte e ponti naturali. Alla dimensione geologica si affiancano le culture Tujia, Miao e Bai, la cui presenza ricorda che il paesaggio è stato abitato, nominato e narrato ben prima della sua trasformazione in grande destinazione turistica.`,
+    'xian': `Xi'an conserva il ruolo storico di Chang'an, capitale di più dinastie e grande nodo orientale delle vie commerciali eurasiatiche. Templi, mura, quartieri islamici, pagode e siti archeologici appartengono a epoche diverse, ma raccontano un medesimo tema: la capacità della città di assorbire popolazioni, religioni, tecniche e linguaggi provenienti da regioni lontane. Visitare Xi'an significa quindi passare continuamente dalla scala monumentale dell'impero alla vita ordinaria di mercati, cortili e strade.`,
+    'shanghai': `Shanghai è una città costruita per strati successivi: il nucleo cinese premoderno, l'apertura come porto internazionale nell'Ottocento, le concessioni straniere, l'industrializzazione, la cultura urbana del Novecento e la spettacolare espansione di Pudong. Le sue attrazioni sono interessanti soprattutto quando permettono di leggere questi strati insieme, evitando di separare artificialmente la “vecchia Shanghai” dalla metropoli finanziaria contemporanea.`
+  };
+
+  const profiles = {
+    sacred: {
+      history: `Gli edifici religiosi cinesi sono raramente monumenti immobili nel senso europeo del termine: vengono restaurati, ricostruiti, rifunzionalizzati e soprattutto continuano a essere usati. Altari, cortili, bruciatori d'incenso, offerte e iscrizioni formano un sistema rituale nel quale architettura e pratica quotidiana sono inseparabili.`,
+      reading: `Durante la visita conviene osservare l'orientamento degli spazi, la sequenza dei cortili, la gerarchia degli altari e i gesti dei fedeli. Anche quando l'edificio appare scenografico, il suo significato nasce dall'uso: una campana, una tavoletta votiva o una spirale d'incenso possono raccontare più della sola facciata.`,
+      anecdote: `Gli aneddoti legati a questi luoghi non vanno letti come folklore marginale. Spesso spiegano perché una divinità venga invocata per gli studi, gli affari, la salute o il viaggio e mostrano come la religione tradizionale cinese intrecci buddhismo, taoismo, culti locali e memoria degli antenati.`
+    },
+    museum: {
+      history: `Un museo non è un contenitore neutrale: seleziona oggetti, li ordina e costruisce una narrazione sul passato. In Cina questa funzione è particolarmente evidente nei musei archeologici e storici, dove la successione delle dinastie, la formazione dello Stato e l'evoluzione delle arti vengono presentate come parti di una lunga continuità culturale.`,
+      reading: `Per evitare una visita frettolosa è utile scegliere pochi nuclei: materiali, tecniche, provenienza degli oggetti e rapporto fra uso originario ed esposizione moderna. Una sala ben letta vale più di una corsa attraverso l'intero edificio.`,
+      anecdote: `Molti oggetti oggi considerati capolavori furono in origine strumenti rituali, documenti amministrativi o beni d'uso. Il passaggio da oggetto funzionale a “opera d'arte” è già una storia: cambia il modo in cui lo guardiamo e ciò che il museo decide di mettere in evidenza.`
+    },
+    archaeology: {
+      history: `Un sito archeologico è un archivio incompleto. Ciò che il visitatore vede dipende dagli scavi, dalle tecniche di conservazione e dalle scelte di lasciare alcune aree ancora sotto terra. Le lacune non sono un difetto: ricordano che l'archeologia procede per ipotesi verificabili, stratigrafie e confronti, non per ricostruzioni definitive.`,
+      reading: `Conviene distinguere sempre fra reperto originale, struttura ricostruita e supporto interpretativo. Osserva le differenze di materiale, le tracce di pigmento, i segni di lavorazione e la posizione degli oggetti: sono elementi che permettono di passare dalla meraviglia alla comprensione storica.`,
+      anecdote: `Le scoperte casuali, gli oggetti danneggiati o le parti non ancora scavate sono spesso più istruttivi delle ricostruzioni perfette. Mostrano quanto il passato dipenda da circostanze fortuite e quanto ogni nuova campagna possa modificare una spiegazione ritenuta acquisita.`
+    },
+    nature: {
+      history: `Il paesaggio naturale è il risultato di processi lunghissimi: sollevamento, erosione, dissoluzione delle rocce, acqua, vegetazione e clima. I nomi poetici attribuiti a picchi, grotte e archi trasformano queste forme in figure leggibili e mostrano come la geologia venga interpretata attraverso immaginazione, religione e cultura visuale.`,
+      reading: `Non limitarti al punto fotografico principale. Guarda la struttura della roccia, la vegetazione che cambia con l'esposizione, la scala delle gole e il modo in cui nebbia e luce ridisegnano continuamente i profili. La stessa veduta può sembrare diversa a pochi minuti di distanza.`,
+      anecdote: `Le somiglianze con animali, oggetti o personaggi leggendari sono una forma di memoria collettiva: aiutano a nominare il territorio e a trasmettere percorsi e racconti. Il nome non descrive soltanto la forma; suggerisce il modo in cui generazioni di abitanti e viaggiatori hanno imparato a guardarla.`
+    },
+    urban: {
+      history: `Strade, mercati e quartieri sono documenti storici in movimento. Attività commerciali, migrazioni, regolamenti, trasporti e rendite immobiliari cambiano continuamente l'aspetto degli edifici e la composizione sociale. Per questo la loro autenticità non coincide con l'immobilità, ma con la capacità di conservare tracce riconoscibili mentre gli usi si trasformano.`,
+      reading: `Osserva le dimensioni dei lotti, i portici, le insegne, i piani superiori e le vie laterali. La strada principale racconta spesso il volto ufficiale del quartiere; i passaggi secondari mostrano logistica, abitazioni, piccole attività e ritmi quotidiani.`,
+      anecdote: `La fama contemporanea di molti quartieri nasce da cinema, fotografia, ristorazione o social media. Questa nuova immagine può proteggere edifici e mestieri, ma può anche semplificarli. La visita diventa più interessante quando si distingue il luogo vissuto dalla sua rappresentazione turistica.`
+    },
+    architecture: {
+      history: `L'architettura racconta rapporti di potere, tecniche costruttive e modelli di vita. Materiali, simmetrie, accessi e distribuzione degli ambienti stabiliscono chi poteva entrare, dove si svolgevano le cerimonie e come l'edificio dialogava con la città. Restauri e riusi contemporanei aggiungono un ulteriore capitolo, non necessariamente meno importante dell'originale.`,
+      reading: `Guarda prima l'insieme e poi i dettagli: rapporto con la strada, ritmo delle aperture, struttura portante, decorazioni, segni di ampliamento e differenze fra parti antiche e interventi recenti. Una fotografia ravvicinata è utile, ma la posizione dell'edificio nel quartiere spesso spiega la sua vera funzione.`,
+      anecdote: `Le architetture celebri accumulano soprannomi, leggende e interpretazioni. Alcune sono storicamente documentate, altre nascono dal modo in cui la forma viene percepita. Separare i due livelli non riduce il fascino: permette di capire come un edificio diventi un simbolo.`
+    },
+    infrastructure: {
+      history: `Funivie, ponti, traghetti, scale mobili e ascensori sono parte della storia del paesaggio tanto quanto i monumenti. Rendono accessibili luoghi prima remoti, modificano i flussi urbani e cambiano il punto di vista del visitatore. La loro importanza sta anche nel compromesso fra mobilità, spettacolo e tutela.`,
+      reading: `Durante il tragitto osserva come cambia la percezione della distanza: una salita rapida può nascondere il dislivello reale, mentre una traversata breve rende visibili fronti urbani che da terra sembrano separati. Il mezzo non è soltanto trasporto, ma una sequenza di vedute.`,
+      anecdote: `Molte infrastrutture diventano icone proprio perché trasformano un gesto ordinario — attraversare, salire, spostarsi — in esperienza panoramica. La loro popolarità mostra quanto il turismo moderno dipenda dal controllo del tempo e dall'accesso a prospettive prima riservate a pochi.`
+    },
+    performance: {
+      history: `Gli spettacoli turistici condensano tradizioni diverse in una forma breve, leggibile e tecnicamente spettacolare. Non sono una copia intatta del passato: sono prodotti contemporanei che selezionano costumi, musiche, miti e danze per un pubblico ampio. Proprio questa selezione può essere studiata come parte della cultura attuale.`,
+      reading: `Osserva quali gruppi, episodi e simboli vengono messi al centro e quali vengono ridotti a pochi gesti. Scenografia, amplificazione e coreografia raccontano tanto il presente dell'industria culturale quanto la tradizione che dichiarano di rappresentare.`,
+      anecdote: `La distanza fra rituale comunitario e spettacolo da palcoscenico non rende automaticamente l'esperienza “falsa”. Piuttosto, invita a chiedersi chi racconta la cultura locale, per quale pubblico e con quali compromessi fra precisione, intrattenimento e orgoglio identitario.`
+    },
+    landscape: {
+      history: `Giardini, parchi e lungofiumi sono paesaggi progettati. Anche quando sembrano naturali, percorsi, laghi, padiglioni, vegetazione e punti di vista sono organizzati per produrre pause, inquadrature e transizioni. La storia del luogo comprende quindi sia gli elementi originari sia le successive trasformazioni urbanistiche.`,
+      reading: `Procedi lentamente e nota come muri, ponti, aperture e cambi di quota nascondano e rivelino la vista. Il percorso è una narrazione spaziale: non offre tutto subito, ma costruisce una successione di scene.`,
+      anecdote: `Un belvedere o un padiglione spesso deve la propria fama non solo alla posizione, ma alle poesie, fotografie e memorie che vi sono state associate. Il paesaggio diventa patrimonio quando una comunità continua a riconoscervi un'immagine condivisa.`
+    }
+  };
+
+  const specific = {
+    'man-mo-temple': `Il complesso è formato da tre edifici e viene generalmente datato fra il 1847 e il 1862. Conserva, fra gli altri elementi, una campana in bronzo del 1847 e una portantina cerimoniale del 1862: oggetti che collegano il culto alla vita associativa della comunità cinese ottocentesca.`,
+    'wulingyuan-park': `L'area UNESCO supera i 26.000 ettari e comprende oltre tremila pilastri e picchi stretti, molti alti più di duecento metri. La monumentalità che appare quasi artificiale è invece il prodotto di erosione e fratturazione sviluppate su tempi geologici.`,
+    'terracotta-army': `Il complesso fu riportato all'attenzione degli archeologi nel 1974. L'esercito non è un gruppo isolato di statue, ma una parte di un paesaggio funerario concepito per riprodurre simbolicamente l'ordine politico e militare del primo impero unificato. Molte figure e strutture restano ancora da scavare.`,
+    'lishan-garden': `Il tumulo principale non è stato aperto: la visita riguarda il paesaggio funerario, le fosse accessorie e l'organizzazione del complesso. Questa scelta rende il sito particolarmente utile per comprendere la prudenza della conservazione archeologica e la differenza fra conoscenza scientifica e curiosità spettacolare.`,
+    'giant-wild-goose-pagoda': `La prima pagoda fu completata nel 652 nel complesso del Da Ci'en Temple per custodire testi e immagini buddhiste associati al viaggio in India del monaco Xuanzang. Le trasformazioni successive ne modificarono altezza e struttura, ma non il ruolo simbolico nella storia del buddhismo cinese.`,
+    'xian-city-wall': `La cinta visibile oggi appartiene soprattutto alla sistemazione della prima età Ming. La sua eccezionale continuità permette di comprendere la città non come una somma di monumenti, ma come uno spazio organizzato da porte, bastioni, fossati e assi viari.`,
+    'elephant-trunk-hill': `La collina è formata da calcari molto antichi e l'arco alla base produce, insieme al riflesso nell'acqua, la figura della proboscide. La forza del simbolo deriva dall'unione fra forma geologica, posizione fluviale e lunga tradizione di immagini turistiche della città.`,
+    'two-rivers-four-lakes': `Il sistema collega il Li River e il Taohua River con Ronghu, Shanhu, Guihu e Mulong Lake. La visita permette di leggere il centro di Guilin come paesaggio idraulico e urbano, non soltanto come sfondo per una crociera serale.`,
+    'star-ferry': `La traversata nasce alla fine dell'Ottocento e continua a funzionare come trasporto pubblico. Il suo valore storico sta proprio nella continuità d'uso: non è una ricostruzione nostalgica, ma una piccola infrastruttura ancora inserita nel ritmo della città.`,
+    'tai-kwun': `Il complesso riunisce l'ex stazione centrale di polizia, la magistratura e la prigione Victoria. Il restauro contemporaneo ha trasformato un luogo di controllo e detenzione in centro culturale, creando un dialogo volutamente non semplice fra conservazione, memoria istituzionale e consumo culturale.`,
+    'central-escalator': `Entrato in funzione nel 1993, il sistema non è una singola scala mobile ma una lunga sequenza di tratti che attraversa quartieri con forti dislivelli. Il cambio di direzione durante la giornata rivela la sua origine di infrastruttura pendolare prima ancora che di attrazione.`,
+    'the-bund': `Il fronte del Bund riunisce edifici bancari, assicurativi, consolari e commerciali costruiti soprattutto fra la fine dell'Ottocento e la prima metà del Novecento. La sua immagine attuale nasce dal confronto diretto con Pudong: due rive che condensano fasi diverse dell'ambizione internazionale di Shanghai.`,
+    'yu-garden': `Il giardino fu avviato in epoca Ming come progetto familiare e ha attraversato danneggiamenti, trasformazioni e restauri. Rocce, padiglioni, acqua e corridoi non cercano una veduta unica: costruiscono una serie di mondi in miniatura, secondo la logica del giardino classico del Jiangnan.`,
+    'shanghai-museum-east': `Il nuovo polo di Pudong amplia il racconto delle collezioni del museo attraverso gallerie dedicate a bronzi, scultura, calligrafia, pittura, sigilli, giade, ceramiche e monete. L'edificio permette di confrontare il linguaggio museale contemporaneo con oggetti nati per corti, templi, tombe e ambienti domestici.`,
+    'shanghai-jewish-refugees-museum': `Il museo ricostruisce la vicenda dei rifugiati ebrei accolti a Shanghai durante le persecuzioni naziste, molti dei quali vissero nell'area di Hongkou. La storia mette in relazione geopolitica, migrazione forzata e vita quotidiana in una città che, pur fra enormi difficoltà, rimase una rara possibilità di salvezza.`,
+    'reed-flute-cave': `La grotta è il risultato della dissoluzione del calcare da parte dell'acqua. Stalattiti, stalagmiti e colate si sono formate lentamente; l'illuminazione moderna accentua profili e colori, ma va distinta dai processi naturali che hanno costruito gli ambienti.`,
+    'jingjiang-princes-city': `Il complesso fu la sede dei principi Jingjiang della dinastia Ming. La sua pianta assiale e il rapporto con Solitary Beauty Peak mostrano come autorità dinastica, geomanzia e paesaggio urbano potessero essere organizzati in un unico sistema rappresentativo.`,
+    'tianmen-cave': `L'arco naturale è legato a un crollo nella parete calcarea e domina una scalinata monumentale. La denominazione “Porta del Cielo” trasforma un evento geologico in immagine cosmologica, rafforzata dalla teatralità dell'accesso.`,
+    'wukang-mansion': `L'edificio, progettato dall'architetto László Hudec, è diventato un'icona urbana per la pianta triangolare e la posizione all'incrocio. La sua fortuna fotografica contemporanea mostra come un condominio possa acquisire il ruolo di monumento senza perdere del tutto la propria funzione residenziale.`,
+    'great-mosque-xian': `La moschea combina funzioni islamiche e linguaggio architettonico cinese. La sequenza di cortili, padiglioni e iscrizioni arabe rende visibile l'adattamento di una religione transregionale a materiali, forme e consuetudini locali maturate lungo le reti commerciali di Chang'an.`,
+    'sun-moon-pagodas': `Le pagode visibili oggi sono parte della sistemazione contemporanea del lago Shanhu e funzionano soprattutto come emblema notturno della città. La loro efficacia simbolica deriva dal dialogo fra forme tradizionali, illuminazione moderna e riflesso sull'acqua.`,
+    'huangshi-village': `L'altopiano panoramico permette di osservare dall'alto la densità dei pilastri di arenaria. Il nome “village” non indica un normale villaggio abitato: è una denominazione paesaggistica che raccoglie sentieri e terrazze naturali.`,
+    'bailong-elevator': `L'ascensore riduce a pochi minuti un dislivello che richiederebbe una lunga salita. È quindi un simbolo delle tensioni del turismo di massa: amplia l'accessibilità e distribuisce i flussi, ma introduce un'infrastruttura fortemente visibile in un ambiente protetto.`,
+    'oriental-pearl': `Completata negli anni Novanta, la torre appartiene alla prima fase della nuova skyline di Pudong. Le sfere e la silhouette volutamente riconoscibile contribuirono a creare un'immagine immediata della Shanghai post-riforme, prima dell'arrivo dei grattacieli ancora più alti.`,
+    'waibaidu-bridge': `Il ponte metallico attraversa la foce del Suzhou Creek presso il Bund ed è uno dei punti migliori per leggere l'incontro fra infrastruttura, architetture storiche e skyline contemporanea. Il nome e la struttura sono legati alle trasformazioni della mobilità nella Shanghai internazionale.`
+  };
+
+  function profileFor(type = '') {
+    const t = type.toLowerCase();
+    if (/tempio|monastero|moschea|religios|pagoda/.test(t)) return profiles.sacred;
+    if (/museo|centro culturale/.test(t)) return profiles.museum;
+    if (/archeologic|mausoleo|sito storico/.test(t)) return profiles.archaeology;
+    if (/grotta|montagna|fiume|lago|formazione|parco nazionale|area panoramica|sentiero|valle|belvedere/.test(t)) return profiles.nature;
+    if (/mercato|strada|quartiere|shopping|borgo|villaggio/.test(t)) return profiles.urban;
+    if (/architettura|edificio|palazzo|torre storica|fortificazione|ponte storico/.test(t)) return profiles.architecture;
+    if (/funivia|traghetto|ascensore|infrastruttura|ponte panoramico|passerella/.test(t)) return profiles.infrastructure;
+    if (/spettacolo|teatro|intrattenimento/.test(t)) return profiles.performance;
+    if (/giardino|parco urbano|lungofiume|passeggiata|paesaggio urbano|crociera/.test(t)) return profiles.landscape;
+    return profiles.architecture;
+  }
+
+  function compose(attraction, city) {
+    const p = profileFor(attraction.type);
+    const cityText = cityContext[attraction.city] || '';
+    const extra = specific[attraction.id] || '';
+    const history = [
+      `${attraction.name} merita di essere considerata non soltanto come una tappa da fotografare, ma come un documento del territorio. ${attraction.summary} La sua posizione, la funzione originaria e il modo in cui viene utilizzata oggi permettono di collegare l'esperienza immediata della visita a processi storici più ampi.`,
+      `${attraction.history} ${extra}`.trim(),
+      `${cityText} Nel caso di ${attraction.name}, questo quadro generale aiuta a evitare una lettura isolata: il luogo acquista significato quando viene messo in relazione con il quartiere, con le reti di trasporto, con il paesaggio o con le istituzioni che lo hanno prodotto e conservato.`,
+      `${p.history} ${p.reading}`
+    ];
+    const anecdotes = [
+      `${attraction.anecdote} Questo dettaglio è utile perché mostra come la reputazione di un luogo nasca dall'incontro fra fatti documentati, memoria locale e immagini ripetute nel tempo. Un aneddoto non sostituisce la storia, ma può rivelare ciò che una comunità considera memorabile.`,
+      `${p.anecdote} Durante la visita prova quindi a confrontare il racconto più noto con ciò che hai davanti: usi reali, materiali, rumori, code, rituali, attività commerciali e punti di vista. È spesso in questa differenza fra immagine attesa ed esperienza concreta che il luogo diventa davvero istruttivo.`
+    ];
+    const practical = `${attraction.tip} Dedica qualche minuto iniziale a orientarti e qualche minuto finale a riguardare il luogo senza scattare fotografie: questo semplice intervallo aiuta a ricostruire la sequenza degli spazi e a fissare meglio ciò che hai osservato.`;
+    const words = [...history, ...anecdotes, practical].join(' ').trim().split(/\s+/).length;
+    return { history, anecdotes, practical, words, minutes: Math.max(2, Math.ceil(words / 190)) };
+  }
+
+  window.CHINA_ATTRACTION_EDITORIAL = { compose };
+})();
