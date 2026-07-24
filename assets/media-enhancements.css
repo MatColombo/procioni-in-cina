@@ -32,3 +32,11 @@
 @media(prefers-reduced-motion:reduce){.remote-photo img,.remote-photo figcaption{transition:none}}
 @media print{.remote-photo{max-height:190px}.remote-photo figcaption{display:none}}
 .food-card:after{pointer-events:none}
+
+/* Foto remote v2: placeholder sempre leggibile e query breve visibile. */
+.remote-photo__placeholder{z-index:0}
+.remote-photo img{position:relative;z-index:1}
+.remote-photo figcaption{z-index:2}
+.remote-photo.has-error img{object-fit:cover;opacity:1;transform:none}
+.remote-photo.has-error .remote-photo__placeholder{display:none}
+.remote-photo__placeholder small{font:500 9px 'IBM Plex Mono',monospace;color:inherit;opacity:.8}

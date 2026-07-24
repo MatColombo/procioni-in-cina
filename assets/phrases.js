@@ -13,6 +13,7 @@
     recent:JSON.parse(localStorage.getItem('chinaPhraseRecent') || '[]').filter(id => phraseById[id]).slice(0,20),
     pinyin:localStorage.getItem('chinaPhrasePinyin') !== '0',
     night:localStorage.getItem('chinaPhraseNight') === '1',
+    focusMode:localStorage.getItem('chinaPhraseFocus') === '1',
     visible:[], currentIndex:0, wakeLock:null
   };
   const root = $('#phrases-root');
@@ -82,10 +83,28 @@
   function toggleFavorite(id) { state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id); saveFavorites(); const cardEl=$(`[data-id="${id}"]`); cardEl?.classList.toggle('is-favorite',state.favorites.has(id)); const btn=cardEl?.querySelector('[data-action="favorite"]'); if(btn){btn.classList.toggle('active',state.favorites.has(id));btn.innerHTML=`<i class="ti ${state.favorites.has(id)?'ti-star-filled':'ti-star'}"></i>`} if(dialog.open&&state.visible[state.currentIndex]?.id===id) updateDialog(); if(state.favoritesOnly) applyFilters(); showToast(state.favorites.has(id)?'Aggiunta ai preferiti':'Rimossa dai preferiti'); }
   async function requestWakeLock(){try{if('wakeLock'in navigator)state.wakeLock=await navigator.wakeLock.request('screen')}catch{} }
   async function releaseWakeLock(){try{await state.wakeLock?.release()}catch{}state.wakeLock=null}
-  function openPhrase(id) { const idx=Math.max(0,state.visible.findIndex(p=>p.id===id)); state.currentIndex=idx; addRecent(id); updateDialog(); dialog.showModal(); requestWakeLock(); dialog.querySelector('.display-main').focus({preventScroll:true}); }
+  function fitPosterText() {
+    if (!dialog.open) return;
+    const main=$('.display-main',dialog); const zh=$('#display-zh'); const supporting=$('.display-supporting',dialog);
+    if (!main||!zh) return;
+    zh.style.fontSize='32px'; zh.style.maxHeight='none';
+    const supportingHeight=(supporting&&getComputedStyle(supporting).display!=='none')?supporting.getBoundingClientRect().height:0;
+    const mainStyle=getComputedStyle(main); const verticalPadding=parseFloat(mainStyle.paddingTop)+parseFloat(mainStyle.paddingBottom);
+    const availableHeight=Math.max(64,main.clientHeight-supportingHeight-verticalPadding-6);
+    const availableWidth=Math.max(120,main.clientWidth-8);
+    zh.style.maxHeight=`${availableHeight}px`;
+    let low=26, high=Math.min(176,Math.max(64,window.innerWidth*.34));
+    const fits=size=>{zh.style.fontSize=`${size}px`;return zh.scrollWidth<=availableWidth+2&&zh.scrollHeight<=availableHeight+2};
+    if(!fits(low)){zh.style.fontSize='24px';return}
+    while(high-low>1){const mid=(low+high)/2;if(fits(mid))low=mid;else high=mid}
+    zh.style.fontSize=`${Math.floor(low)}px`;
+  }
+  function schedulePosterFit(){requestAnimationFrame(()=>requestAnimationFrame(fitPosterText))}
+  function applyFocusMode(){dialog.classList.toggle('focus-mode',state.focusMode);const btn=$('#display-focus');btn?.classList.toggle('active',state.focusMode);btn?.setAttribute('aria-pressed',String(state.focusMode));btn?.setAttribute('aria-label',state.focusMode?'Mostra traduzione e pinyin':'Mostra solo il testo cinese');schedulePosterFit()}
+  function openPhrase(id) { const idx=Math.max(0,state.visible.findIndex(p=>p.id===id)); state.currentIndex=idx; addRecent(id); updateDialog(); dialog.showModal(); document.body.classList.add('poster-open'); requestWakeLock(); dialog.querySelector('.display-main').focus({preventScroll:true}); schedulePosterFit(); }
   function updateDialog() {
     const p=state.visible[state.currentIndex]||state.visible[0]; if(!p)return; const c=byContext[p.context];
-    $('#display-context').innerHTML=`<i class="ti ${c.icon}"></i> ${esc(c.name)}`; $('#display-zh').textContent=p.zh; $('#display-pinyin').textContent=p.pinyin; $('#display-it').textContent=p.it; $('#display-tags').innerHTML=p.tags.map(t=>`<span class="tag">#${esc(t)}</span>`).join(''); $('#display-index').textContent=`${state.currentIndex+1} / ${state.visible.length}`; $('#display-translate').href=googleTranslate(p); $('#display-favorite').classList.toggle('active',state.favorites.has(p.id)); $('#display-favorite').innerHTML=`<i class="ti ${state.favorites.has(p.id)?'ti-star-filled':'ti-star'}"></i>`; dialog.dataset.phraseId=p.id;
+    $('#display-context').innerHTML=`<i class="ti ${c.icon}"></i> ${esc(c.name)}`; $('#display-zh').textContent=p.zh; $('#display-pinyin').textContent=p.pinyin; $('#display-it').textContent=p.it; $('#display-tags').innerHTML=p.tags.map(t=>`<span class="tag">#${esc(t)}</span>`).join(''); $('#display-index').textContent=`${state.currentIndex+1} / ${state.visible.length}`; $('#display-translate').href=googleTranslate(p); $('#display-favorite').classList.toggle('active',state.favorites.has(p.id)); $('#display-favorite').innerHTML=`<i class="ti ${state.favorites.has(p.id)?'ti-star-filled':'ti-star'}"></i>`; dialog.dataset.phraseId=p.id; applyFocusMode(); schedulePosterFit();
   }
   function moveDialog(delta){if(!state.visible.length)return;state.currentIndex=(state.currentIndex+delta+state.visible.length)%state.visible.length;addRecent(state.visible[state.currentIndex].id);updateDialog()}
 
@@ -100,9 +119,12 @@
   $('#night-toggle').addEventListener('click',()=>{state.night=!state.night;localStorage.setItem('chinaPhraseNight',state.night?'1':'0');applyViewPrefs()});
   root.addEventListener('click',e=>{const action=e.target.closest('[data-action]');if(!action)return;const cardEl=e.target.closest('.phrase-card');const p=phraseById[cardEl?.dataset.id];if(!p)return;if(action.dataset.action==='favorite')toggleFavorite(p.id);if(action.dataset.action==='open')openPhrase(p.id);if(action.dataset.action==='copy')copyText(p.zh);if(action.dataset.action==='speak')speak(p)});
   $('#display-close').addEventListener('click',()=>dialog.close()); $('#display-prev').addEventListener('click',()=>moveDialog(-1)); $('#display-next').addEventListener('click',()=>moveDialog(1)); $('#display-copy').addEventListener('click',()=>copyText(state.visible[state.currentIndex].zh)); $('#display-copy-all').addEventListener('click',()=>{const p=state.visible[state.currentIndex];copyText(`${p.zh}\n${p.pinyin}\n${p.it}`)}); $('#display-speak').addEventListener('click',()=>speak(state.visible[state.currentIndex])); $('#display-favorite').addEventListener('click',()=>toggleFavorite(state.visible[state.currentIndex].id));
-  $('#display-fullscreen').addEventListener('click',async()=>{try{if(!document.fullscreenElement)await dialog.requestFullscreen?.();else await document.exitFullscreen?.()}catch{showToast('La modalità cartello è già a schermo intero')}});
-  dialog.addEventListener('close',()=>{window.speechSynthesis?.cancel?.();releaseWakeLock()});
+  $('#display-focus').addEventListener('click',()=>{state.focusMode=!state.focusMode;localStorage.setItem('chinaPhraseFocus',state.focusMode?'1':'0');applyFocusMode()});
+  $('#display-fullscreen').addEventListener('click',async()=>{try{if(!document.fullscreenElement)await dialog.requestFullscreen?.();else await document.exitFullscreen?.()}catch{showToast('La modalità cartello occupa già tutto lo schermo')}});
+  dialog.addEventListener('close',()=>{window.speechSynthesis?.cancel?.();releaseWakeLock();document.body.classList.remove('poster-open')});
   document.addEventListener('keydown',e=>{if(!dialog.open)return;if(e.key==='ArrowLeft')moveDialog(-1);if(e.key==='ArrowRight')moveDialog(1);if(e.key==='c')copyText(state.visible[state.currentIndex].zh);if(e.key===' ') {e.preventDefault();speak(state.visible[state.currentIndex])}});
   let touchX=0;dialog.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX},{passive:true});dialog.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-touchX;if(Math.abs(d)>55)moveDialog(d>0?-1:1)},{passive:true});
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&dialog.open)requestWakeLock()});
+  let fitTimer; const refit=()=>{clearTimeout(fitTimer);fitTimer=setTimeout(schedulePosterFit,80)};
+  window.addEventListener('resize',refit,{passive:true});window.addEventListener('orientationchange',refit,{passive:true});
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&dialog.open){requestWakeLock();schedulePosterFit()}});
 })();

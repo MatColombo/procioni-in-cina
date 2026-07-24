@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/2.47.0/tabler-icons.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/global-navigation.css">
-<link rel="stylesheet" href="assets/phrases.css">
+<link rel="stylesheet" href="assets/phrases.css?v=20260724-poster2">
 </head>
 <body>
 <header class="hero">
@@ -70,24 +70,29 @@
 <dialog class="phrase-dialog" id="phrase-dialog">
   <div class="display-shell">
     <div class="display-top">
-      <div class="display-top__left"><button class="display-icon-btn" id="display-close" aria-label="Chiudi"><i class="ti ti-x"></i></button><span class="display-context" id="display-context"></span></div>
-      <div class="display-top__left"><button class="display-icon-btn" id="display-favorite" aria-label="Preferito"><i class="ti ti-star"></i></button><button class="display-icon-btn" id="display-fullscreen" aria-label="Schermo intero"><i class="ti ti-maximize"></i></button></div>
+      <div class="display-top__left"><button class="display-icon-btn" id="display-close" aria-label="Chiudi modalità cartello"><i class="ti ti-x"></i></button><span class="display-context" id="display-context"></span></div>
+      <div class="display-top__left display-top__tools"><button class="display-icon-btn" id="display-favorite" aria-label="Aggiungi ai preferiti"><i class="ti ti-star"></i></button><button class="display-icon-btn" id="display-focus" aria-label="Mostra solo il testo cinese" aria-pressed="false"><i class="ti ti-focus-2"></i></button><button class="display-icon-btn" id="display-fullscreen" aria-label="Attiva schermo intero"><i class="ti ti-maximize"></i></button></div>
     </div>
     <div class="display-main" tabindex="-1">
-      <p class="display-zh" id="display-zh" lang="zh-CN"></p><p class="display-pinyin" id="display-pinyin"></p><p class="display-it" id="display-it"></p><div class="display-tags" id="display-tags"></div>
+      <p class="display-zh" id="display-zh" lang="zh-CN"></p>
+      <div class="display-supporting"><p class="display-pinyin" id="display-pinyin"></p><p class="display-it" id="display-it"></p><div class="display-tags" id="display-tags"></div></div>
     </div>
-    <div class="display-bottom">
-      <button class="display-icon-btn" id="display-prev" aria-label="Frase precedente"><i class="ti ti-chevron-left"></i></button>
-      <span class="display-index" id="display-index"></span>
-      <button class="display-icon-btn" id="display-next" aria-label="Frase successiva"><i class="ti ti-chevron-right"></i></button>
-      <button class="display-action primary" id="display-speak"><i class="ti ti-volume"></i><span>Pronuncia</span></button>
-      <button class="display-action" id="display-copy"><i class="ti ti-copy"></i><span>Copia cinese</span></button>
-      <button class="display-action" id="display-copy-all"><i class="ti ti-copy-check"></i><span>Copia tutto</span></button>
-      <a class="display-action" id="display-translate" target="_blank" rel="noopener"><i class="ti ti-language"></i><span>Google Translate</span></a>
+    <div class="display-bottom" aria-label="Comandi modalità cartello">
+      <div class="display-nav">
+        <button class="display-icon-btn display-nav-btn" id="display-prev" aria-label="Frase precedente"><i class="ti ti-chevron-left"></i></button>
+        <div class="display-progress"><span class="display-index" id="display-index"></span><small><i class="ti ti-arrows-horizontal"></i> scorri lateralmente</small></div>
+        <button class="display-icon-btn display-nav-btn" id="display-next" aria-label="Frase successiva"><i class="ti ti-chevron-right"></i></button>
+      </div>
+      <div class="display-actions">
+        <button class="display-action primary" id="display-speak"><i class="ti ti-volume"></i><span>Audio</span></button>
+        <button class="display-action" id="display-copy"><i class="ti ti-copy"></i><span>Copia</span></button>
+        <button class="display-action" id="display-copy-all"><i class="ti ti-copy-check"></i><span>Tutto</span></button>
+        <a class="display-action" id="display-translate" target="_blank" rel="noopener"><i class="ti ti-language"></i><span>Translate</span></a>
+      </div>
     </div>
   </div>
 </dialog>
-<script src="assets/phrases-data.js"></script>
-<script src="assets/phrases.js"></script>
+<script src="assets/phrases-data.js?v=20260724-poster2"></script>
+<script src="assets/phrases.js?v=20260724-poster2"></script>
 </body>
 </html>
