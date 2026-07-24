@@ -1,93 +1,649 @@
 <!DOCTYPE html>
+
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
-<title>Cina 2026 — Frasi utili</title>
-<meta name="theme-color" content="#8F1D1D">
-<meta name="description" content="Frasario italiano-cinese da viaggio con ricerca, preferiti, copia, pronuncia e modalità cartello a schermo intero.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/2.47.0/tabler-icons.min.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/global-navigation.css">
-<link rel="stylesheet" href="assets/phrases.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Cina 2026 — Sintesi del viaggio</title>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="Cina 2026" name="apple-mobile-web-app-title"/>
+<meta content="#8F1D1D" name="theme-color"/>
+<meta content="Itinerario interattivo in Cina, 9-22 agosto 2026, con timeline e link Google Maps / AMap." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/2.47.0/tabler-icons.min.css" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#182420;
+    --paper:#F1EFE4;
+    --paper-2:#E8E4D4;
+    --jade:#3F6355;
+    --jade-light:#DEE7DD;
+    --jade-dark:#233A31;
+    --seal:#AB3A2B;
+    --seal-light:#F3DBD3;
+    --gold:#A9822C;
+    --gold-light:#F2E6C8;
+    --muted:#6B7269;
+    --line: rgba(24,36,32,0.14);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{background:var(--paper);}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    padding-bottom:calc(48px + env(safe-area-inset-bottom));
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:0 20px;}
+  a{color:inherit;}
+  i.ti{font-style:normal;}
+
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    padding:calc(28px + env(safe-area-inset-top)) 20px 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-40px;top:-40px;
+    width:180px;height:180px;
+    border:1px solid rgba(241,239,228,0.14);
+    border-radius:50%;
+  }
+  .hero-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#9FB3A8;
+    margin:0 0 10px;
+  }
+  .hero h1{
+    font-family:'Noto Serif TC', serif;
+    font-weight:700;
+    font-size:40px;
+    line-height:1.1;
+    margin:0 0 8px;
+    letter-spacing:0.01em;
+  }
+  .hero p.dates{margin:0;font-size:15px;color:#C9D4CC;}
+  .stats{display:flex;gap:10px;margin-top:22px;overflow-x:auto;padding-bottom:2px;}
+  .stat{flex:1 0 auto;min-width:84px;background:rgba(241,239,228,0.08);border:1px solid rgba(241,239,228,0.16);border-radius:10px;padding:10px 12px;}
+  .stat .n{font-family:'IBM Plex Mono', monospace;font-size:19px;font-weight:500;display:block;}
+  .stat .l{font-size:11.5px;color:#9FB3A8;text-transform:uppercase;letter-spacing:0.06em;}
+
+  .quicknav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 20px;}
+  .quicknav a{flex:0 0 auto;font-family:'IBM Plex Mono', monospace;font-size:12.5px;text-decoration:none;color:var(--jade-dark);background:var(--jade-light);padding:7px 12px;border-radius:20px;white-space:nowrap;}
+
+  .transit-banner{margin:22px 0;padding:14px 16px;background:var(--paper-2);border-radius:10px;border:1px dashed var(--line);display:flex;align-items:center;gap:12px;}
+  .transit-banner i{font-size:20px;color:var(--jade-dark);flex-shrink:0;}
+  .transit-banner .tt{font-size:14px;}
+  .transit-banner .tt b{font-weight:600;}
+  .transit-banner .tt span.meta{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;}
+
+  .city-section{margin-top:8px;scroll-margin-top:64px;}
+  .photo-banner{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
+    background:var(--paper-2);
+  }
+  .photo-credit{
+    font-size:10.5px;
+    color:var(--muted);
+    text-align:right;
+    margin-top:4px;
+  }
+  .photo-credit a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted);}
+  .dish-card{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    background:var(--paper-2);
+    border-radius:12px;
+    padding:10px;
+    margin:18px 0;
+  }
+  .dish-card img{
+    width:68px;
+    height:68px;
+    object-fit:cover;
+    border-radius:9px;
+    flex-shrink:0;
+  }
+  .dish-card .dish-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:4px;
+    margin-bottom:2px;
+  }
+  .dish-card .dish-name{font-weight:600;font-size:14.5px;margin-bottom:2px;}
+  .dish-card .dish-desc{font-size:13px;color:var(--muted);line-height:1.4;}
+  .market-card{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    background:var(--jade-light);
+    border-radius:10px;
+    padding:10px 12px;
+    margin:10px 0 18px;
+  }
+  .market-card i{font-size:19px;color:var(--jade-dark);margin-top:1px;flex-shrink:0;}
+  .market-card .market-name{font-weight:600;font-size:13.5px;color:var(--jade-dark);margin-bottom:2px;}
+  .market-card .market-desc{font-size:12.5px;color:var(--jade-dark);opacity:0.85;line-height:1.4;}
+  .seal{display:inline-block;transform:rotate(-2.5deg);border:2px solid var(--seal);color:var(--seal);padding:10px 18px;border-radius:4px;margin:34px 0 18px;position:relative;}
+  .seal::before{content:"";position:absolute;inset:3px;border:1px solid var(--seal);border-radius:2px;}
+  .seal .cn{font-family:'Noto Serif TC', serif;font-weight:700;font-size:13px;letter-spacing:0.24em;display:block;text-align:center;}
+  .seal .en{font-family:'Noto Serif TC', serif;font-weight:500;font-size:22px;display:block;text-align:center;margin-top:2px;}
+
+  .day{border-top:1px solid var(--line);padding:16px 0;}
+  .day:first-of-type{border-top:none;padding-top:0;}
+  .day-head{display:flex;align-items:baseline;gap:8px;margin-bottom:10px;}
+  .day-date{font-family:'IBM Plex Mono', monospace;font-weight:500;font-size:15px;background:var(--ink);color:var(--paper);padding:2px 8px;border-radius:6px;}
+  .day-dow{font-size:13px;color:var(--muted);}
+
+  .row{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;margin-bottom:7px;}
+  .row i{font-size:17px;margin-top:2px;flex-shrink:0;color:var(--jade-dark);}
+  .row .label{font-weight:600;color:var(--ink);}
+  .row .sub{color:var(--muted);}
+
+  .move-row{background:var(--seal-light);border-radius:8px;padding:9px 11px;margin-bottom:10px;}
+  .move-row i{color:var(--seal);}
+  .move-row .sub{color:#7A392E;}
+  .hotel-row i{color:var(--gold);}
+
+  .badge{display:inline-block;font-family:'IBM Plex Mono', monospace;font-size:11px;padding:1px 7px;border-radius:20px;margin-left:6px;vertical-align:1px;}
+  .badge.done{background:var(--jade-light);color:var(--jade-dark);}
+  .badge.todo{background:var(--seal-light);color:var(--seal);}
+
+  .costs{margin-top:40px;padding-top:22px;border-top:2px solid var(--ink);}
+  .costs h2{font-family:'Noto Serif TC', serif;font-size:22px;font-weight:600;margin:0 0 4px;}
+  .costs p.hint{color:var(--muted);font-size:13.5px;margin:0 0 16px;}
+  .cost-line{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--line);font-size:14.5px;gap:8px;}
+  .cost-line .name{flex:1;}
+  .cost-line .amt{font-family:'IBM Plex Mono', monospace;font-size:14px;white-space:nowrap;}
+  .totals{display:flex;gap:10px;margin-top:18px;}
+  .totals .box{flex:1;background:var(--jade-dark);color:var(--paper);border-radius:10px;padding:14px 16px;}
+  .totals .box .l{font-size:12px;color:#B9C8BF;text-transform:uppercase;letter-spacing:0.06em;}
+  .totals .box .n{font-family:'IBM Plex Mono', monospace;font-size:22px;font-weight:500;display:block;margin-top:2px;}
+
+  .estimate{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);}
+  .estimate h2{font-family:'Noto Serif TC', serif;font-size:20px;font-weight:600;margin:0 0 4px;}
+  .estimate h3{font-family:'IBM Plex Mono', monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold);margin:22px 0 8px;}
+  .estimate p.hint{color:var(--muted);font-size:13.5px;margin:0 0 4px;}
+  .estimate-line{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;}
+  .estimate-line .name{flex:1;}
+  .estimate-line .name .sub{display:block;font-size:12px;color:var(--muted);margin-top:2px;}
+  .estimate-line .amt{font-family:'IBM Plex Mono', monospace;font-size:13.5px;white-space:nowrap;text-align:right;}
+  .badge.stima{background:var(--gold-light,#F2E6C8);color:var(--gold);}
+  .estimate-total{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:var(--paper);border-radius:10px;padding:14px 16px;margin-top:16px;}
+  .estimate-total .l{font-size:12px;color:#B9C8BF;text-transform:uppercase;letter-spacing:0.06em;}
+  .estimate-total .n{font-family:'IBM Plex Mono', monospace;font-size:20px;font-weight:500;}
+  .estimate-note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5;}
+
+  footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:34px;padding-top:18px;border-top:1px solid var(--line);}
+</style>
+<style>
+  :root{
+    --ink:#211915;
+    --paper:#F8F1E3;
+    --paper-2:#F0E1C8;
+    --paper-3:#FFFDF7;
+    --jade:#216A58;
+    --jade-light:#DDEBE4;
+    --jade-dark:#17463B;
+    --seal:#B72D24;
+    --seal-dark:#7B171A;
+    --seal-light:#F8DDD4;
+    --gold:#C49A2F;
+    --gold-light:#F5E6B9;
+    --muted:#74685E;
+    --line:rgba(73,45,31,.15);
+    --shadow:0 14px 40px rgba(67,35,22,.10);
+  }
+  html{scroll-behavior:smooth;background:var(--paper);}
+  body{
+    background:
+      radial-gradient(circle at 10% 15%, rgba(196,154,47,.08), transparent 23rem),
+      radial-gradient(circle at 95% 40%, rgba(183,45,36,.06), transparent 28rem),
+      var(--paper);
+    color:var(--ink);
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;
+    background-image:
+      linear-gradient(30deg, rgba(123,23,26,.035) 12%, transparent 12.5%, transparent 87%, rgba(123,23,26,.035) 87.5%, rgba(123,23,26,.035)),
+      linear-gradient(150deg, rgba(123,23,26,.035) 12%, transparent 12.5%, transparent 87%, rgba(123,23,26,.035) 87.5%, rgba(123,23,26,.035));
+    background-size:48px 84px;
+  }
+  .hero{
+    background:
+      radial-gradient(circle at 82% 20%, rgba(245,230,185,.14), transparent 12rem),
+      linear-gradient(135deg, #6F1118 0%, #A61F23 55%, #721419 100%);
+    color:#FFF9E9;
+    border-bottom:5px solid var(--gold);
+    padding-bottom:34px;
+  }
+  .hero::before{
+    content:"福";
+    position:absolute;right:5vw;bottom:-35px;
+    font-family:'Noto Serif TC',serif;font-size:180px;font-weight:700;
+    color:rgba(255,246,215,.06);transform:rotate(-8deg);
+  }
+  .hero::after{border-color:rgba(255,246,215,.24);width:220px;height:220px;right:-55px;top:-70px;}
+  .hero .wrap{max-width:1060px;padding:0 24px;}
+  .hero-eyebrow{color:#F0D589;}
+  .hero h1{font-size:clamp(44px,8vw,76px);text-shadow:0 3px 18px rgba(41,9,10,.22);}
+  .hero p.dates{color:#F7E7C2;font-size:16px;}
+  .stats{max-width:720px;}
+  .stat{background:rgba(255,248,229,.10);border-color:rgba(255,248,229,.25);backdrop-filter:blur(8px);}
+  .stat .l{color:#F0D589;}
+
+  .quicknav{
+    background:rgba(248,241,227,.94);backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(123,23,26,.18);
+    box-shadow:0 5px 20px rgba(73,35,22,.06);
+  }
+  .quicknav a{background:#FFF8E8;color:var(--seal-dark);border:1px solid rgba(183,45,36,.20);font-weight:600;}
+  .quicknav a:hover{background:var(--seal);color:white;border-color:var(--seal);}
+
+  .itinerary-shell{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:210px minmax(0,760px);gap:28px;padding:0 24px;align-items:start;}
+  .itinerary-shell>.wrap{max-width:none;width:100%;padding:0;min-width:0;}
+  .day-sidebar{
+    position:sticky;top:68px;z-index:18;margin-top:22px;
+    background:rgba(255,253,247,.88);backdrop-filter:blur(16px);
+    border:1px solid rgba(123,23,26,.16);border-radius:18px;
+    box-shadow:var(--shadow);padding:15px;
+  }
+  .day-sidebar-title{display:flex;align-items:center;gap:8px;font-family:'Noto Serif TC',serif;font-weight:700;color:var(--seal-dark);font-size:16px;padding:2px 4px 11px;border-bottom:1px solid var(--line);}
+  .day-sidebar-title i{color:var(--gold);font-size:19px;}
+  .day-nav{display:flex;flex-direction:column;gap:5px;margin-top:10px;}
+  .day-nav a{display:grid;grid-template-columns:51px 1fr;gap:8px;align-items:center;text-decoration:none;padding:8px 9px;border-radius:11px;border:1px solid transparent;transition:.2s ease;}
+  .day-nav a:hover{background:var(--gold-light);}
+  .day-nav a.active{background:var(--seal);color:white;box-shadow:0 7px 18px rgba(183,45,36,.20);}
+  .day-nav .dn-date{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;white-space:nowrap;}
+  .day-nav .dn-city{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.82;}
+  .day-nav a.active .dn-city{opacity:.9;}
+
+  .map-guide{margin:22px 0 16px;background:linear-gradient(135deg,#FFF9E9,#F6E4C4);border:1px solid rgba(196,154,47,.35);border-left:4px solid var(--gold);border-radius:14px;padding:13px 15px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 8px 24px rgba(91,51,24,.06);}
+  .map-guide i{font-size:21px;color:var(--seal);margin-top:1px;}
+  .map-guide b{color:var(--seal-dark);}
+  .map-guide .subnote{display:block;color:var(--muted);font-size:12px;margin-top:3px;}
+
+  .transit-banner{background:linear-gradient(135deg,#FFF9ED,#F1E2C8);border:1px solid rgba(196,154,47,.30);border-left:4px solid var(--gold);border-radius:16px;box-shadow:0 9px 28px rgba(77,42,21,.06);align-items:flex-start;flex-wrap:wrap;}
+  .transit-banner>i{color:var(--seal);background:white;border:1px solid rgba(183,45,36,.15);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;}
+  .transit-banner .tt{flex:1;min-width:220px;}
+
+  .terminal-grid{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:3px;}
+  .terminal{background:rgba(255,255,255,.67);border:1px solid rgba(73,45,31,.10);border-radius:11px;padding:9px 10px;}
+  .terminal-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:3px;}
+  .terminal-name{font-size:12.5px;font-weight:600;display:block;line-height:1.35;}
+
+  .city-section{scroll-margin-top:124px;margin-top:22px;}
+  .seal{background:rgba(255,253,247,.55);box-shadow:0 8px 24px rgba(123,23,26,.08);border-color:var(--seal);}
+  .seal::before{border-color:var(--seal);}
+  .photo-banner{border:1px solid rgba(123,23,26,.12);box-shadow:var(--shadow);}
+  .dish-card{background:rgba(255,253,247,.80);border:1px solid rgba(73,45,31,.10);box-shadow:0 8px 24px rgba(73,35,22,.05);}
+  .market-card{background:linear-gradient(135deg,var(--jade-light),#EEF4ED);border:1px solid rgba(33,106,88,.18);box-shadow:0 8px 22px rgba(33,106,88,.06);}
+
+  .day{scroll-margin-top:130px;background:rgba(255,253,247,.91);border:1px solid rgba(73,45,31,.12)!important;border-radius:20px;padding:18px 18px 18px;margin:16px 0;box-shadow:var(--shadow);overflow:hidden;position:relative;}
+  .day::after{content:"";position:absolute;right:-30px;top:-30px;width:100px;height:100px;border:1px solid rgba(196,154,47,.18);border-radius:50%;pointer-events:none;}
+  .day-head{margin-bottom:13px;padding-bottom:12px;border-bottom:1px solid var(--line);position:relative;z-index:1;}
+  .day-date{background:linear-gradient(135deg,var(--seal-dark),var(--seal));color:#FFF9E9;border-radius:8px;padding:4px 10px;box-shadow:0 5px 14px rgba(183,45,36,.18);}
+  .day-dow{font-weight:600;color:var(--muted);}
+  .day-cn-date{margin-left:auto;font-family:'Noto Serif TC',serif;color:var(--gold);font-size:13px;font-weight:700;}
+  .activity-timeline{position:relative;padding-top:1px;}
+  .activity-timeline::before{content:"";position:absolute;left:16px;top:16px;bottom:16px;width:2px;background:linear-gradient(var(--seal),var(--gold),var(--jade));opacity:.38;}
+  .row{position:relative;margin:0 0 11px;padding:9px 10px 9px 47px;min-height:44px;border-radius:12px;align-items:flex-start;}
+  .row:last-child{margin-bottom:0;}
+  .row>i{position:absolute;left:0;top:7px;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:#FFF9ED;border:1px solid rgba(196,154,47,.35);color:var(--seal-dark);z-index:2;box-shadow:0 4px 12px rgba(67,35,22,.08);margin:0;}
+  .row>div{min-width:0;width:100%;}
+  .row .sub{line-height:1.48;}
+  .move-row{background:linear-gradient(135deg,#FBE1D9,#FFF3EC);border:1px solid rgba(183,45,36,.14);}
+  .move-row>i{background:var(--seal);color:white;border-color:var(--seal);}
+  .hotel-row{background:linear-gradient(135deg,#FFF6D8,#FFFDF3);border:1px solid rgba(196,154,47,.21);}
+  .hotel-row>i{background:var(--gold);color:white;border-color:var(--gold);}
+
+  .map-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px;}
+  .map-link{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;line-height:1;padding:6px 8px;border-radius:999px;border:1px solid rgba(73,45,31,.15);background:white;color:var(--ink);transition:.18s ease;white-space:nowrap;}
+  .map-link:hover{transform:translateY(-1px);box-shadow:0 5px 12px rgba(56,31,18,.10);}
+  .map-link.google{border-color:rgba(52,105,210,.25);color:#245DB0;}
+  .map-link.amap{border-color:rgba(0,147,121,.28);color:#08765F;background:#F2FFFB;}
+  .map-link i{font-size:13px;}
+  .inline-place{display:inline-flex;align-items:center;gap:3px;flex-wrap:nowrap;font-weight:500;color:var(--seal-dark);}
+  .inline-map-link{display:inline-grid;place-items:center;width:19px;height:19px;border-radius:50%;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;line-height:1;border:1px solid rgba(73,45,31,.15);background:white;vertical-align:1px;}
+  .inline-map-link.google{color:#245DB0;border-color:rgba(52,105,210,.25);}
+  .inline-map-link.amap{color:#08765F;border-color:rgba(0,147,121,.28);background:#F2FFFB;}
+  .station-note{display:block;font-size:11px;color:var(--muted);margin-top:7px;}
+
+  .costs{background:rgba(255,253,247,.65);border:1px solid rgba(73,45,31,.12);border-top:4px solid var(--seal)!important;border-radius:18px;padding:22px 18px;margin-top:44px;box-shadow:var(--shadow);}
+  .totals .box{background:linear-gradient(135deg,var(--jade-dark),#205D50);}
+  .estimate-total{background:linear-gradient(135deg,var(--seal-dark),var(--seal));}
+  footer{padding-bottom:18px;}
+
+  @media (max-width:860px){
+    .itinerary-shell{display:block;padding:0;max-width:none;}
+    .itinerary-shell>.wrap{padding:0 18px;max-width:620px;margin:0 auto;}
+    .day-sidebar{top:53px;margin:0;border-radius:0;border-left:0;border-right:0;padding:8px 12px;box-shadow:0 6px 18px rgba(73,35,22,.08);}
+    .day-sidebar-title{display:none;}
+    .day-nav{flex-direction:row;overflow-x:auto;margin:0;gap:6px;padding-bottom:2px;scrollbar-width:none;}
+    .day-nav::-webkit-scrollbar{display:none;}
+    .day-nav a{display:block;min-width:max-content;padding:7px 10px;text-align:center;border-color:rgba(123,23,26,.10);background:rgba(255,255,255,.72);}
+    .day-nav .dn-date{display:block;}
+    .day-nav .dn-city{display:none;}
+    .city-section,.day{scroll-margin-top:115px;}
+  }
+  @media (max-width:540px){
+    .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible;}
+    .stat{min-width:0;}
+    .hero{padding-left:0;padding-right:0;}
+    .hero .wrap{padding:0 18px;}
+    .hero h1{font-size:48px;}
+    .quicknav{padding-left:14px;padding-right:14px;}
+    .terminal-grid{grid-template-columns:1fr;}
+    .day{padding:16px 13px;}
+    .row{padding-right:6px;}
+    .day-cn-date{display:none;}
+    .map-actions{gap:5px;}
+    .map-link{font-size:10px;padding:6px 7px;}
+  }
+  @media print{
+    .quicknav,.day-sidebar{display:none!important;}
+    .itinerary-shell{display:block;max-width:760px;}
+    .day,.costs,.photo-banner{box-shadow:none;break-inside:avoid;}
+    .map-link,.inline-map-link{border:0;padding:0;background:none;}
+  }
+</style><link href="assets/index-additions.css" rel="stylesheet"/><link href="assets/global-navigation.css" rel="stylesheet"/>
+<meta content="navigation-repair-20260722-1" name="china-site-build"/>
 </head>
-<body>
-<header class="hero">
-  <div class="hero-inner">
-    <p class="eyebrow">Frasario operativo · Cina 2026</p>
-    <h1>常用语<br>Frasi utili</h1>
-    <p class="lead">Frasi pronte da mostrare, copiare o far pronunciare al telefono. Il contenuto resta disponibile nella pagina anche senza connessione; Google Translate richiede invece internet.</p>
-    <div class="stats">
-      <div class="stat"><strong>280</strong><span>frasi</span></div>
-      <div class="stat"><strong>14</strong><span>contesti</span></div>
-      <div class="stat"><strong>1 tap</strong><span>copia veloce</span></div>
-      <div class="stat"><strong>大字</strong><span>modalità cartello</span></div>
-    </div>
-  </div>
-</header>
-<nav class="quicknav site-nav" aria-label="Navigazione principale">
-  <div class="site-nav__inner">
-    <a class="site-brand" href="index.html" aria-label="Cina 2026 — pagina di sintesi"><span class="site-brand__mark" aria-hidden="true">中</span><span class="site-brand__name">Cina 2026<small>guida di viaggio</small></span></a>
-    <div class="site-tabs" role="list">
-      <a class="page-tab" href="index.html" role="listitem"><i class="ti ti-layout-dashboard" aria-hidden="true"></i><span class="tab-label-full">Sintesi</span><span class="tab-label-short">Sintesi</span></a>
-      <a class="page-tab" href="itinerario-dettagliato.html" role="listitem"><i class="ti ti-calendar-time" aria-hidden="true"></i><span class="tab-label-full">Itinerario dettagliato</span><span class="tab-label-short">Dettagliato</span></a>
-      <a class="page-tab" href="cibi.html" role="listitem"><i class="ti ti-bowl-chopsticks" aria-hidden="true"></i><span class="tab-label-full">Cibi</span><span class="tab-label-short">Cibi</span></a>
-      <a class="page-tab" href="attrazioni.html" role="listitem"><i class="ti ti-building-pagoda" aria-hidden="true"></i><span class="tab-label-full">Attrazioni</span><span class="tab-label-short">Attrazioni</span></a>
-      <a class="page-tab active" href="frasi.html" role="listitem" aria-current="page"><i class="ti ti-language" aria-hidden="true"></i><span class="tab-label-full">Frasi utili</span><span class="tab-label-short">Frasi</span></a>
-    </div>
-  </div>
-</nav>
-<nav class="section-nav" aria-label="Contesti principali">
-  <span class="section-nav__label"><i class="ti ti-message-2" aria-hidden="true"></i>Vai al contesto</span>
-  <a href="#context-trasporti">Trasporti</a><a href="#context-indicazioni">Indicazioni</a><a href="#context-ristorante">Cibo</a><a href="#context-hotel">Hotel</a><a href="#context-sicurezza">Sicurezza</a><a href="#context-emergenze">Emergenze</a>
-</nav>
-<main class="phrase-shell">
-  <section class="phrase-intro">
-    <div><h2>Usala come un cartello digitale</h2><p>Tocca “Grande” su una frase: il testo cinese occupa lo schermo, resta acceso quando il browser lo permette e può essere letto, copiato o aperto in Google Translate. Scorri lateralmente nella modalità grande per passare alla frase precedente o successiva.</p></div>
-    <div class="phrase-intro__actions"><button class="utility-btn active" id="pinyin-toggle"><i class="ti ti-letter-case"></i>Pinyin</button><button class="utility-btn" id="night-toggle"><i class="ti ti-moon"></i>Notte</button></div>
-  </section>
-  <section class="phrase-toolbar" aria-label="Ricerca e filtri">
-    <div class="search-row">
-      <label class="search-box"><i class="ti ti-search"></i><input id="phrase-search" type="search" placeholder="Cerca in italiano, cinese, pinyin o tag…" autocomplete="off"></label>
-      <button class="view-btn" id="reset-phrases"><i class="ti ti-refresh"></i><span class="label">Azzera</span></button>
-      <span class="result-count" id="phrase-count">280 frasi</span>
-    </div>
-    <div class="context-strip" id="context-strip" aria-label="Contesti"></div>
-  </section>
-  <div class="quick-filters">
-    <button class="utility-btn" id="essential-toggle"><i class="ti ti-bolt"></i>Solo essenziali</button>
-    <button class="utility-btn" id="favorites-toggle"><i class="ti ti-star"></i>Solo preferiti</button>
-    <button class="utility-btn" id="recent-toggle"><i class="ti ti-history"></i>Recenti</button>
-    <span class="photo-data-note"><i class="ti ti-info-circle"></i> Preferiti, recenti e impostazioni restano salvati solo su questo dispositivo.</span>
-  </div>
-  <div id="phrase-empty" class="empty-state"><i class="ti ti-search-off"></i><h2>Nessuna frase trovata</h2><p>Prova a rimuovere un filtro o a usare una parola più breve.</p></div>
-  <div id="phrases-root"></div>
-</main>
-<footer class="phrase-footer">Cina 2026 · Frasario italiano–cinese · Controlla sempre le informazioni mediche o di emergenza con personale qualificato.</footer>
-<div class="toast" id="phrase-toast" role="status" aria-live="polite"></div>
-<dialog class="phrase-dialog" id="phrase-dialog">
-  <div class="display-shell">
-    <div class="display-top">
-      <div class="display-top__left"><button class="display-icon-btn" id="display-close" aria-label="Chiudi"><i class="ti ti-x"></i></button><span class="display-context" id="display-context"></span></div>
-      <div class="display-top__left"><button class="display-icon-btn" id="display-favorite" aria-label="Preferito"><i class="ti ti-star"></i></button><button class="display-icon-btn" id="display-fullscreen" aria-label="Schermo intero"><i class="ti ti-maximize"></i></button></div>
-    </div>
-    <div class="display-main" tabindex="-1">
-      <p class="display-zh" id="display-zh" lang="zh-CN"></p><p class="display-pinyin" id="display-pinyin"></p><p class="display-it" id="display-it"></p><div class="display-tags" id="display-tags"></div>
-    </div>
-    <div class="display-bottom">
-      <button class="display-icon-btn" id="display-prev" aria-label="Frase precedente"><i class="ti ti-chevron-left"></i></button>
-      <span class="display-index" id="display-index"></span>
-      <button class="display-icon-btn" id="display-next" aria-label="Frase successiva"><i class="ti ti-chevron-right"></i></button>
-      <button class="display-action primary" id="display-speak"><i class="ti ti-volume"></i><span>Pronuncia</span></button>
-      <button class="display-action" id="display-copy"><i class="ti ti-copy"></i><span>Copia cinese</span></button>
-      <button class="display-action" id="display-copy-all"><i class="ti ti-copy-check"></i><span>Copia tutto</span></button>
-      <a class="display-action" id="display-translate" target="_blank" rel="noopener"><i class="ti ti-language"></i><span>Google Translate</span></a>
-    </div>
-  </div>
-</dialog>
-<script src="assets/phrases-data.js"></script>
-<script src="assets/phrases.js"></script>
-</body>
+<body class="summary-page">
+<div class="hero">
+<div class="wrap">
+<p class="hero-eyebrow">Itinerario di viaggio</p>
+<h1>中国<br/>Cina</h1>
+<p class="dates">9 — 22 agosto 2026 · Hong Kong · Guilin · Zhangjiajie · Xi'an · Shanghai</p>
+<div class="stats">
+<div class="stat"><span class="n">13</span><span class="l">giorni</span></div>
+<div class="stat"><span class="n">5</span><span class="l">città</span></div>
+<div class="stat"><span class="n">€3.036</span><span class="l">totale</span></div>
+<div class="stat"><span class="n">€1.518</span><span class="l">a persona</span></div>
+</div>
+</div>
+</div>
+<nav aria-label="Navigazione principale" class="quicknav site-nav"><div class="site-nav__inner"><a aria-label="Cina 2026 — pagina di sintesi" class="site-brand" href="index.html"><span aria-hidden="true" class="site-brand__mark">中</span><span class="site-brand__name">Cina 2026<small>guida di viaggio</small></span></a><div class="site-tabs" role="list"><a aria-current="page" class="page-tab active" href="index.html" role="listitem"><i aria-hidden="true" class="ti ti-layout-dashboard"></i><span class="tab-label-full">Sintesi</span><span class="tab-label-short">Sintesi</span></a><a class="page-tab" href="itinerario-dettagliato.html" role="listitem"><i aria-hidden="true" class="ti ti-calendar-time"></i><span class="tab-label-full">Itinerario dettagliato</span><span class="tab-label-short">Dettagliato</span></a><a class="page-tab" href="cibi.html" role="listitem"><i aria-hidden="true" class="ti ti-bowl-chopsticks"></i><span class="tab-label-full">Cibi</span><span class="tab-label-short">Cibi</span></a><a class="page-tab" href="attrazioni.html" role="listitem"><i aria-hidden="true" class="ti ti-building-pagoda"></i><span class="tab-label-full">Attrazioni</span><span class="tab-label-short">Attrazioni</span></a><a class="page-tab" href="frasi.html" role="listitem"><i aria-hidden="true" class="ti ti-language"></i><span class="tab-label-full">Frasi utili</span><span class="tab-label-short">Frasi</span></a></div></div></nav><nav aria-label="Sezioni di questa pagina" class="section-nav"><span class="section-nav__label"><i aria-hidden="true" class="ti ti-map-2"></i>In questa pagina</span><a href="#hongkong">Hong Kong</a><a href="#guilin">Guilin</a><a href="#zhangjiajie">Zhangjiajie</a><a href="#xian">Xi'an</a><a href="#shanghai">Shanghai</a><a href="#costi">Costi</a></nav><section aria-labelledby="hub-title" class="page-hub"><h2 id="hub-title">Esplora il viaggio</h2><p>La pagina principale resta una sintesi; le sezioni complete sono organizzate in pagine tematiche con la stessa navigazione.</p><div class="page-grid"><a class="page-card current" href="index.html"><i class="ti ti-layout-dashboard"></i><b>Sintesi</b><span>Giornate, spostamenti, hotel, mappe e costi essenziali.</span><em class="status">pagina attiva</em></a><a class="page-card detailed" href="itinerario-dettagliato.html"><i class="ti ti-calendar-time"></i><b>Itinerario dettagliato</b><span>Piano ora per ora, mappe numerate, trasporti e alternative vicine.</span><em class="status">disponibile</em></a><a class="page-card food" href="cibi.html"><i class="ti ti-bowl-chopsticks"></i><b>Cibi</b><span>85 specialità, prezzi, ingredienti e piccantezza.</span><em class="status">disponibile</em></a><a class="page-card attractions" href="attrazioni.html"><i class="ti ti-building-pagoda"></i><b>Attrazioni</b><span>103 schede con storia, costi, mappe e link alle giornate.</span><em class="status">disponibile</em></a><a class="page-card phrases" href="frasi.html"><i class="ti ti-language"></i><b>Frasi utili</b><span>280 frasi con copia, pronuncia e modalità cartello a schermo intero.</span><em class="status">disponibile</em></a><div aria-disabled="true" class="page-card future"><i class="ti ti-briefcase"></i><b>Trasporti e documenti</b><span>Spazio predisposto per biglietti, checklist e documenti di viaggio.</span><em class="status">futura</em></div></div></section><section class="detailed-cta"><div><i class="ti ti-calendar-time"></i></div><div><strong>Nuovo: itinerario ora per ora</strong><p>Apri la versione completa con mappe giornaliere numerate, spostamenti consigliati, bici e attrazioni vicine.</p></div><a href="itinerario-dettagliato.html">Apri il piano dettagliato <i class="ti ti-arrow-right"></i></a></section><div class="itinerary-shell"><aside aria-label="Timeline giornaliera" class="day-sidebar"><div class="day-sidebar-title"><i aria-hidden="true" class="ti ti-calendar-event"></i>Timeline giornaliera</div><nav class="day-nav"><a href="#giorno-10-ago"><span class="dn-date">10 ago</span><span class="dn-city">Hong Kong</span></a><a href="#giorno-11-ago"><span class="dn-date">11 ago</span><span class="dn-city">Hong Kong</span></a><a href="#giorno-12-ago"><span class="dn-date">12 ago</span><span class="dn-city">Guilin</span></a><a href="#giorno-13-ago"><span class="dn-date">13 ago</span><span class="dn-city">Guilin</span></a><a href="#giorno-14-ago"><span class="dn-date">14 ago</span><span class="dn-city">Zhangjiajie</span></a><a href="#giorno-15-ago"><span class="dn-date">15 ago</span><span class="dn-city">Zhangjiajie</span></a><a href="#giorno-16-ago"><span class="dn-date">16 ago</span><span class="dn-city">Zhangjiajie</span></a><a href="#giorno-17-ago"><span class="dn-date">17 ago</span><span class="dn-city">Xi'an</span></a><a href="#giorno-18-ago"><span class="dn-date">18 ago</span><span class="dn-city">Xi'an</span></a><a href="#giorno-19-ago"><span class="dn-date">19 ago</span><span class="dn-city">Xi'an</span></a><a href="#giorno-20-ago"><span class="dn-date">20 ago</span><span class="dn-city">Shanghai</span></a><a href="#giorno-21-ago"><span class="dn-date">21 ago</span><span class="dn-city">Shanghai</span></a><a href="#giorno-22-ago"><span class="dn-date">22 ago</span><span class="dn-city">Shanghai</span></a></nav></aside><div class="wrap"><div class="map-guide"><i aria-hidden="true" class="ti ti-map-2"></i><div><b>Due mappe per ogni punto:</b> Google Maps come riferimento e 高德 AMap per la navigazione in Cina.<span class="subnote">Per i treni senza numero o stazione esplicita, controlla il terminale definitivo sul biglietto.</span></div></div>
+<div class="transit-banner">
+<i aria-hidden="true" class="ti ti-plane-departure"></i>
+<div class="tt"><b>9 ago</b> — Malpensa → Hong Kong<span class="meta">Partenza 10:40 · arrivo 10 ago ore 7:00 · €1.057,50 a persona</span></div>
+<div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Milano Malpensa Airport (MXP)</span><div class="map-actions"><a aria-label="Apri Milano Malpensa Airport (MXP) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Milano%20Malpensa%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Milano Malpensa Airport (MXP) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Milano%20Malpensa%20Airport&amp;city=Milan&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Hong Kong International Airport (HKG)</span><div class="map-actions"><a aria-label="Apri Hong Kong International Airport (HKG) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Hong%20Kong%20International%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Hong Kong International Airport (HKG) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Hong%20Kong%20International%20Airport&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div></div>
+<!-- HONG KONG -->
+<section class="city-section" id="hongkong">
+<span class="seal"><span class="cn">香港</span><span class="en">Hong Kong</span></span>
+<img alt="Skyline di Hong Kong vista da Victoria Peak" class="photo-banner" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hong-Kong_skyline.JPG?width=900"/>
+<p class="photo-credit">Foto: Wikimedia Commons (dominio pubblico)</p>
+<div class="dish-card">
+<img alt="Dim sum" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dim_Sum_Breakfast.jpg?width=300"/>
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Dim sum</div>
+<div class="dish-desc">Bocconcini al vapore, ravioli e involtini — da gustare in una casa da tè tradizionale</div>
+</div>
+</div>
+<div class="dish-card">
+<img alt="Oca arrosto in un ristorante di Hong Kong" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Roast_goose_in_yat_lok_restaurant.JPG?width=300"/>
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Oca arrosto e char siu</div>
+<div class="dish-desc">Carni arrosto alla cantonese appese in vetrina — e per uno spuntino dolce, i gai daan jai (waffle a bolle d'uovo)</div>
+</div>
+</div>
+<div class="market-card">
+<i aria-hidden="true" class="ti ti-building-store"></i>
+<div>
+<div class="market-name">Temple Street Night Market</div>
+<div class="market-desc">Kowloon — bancarelle di street food, cartomanti e mercatino serale, da vivere dopo cena</div>
+<div class="map-actions"><a aria-label="Apri Temple Street Night Market su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Temple%20Street%20Night%20Market%2C%20Jordan%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Temple Street Night Market su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Temple%20Street%20Night%20Market%2C%20Jordan%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div>
+</div>
+<div class="day" id="giorno-10-ago">
+<div class="day-head"><span class="day-date">10 ago</span><span class="day-dow">lunedì</span><span class="day-cn-date">八月10日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Soravit on Granville</span><div class="map-actions"><a aria-label="Apri Soravit on Granville su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Soravit%20on%20Granville%2C%2029A%20Granville%20Road%2C%20Tsim%20Sha%20Tsui%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Soravit on Granville su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Soravit%20on%20Granville%2C%2029A%20Granville%20Road%2C%20Tsim%20Sha%20Tsui%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub"><span class="inline-place">Central<a aria-label="Central su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Central%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Central su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Central%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span>, <span class="inline-place">Big Buddha<a aria-label="Big Buddha su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Tian%20Tan%20Buddha%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Big Buddha su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Tian%20Tan%20Buddha%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span> e <span class="inline-place">Lantau<a aria-label="Lantau su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Lantau%20Island%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Lantau su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Lantau%20Island%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span> — forse <span class="inline-place">Ngong Ping 360<a aria-label="Ngong Ping 360 su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Ngong%20Ping%20360%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Ngong Ping 360 su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Ngong%20Ping%20360%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Victoria Peak<a aria-label="Victoria Peak su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Victoria%20Peak%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Victoria Peak su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Victoria%20Peak%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span> — spiaggia o città da decidere</span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub">Giro nei quartieri più vivi</span></div></div></div></div>
+<div class="day" id="giorno-11-ago">
+<div class="day-head"><span class="day-date">11 ago</span><span class="day-dow">martedì</span><span class="day-cn-date">八月11日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Soravit on Granville</span><div class="map-actions"><a aria-label="Apri Soravit on Granville su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Soravit%20on%20Granville%2C%2029A%20Granville%20Road%2C%20Tsim%20Sha%20Tsui%2C%20Hong%20Kong" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Soravit on Granville su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Soravit%20on%20Granville%2C%2029A%20Granville%20Road%2C%20Tsim%20Sha%20Tsui%2C%20Hong%20Kong&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-map-pin"></i><div><span class="label">Giornata:</span> <span class="sub">Libera in città</span></div></div></div></div>
+</section>
+<!-- GUILIN -->
+<section class="city-section" id="guilin">
+<span class="seal"><span class="cn">桂林</span><span class="en">Guilin</span></span>
+<img alt="Fiume Li e montagne carsiche a Yangshuo, Guilin" class="photo-banner" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Li_River_and_mountains_in_Yangshuo_County,_Guilin10.jpg?width=900"/>
+<p class="photo-credit">Foto: Wikimedia Commons (dominio pubblico)</p>
+<div class="dish-card">
+<img alt="Guilin mifen" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guangxi_Yulin_rice_noodles.jpg?width=300"/>
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Guilin mifen (桂林米粉)</div>
+<div class="dish-desc">Noodles di riso in brodo speziato — la colazione tipica della città, da 2000 anni</div>
+</div>
+</div>
+<div class="dish-card">
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Yangshuo beer fish (啤酒鱼)</div>
+<div class="dish-desc">Pesce del fiume Li cotto con birra locale, pomodoro e peperoncino — il piatto simbolo di Yangshuo</div>
+</div>
+</div>
+<div class="market-card">
+<i aria-hidden="true" class="ti ti-building-store"></i>
+<div>
+<div class="market-name">West Street (Xi Jie), Yangshuo</div>
+<div class="market-desc">La via pedonale con più street food e locali della zona — buona base per la sera</div>
+<div class="map-actions"><a aria-label="Apri West Street (Xi Jie), Yangshuo su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=West%20Street%20Yangshuo%2C%20Guilin" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri West Street (Xi Jie), Yangshuo su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=West%20Street%20Yangshuo%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div>
+</div>
+<div class="day" id="giorno-12-ago">
+<div class="day-head"><span class="day-date">12 ago</span><span class="day-dow">mercoledì</span><span class="day-cn-date">八月12日</span></div>
+<div class="activity-timeline"><div class="row move-row"><i aria-hidden="true" class="ti ti-train"></i><div><span class="label">Hong Kong → Guilin</span><span class="badge todo">da fare</span><div class="sub">Treno alta velocità · arrivo 13:18 · biglietto da prenotare</div><div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Hong Kong West Kowloon Railway Station</span><div class="map-actions"><a aria-label="Apri Hong Kong West Kowloon Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Hong%20Kong%20West%20Kowloon%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Hong Kong West Kowloon Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Hong%20Kong%20West%20Kowloon%20Railway%20Station&amp;city=Hong%20Kong&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Guilin West Railway Station</span><div class="map-actions"><a aria-label="Apri Guilin West Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Guilin%20West%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Guilin West Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Guilin%20West%20Railway%20Station&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div></div></div><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Guilin Grand Hotel (Two Rivers and Four Lakes)</span><div class="map-actions"><a aria-label="Apri Guilin Grand Hotel (Two Rivers and Four Lakes) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Guilin%20Grand%20Hotel%2C%20No.%201%20Zhongshan%20North%20Road%2C%20Guilin" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Guilin Grand Hotel (Two Rivers and Four Lakes) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Guilin%20Grand%20Hotel%2C%20No.%201%20Zhongshan%20North%20Road%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub">In viaggio verso <span class="inline-place">Yangshuo<a aria-label="Yangshuo su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Yangshuo%2C%20Guilin" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Yangshuo su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Yangshuo%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Two Rivers Four Lakes<a aria-label="Two Rivers Four Lakes su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Two%20Rivers%20and%20Four%20Lakes%20Scenic%20Area%2C%20Guilin" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Two Rivers Four Lakes su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Two%20Rivers%20and%20Four%20Lakes%20Scenic%20Area%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span>, forse <span class="inline-place">Elephant Trunk Hill<a aria-label="Elephant Trunk Hill su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Elephant%20Trunk%20Hill%2C%20Guilin" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Elephant Trunk Hill su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Elephant%20Trunk%20Hill%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span>, <span class="inline-place">Yangshuo<a aria-label="Yangshuo su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Yangshuo%2C%20Guilin" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Yangshuo su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Yangshuo%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub">Chill al <span class="inline-place">night market di Yangshuo<a aria-label="night market di Yangshuo su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=West%20Street%20Yangshuo%2C%20Guilin" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="night market di Yangshuo su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=West%20Street%20Yangshuo%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div></div></div>
+<div class="day" id="giorno-13-ago">
+<div class="day-head"><span class="day-date">13 ago</span><span class="day-dow">giovedì</span><span class="day-cn-date">八月13日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Guilin Grand Hotel (Two Rivers and Four Lakes)</span><div class="map-actions"><a aria-label="Apri Guilin Grand Hotel (Two Rivers and Four Lakes) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Guilin%20Grand%20Hotel%2C%20No.%201%20Zhongshan%20North%20Road%2C%20Guilin" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Guilin Grand Hotel (Two Rivers and Four Lakes) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Guilin%20Grand%20Hotel%2C%20No.%201%20Zhongshan%20North%20Road%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-map-pin"></i><div><span class="label">Giornata:</span> <span class="sub">Libera a Guilin/<span class="inline-place">Yangshuo<a aria-label="Yangshuo su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Yangshuo%2C%20Guilin" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Yangshuo su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Yangshuo%2C%20Guilin&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div></div></div>
+</section>
+<!-- ZHANGJIAJIE -->
+<section class="city-section" id="zhangjiajie">
+<span class="seal"><span class="cn">张家界</span><span class="en">Zhangjiajie</span></span>
+<img alt="Pilastri di roccia nel parco di Zhangjiajie" class="photo-banner" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zhangjiajie_National_Forest_Park.jpg?width=900"/>
+<p class="photo-credit">Foto: Kuruman / Wikimedia Commons (CC BY 2.0)</p>
+<div class="dish-card">
+<img alt="Pesce al vapore con peperoncino, cucina Hunan" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hunan_cuisine,_steamed_fish_head_in_chili_sauce.jpg?width=300"/>
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Testa di pesce al peperoncino</div>
+<div class="dish-desc">Piatto simbolo della cucina dello Hunan, la regione di Zhangjiajie: piccante e saporito</div>
+</div>
+</div>
+<div class="dish-card">
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Ciba (糍粑) e carne conservata Tujia</div>
+<div class="dish-desc">Tortine di riso glutinoso fritte e carne affumicata alla maniera dell'etnia Tujia, tipica di quest'area rurale</div>
+</div>
+</div>
+<div class="market-card">
+<i aria-hidden="true" class="ti ti-building-store"></i>
+<div>
+<div class="market-name">Vie dello street food di Wulingyuan</div>
+<div class="market-desc">Bancarelle e piccoli ristoranti vicino all'ingresso del parco — comodi per uno spuntino tra un'escursione e l'altra</div>
+<div class="map-actions"><a aria-label="Apri Vie dello street food di Wulingyuan su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Xibu%20Street%2C%20Wulingyuan%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Vie dello street food di Wulingyuan su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Xibu%20Street%2C%20Wulingyuan%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div>
+</div>
+<div class="day" id="giorno-14-ago">
+<div class="day-head"><span class="day-date">14 ago</span><span class="day-dow">venerdì</span><span class="day-cn-date">八月14日</span></div>
+<div class="activity-timeline"><div class="row move-row"><i aria-hidden="true" class="ti ti-train"></i><div><span class="label">Guilin → Zhangjiajie</span><span class="badge todo">da fare</span><div class="sub">Treno alta velocità · arrivo 14:45 · biglietto da prenotare</div><div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Guilin Railway Station</span><div class="map-actions"><a aria-label="Apri Guilin Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Guilin%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Guilin Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Guilin%20Railway%20Station&amp;city=Guilin&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Zhangjiajie West Railway Station</span><div class="map-actions"><a aria-label="Apri Zhangjiajie West Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20West%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Zhangjiajie West Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20West%20Railway%20Station&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><span class="station-note">Stazione indicativa finché il numero del treno non è riportato sul biglietto.</span></div></div><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Maosao Inn (Wulingyuan)</span><div class="map-actions"><a aria-label="Apri Maosao Inn (Wulingyuan) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Maosao%20Inn%2C%20359%20Wuling%20Avenue%2C%20Wulingyuan%20District%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Maosao Inn (Wulingyuan) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Maosao%20Inn%2C%20359%20Wuling%20Avenue%2C%20Wulingyuan%20District%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub">In viaggio verso il <span class="inline-place">Parco Principale<a aria-label="Parco Principale su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Parco Principale su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Parco Principale di Zhangjiajie<a aria-label="Parco Principale di Zhangjiajie su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Parco Principale di Zhangjiajie su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub">Deposito bagagli e spettacolo trash locale</span></div></div></div></div>
+<div class="day" id="giorno-15-ago">
+<div class="day-head"><span class="day-date">15 ago</span><span class="day-dow">sabato</span><span class="day-cn-date">八月15日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Maosao Inn (Wulingyuan)</span><div class="map-actions"><a aria-label="Apri Maosao Inn (Wulingyuan) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Maosao%20Inn%2C%20359%20Wuling%20Avenue%2C%20Wulingyuan%20District%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Maosao Inn (Wulingyuan) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Maosao%20Inn%2C%20359%20Wuling%20Avenue%2C%20Wulingyuan%20District%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub"><span class="inline-place">Parco Principale<a aria-label="Parco Principale su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Parco Principale su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Parco Principale<a aria-label="Parco Principale su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Parco Principale su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20National%20Forest%20Park%20Wulingyuan%20East%20Gate&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub">Relax</span></div></div></div></div>
+<div class="day" id="giorno-16-ago">
+<div class="day-head"><span class="day-date">16 ago</span><span class="day-dow">domenica</span><span class="day-cn-date">八月16日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Zhangjiajie Xuyuan Hotel (Tianmen Mountain Forest Park)</span><div class="map-actions"><a aria-label="Apri Zhangjiajie Xuyuan Hotel (Tianmen Mountain Forest Park) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20Xuyuan%20Hotel%2C%20Jichang%20Road%2C%20Yongding%20District%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Zhangjiajie Xuyuan Hotel (Tianmen Mountain Forest Park) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20Xuyuan%20Hotel%2C%20Jichang%20Road%2C%20Yongding%20District%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub"><span class="inline-place">Porta del Paradiso<a aria-label="Porta del Paradiso su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Tianmen%20Cave%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Porta del Paradiso su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Tianmen%20Cave%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span>, <span class="inline-place">Tianmen Mountain<a aria-label="Tianmen Mountain su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Tianmen%20Mountain%20National%20Forest%20Park%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Tianmen Mountain su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Tianmen%20Mountain%20National%20Forest%20Park%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Porta del Paradiso<a aria-label="Porta del Paradiso su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Tianmen%20Cave%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Porta del Paradiso su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Tianmen%20Cave%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span>, <span class="inline-place">Tianmen Mountain<a aria-label="Tianmen Mountain su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Tianmen%20Mountain%20National%20Forest%20Park%2C%20Zhangjiajie" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Tianmen Mountain su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Tianmen%20Mountain%20National%20Forest%20Park%2C%20Zhangjiajie&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub">Spettacolo serale</span></div></div></div></div>
+</section>
+<!-- XI'AN -->
+<section class="city-section" id="xian">
+<span class="seal"><span class="cn">西安</span><span class="en">Xi'an</span></span>
+<img alt="Esercito di Terracotta, fossa 1, Xi'an" class="photo-banner" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Qin_Shihuang_Terracotta_Army,_Pit_1.jpg?width=900"/>
+<p class="photo-credit">Foto: Wikimedia Commons (dominio pubblico)</p>
+<div class="dish-card">
+<img alt="Biang biang noodles" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Biang_Biang_Mian.jpg?width=300"/>
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Biang biang mian (𰻞𰻞面)</div>
+<div class="dish-desc">Pasta larga tirata a mano, servita piccante — specialità dello Shaanxi</div>
+</div>
+</div>
+<div class="dish-card">
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Roujiamo e liangpi</div>
+<div class="dish-desc">Il "panino cinese" con carne stufata e i noodles freddi di grano — due classici da mangiare in piedi per strada</div>
+</div>
+</div>
+<div class="market-card">
+<i aria-hidden="true" class="ti ti-building-store"></i>
+<div>
+<div class="market-name">Quartiere musulmano (回民街)</div>
+<div class="market-desc">Il grande mercato street food di Xi'an, già in programma la sera del 17 — spiedini, dolci e noodles a ogni angolo</div>
+<div class="map-actions"><a aria-label="Apri Quartiere musulmano (回民街) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Muslim%20Quarter%20Xi%27an" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Quartiere musulmano (回民街) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Muslim%20Quarter%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div>
+</div>
+<div class="day" id="giorno-17-ago">
+<div class="day-head"><span class="day-date">17 ago</span><span class="day-dow">lunedì</span><span class="day-cn-date">八月17日</span></div>
+<div class="activity-timeline"><div class="row move-row"><i aria-hidden="true" class="ti ti-plane"></i><div><span class="label">Zhangjiajie → Xi'an</span><span class="badge done">fatto</span><div class="sub">Volo · arrivo 12:30 · prenotato</div><div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Zhangjiajie Hehua International Airport (DYG)</span><div class="map-actions"><a aria-label="Apri Zhangjiajie Hehua International Airport (DYG) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Zhangjiajie%20Hehua%20International%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Zhangjiajie Hehua International Airport (DYG) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Zhangjiajie%20Hehua%20International%20Airport&amp;city=Zhangjiajie&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Xi'an Xianyang International Airport (XIY)</span><div class="map-actions"><a aria-label="Apri Xi'an Xianyang International Airport (XIY) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%27an%20Xianyang%20International%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Xi'an Xianyang International Airport (XIY) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Xi%27an%20Xianyang%20International%20Airport&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div></div></div><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Ramada Bell Tower Hotel Xi'an</span><div class="map-actions"><a aria-label="Apri Ramada Bell Tower Hotel Xi'an su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Ramada%20by%20Wyndham%20Xian%20Bell%20Tower%2C%2079%20North%20Street%2C%20Xi%27an" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Ramada Bell Tower Hotel Xi'an su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Ramada%20by%20Wyndham%20Xian%20Bell%20Tower%2C%2079%20North%20Street%2C%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub">In viaggio</span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Mura di Xi'an<a aria-label="Mura di Xi'an su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%27an%20City%20Wall" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Mura di Xi'an su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Xi%27an%20City%20Wall&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span>, <span class="inline-place">Bell Tower<a aria-label="Bell Tower su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Bell%20Tower%20of%20Xi%27an" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Bell Tower su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Bell%20Tower%20of%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span> e <span class="inline-place">Drum Tower<a aria-label="Drum Tower su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Drum%20Tower%20of%20Xi%27an" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Drum Tower su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Drum%20Tower%20of%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub"><span class="inline-place">Quartiere musulmano<a aria-label="Quartiere musulmano su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Muslim%20Quarter%20Xi%27an" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Quartiere musulmano su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Muslim%20Quarter%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span> e mercatini</span></div></div></div></div>
+<div class="day" id="giorno-18-ago">
+<div class="day-head"><span class="day-date">18 ago</span><span class="day-dow">martedì</span><span class="day-cn-date">八月18日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Ramada Bell Tower Hotel Xi'an</span><div class="map-actions"><a aria-label="Apri Ramada Bell Tower Hotel Xi'an su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Ramada%20by%20Wyndham%20Xian%20Bell%20Tower%2C%2079%20North%20Street%2C%20Xi%27an" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Ramada Bell Tower Hotel Xi'an su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Ramada%20by%20Wyndham%20Xian%20Bell%20Tower%2C%2079%20North%20Street%2C%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub"><span class="inline-place">Esercito di Terracotta<a aria-label="Esercito di Terracotta su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Terracotta%20Army%20Museum%2C%20Xi%27an" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Esercito di Terracotta su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Terracotta%20Army%20Museum%2C%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-cloud"></i><div><span class="label">Pomeriggio:</span> <span class="sub"><span class="inline-place">Giant Wild Goose Pagoda<a aria-label="Giant Wild Goose Pagoda su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Giant%20Wild%20Goose%20Pagoda%2C%20Xi%27an" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Giant Wild Goose Pagoda su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Giant%20Wild%20Goose%20Pagoda%2C%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Sera:</span> <span class="sub">Relax in città</span></div></div></div></div>
+<div class="day" id="giorno-19-ago">
+<div class="day-head"><span class="day-date">19 ago</span><span class="day-dow">mercoledì</span><span class="day-cn-date">八月19日</span></div>
+<div class="activity-timeline"><div class="row move-row"><i aria-hidden="true" class="ti ti-train"></i><div><span class="label">Xi'an → Shanghai</span><span class="badge done">fatto</span><div class="sub">Treno notturno · €90 a persona</div><div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Xi'an Railway Station</span><div class="map-actions"><a aria-label="Apri Xi'an Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Xi%27an%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Xi'an Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Xi%27an%20Railway%20Station&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Shanghai Railway Station</span><div class="map-actions"><a aria-label="Apri Shanghai Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Shanghai Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Shanghai%20Railway%20Station&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><span class="station-note">Stazione indicativa finché il numero del treno non è riportato sul biglietto.</span></div></div><div class="row"><i aria-hidden="true" class="ti ti-sun"></i><div><span class="label">Mattina:</span> <span class="sub"><span class="inline-place">Moschea di Xi'an<a aria-label="Moschea di Xi'an su Google Maps" class="inline-map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Great%20Mosque%20of%20Xi%27an" rel="noopener noreferrer" target="_blank" title="Google Maps">G</a><a aria-label="Moschea di Xi'an su AMap 高德" class="inline-map-link amap" href="https://uri.amap.com/search?keyword=Great%20Mosque%20of%20Xi%27an&amp;city=Xi%27an&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank" title="AMap 高德">高</a></span></span></div></div><div class="row"><i aria-hidden="true" class="ti ti-moon"></i><div><span class="label">Pomeriggio / Sera:</span> <span class="sub">Partenza in treno notturno per Shanghai</span></div></div></div></div>
+</section>
+<!-- SHANGHAI -->
+<section class="city-section" id="shanghai">
+<span class="seal"><span class="cn">上海</span><span class="en">Shanghai</span></span>
+<img alt="Skyline di Pudong vista dal Bund, Shanghai" class="photo-banner" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pudong_Skyline_(39771020425).jpg?width=900"/>
+<p class="photo-credit">Foto: David Stanley / Wikimedia Commons (CC BY 2.0)</p>
+<div class="dish-card">
+<img alt="Xiaolongbao, ravioli al vapore" loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Yuyuan_Street_xiaolongbao.JPG?width=300"/>
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Xiaolongbao (小笼包)</div>
+<div class="dish-desc">Ravioli al vapore ripieni di brodo bollente — la specialità simbolo di Shanghai</div>
+</div>
+</div>
+<div class="dish-card">
+<div>
+<div class="dish-eyebrow"><i aria-hidden="true" class="ti ti-tools-kitchen-2"></i>Da provare</div>
+<div class="dish-name">Sheng jian bao e cong you ban mian</div>
+<div class="dish-desc">Ravioli rosolati con fondo croccante, e noodles conditi con olio di cipollotto — due classici della cucina di strada shanghainese</div>
+</div>
+</div>
+<div class="market-card">
+<i aria-hidden="true" class="ti ti-building-store"></i>
+<div>
+<div class="market-name">Yuyuan Garden snack street</div>
+<div class="market-desc">La via dello street food accanto al Giardino Yuyuan, tra bancarelle, dolci e negozi storici</div>
+<div class="map-actions"><a aria-label="Apri Yuyuan Garden snack street su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Yuyuan%20Old%20Street%2C%20Huangpu%2C%20Shanghai" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Yuyuan Garden snack street su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Yuyuan%20Old%20Street%2C%20Huangpu%2C%20Shanghai&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div>
+</div>
+<div class="day" id="giorno-20-ago">
+<div class="day-head"><span class="day-date">20 ago</span><span class="day-dow">giovedì</span><span class="day-cn-date">八月20日</span></div>
+<div class="activity-timeline"><div class="row move-row"><i aria-hidden="true" class="ti ti-train"></i><div><span class="label">Arrivo da Xi'an</span><div class="sub">Treno notturno · arrivo 6:15</div><div class="terminal-grid"><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Shanghai Railway Station</span><div class="map-actions"><a aria-label="Apri Shanghai Railway Station su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Railway%20Station" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Shanghai Railway Station su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Shanghai%20Railway%20Station&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div></div></div><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Rais Apartment Hotel (Shanghai Bund)</span><div class="map-actions"><a aria-label="Apri Rais Apartment Hotel (Shanghai Bund) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Rais%20Apartment%20Hotel%20Shanghai%20Bund%20Store%2C%20Huangpu%2C%20Shanghai" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Rais Apartment Hotel (Shanghai Bund) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Rais%20Apartment%20Hotel%20Shanghai%20Bund%20Store%2C%20Huangpu%2C%20Shanghai&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-map-pin"></i><div><span class="label">Giornata:</span> <span class="sub">Da pianificare</span></div></div></div></div>
+<div class="day" id="giorno-21-ago">
+<div class="day-head"><span class="day-date">21 ago</span><span class="day-dow">venerdì</span><span class="day-cn-date">八月21日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Rais Apartment Hotel (Shanghai Bund)</span><div class="map-actions"><a aria-label="Apri Rais Apartment Hotel (Shanghai Bund) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Rais%20Apartment%20Hotel%20Shanghai%20Bund%20Store%2C%20Huangpu%2C%20Shanghai" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Rais Apartment Hotel (Shanghai Bund) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Rais%20Apartment%20Hotel%20Shanghai%20Bund%20Store%2C%20Huangpu%2C%20Shanghai&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-map-pin"></i><div><span class="label">Giornata:</span> <span class="sub">Libera a Shanghai</span></div></div></div></div>
+<div class="day" id="giorno-22-ago">
+<div class="day-head"><span class="day-date">22 ago</span><span class="day-dow">sabato</span><span class="day-cn-date">八月22日</span></div>
+<div class="activity-timeline"><div class="row hotel-row"><i aria-hidden="true" class="ti ti-bed"></i><div><span class="label">Rais Apartment Hotel (Shanghai Bund)</span><div class="map-actions"><a aria-label="Apri Rais Apartment Hotel (Shanghai Bund) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Rais%20Apartment%20Hotel%20Shanghai%20Bund%20Store%2C%20Huangpu%2C%20Shanghai" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Rais Apartment Hotel (Shanghai Bund) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Rais%20Apartment%20Hotel%20Shanghai%20Bund%20Store%2C%20Huangpu%2C%20Shanghai&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><div class="row"><i aria-hidden="true" class="ti ti-plane-departure"></i><div><span class="label">Giornata:</span> <span class="sub">Rientro in Italia</span><div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Shanghai Pudong International Airport (PVG)</span><div class="map-actions"><a aria-label="Apri Shanghai Pudong International Airport (PVG) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Pudong%20International%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Shanghai Pudong International Airport (PVG) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Shanghai%20Pudong%20International%20Airport&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Milano Malpensa Airport (MXP)</span><div class="map-actions"><a aria-label="Apri Milano Malpensa Airport (MXP) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Milano%20Malpensa%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Milano Malpensa Airport (MXP) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Milano%20Malpensa%20Airport&amp;city=Milan&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div></div></div></div></div>
+</section>
+<div class="transit-banner">
+<i aria-hidden="true" class="ti ti-plane-arrival"></i>
+<div class="tt"><b>22 ago</b> — Shanghai → Malpensa<span class="meta">Volo di rientro · incluso nel biglietto principale</span></div>
+<div class="terminal-grid"><div class="terminal"><span class="terminal-label">Partenza</span><span class="terminal-name">Shanghai Pudong International Airport (PVG)</span><div class="map-actions"><a aria-label="Apri Shanghai Pudong International Airport (PVG) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Pudong%20International%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Shanghai Pudong International Airport (PVG) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Shanghai%20Pudong%20International%20Airport&amp;city=Shanghai&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div><div class="terminal"><span class="terminal-label">Arrivo</span><span class="terminal-name">Milano Malpensa Airport (MXP)</span><div class="map-actions"><a aria-label="Apri Milano Malpensa Airport (MXP) su Google Maps" class="map-link google" href="https://www.google.com/maps/search/?api=1&amp;query=Milano%20Malpensa%20Airport" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>Google Maps</a><a aria-label="Apri Milano Malpensa Airport (MXP) su AMap 高德" class="map-link amap" href="https://uri.amap.com/search?keyword=Milano%20Malpensa%20Airport&amp;city=Milan&amp;view=map&amp;src=cina-2026-itinerario&amp;callnative=1" rel="noopener noreferrer" target="_blank"><i aria-hidden="true" class="ti ti-map-pin"></i>AMap 高德</a></div></div></div><span class="station-note">Aeroporto di Shanghai impostato su Pudong (PVG): verifica il codice riportato sul biglietto.</span></div>
+<!-- COSTS -->
+<section class="costs" id="costi">
+<h2>Riepilogo costi</h2>
+<p class="hint">Dal foglio pagamenti — importi totali e a persona</p>
+<div class="cost-line"><span class="name">Aereo principale (MXP-HKG / SHA-MXP)<span class="badge done">pagato</span></span><span class="amt">€2.115 · €1.057,50 pp</span></div>
+<div class="cost-line"><span class="name">Volo interno Zhangjiajie–Xi'an<span class="badge done">pagato</span></span><span class="amt">€147 · €73,50 pp</span></div>
+<div class="cost-line"><span class="name">Treno notturno Xi'an–Shanghai<span class="badge done">pagato</span></span><span class="amt">€180 · €90,00 pp</span></div>
+<div class="cost-line"><span class="name">Hotel Hong Kong<span class="badge todo">da pagare</span></span><span class="amt">€174 · €87,00 pp</span></div>
+<div class="cost-line"><span class="name">Hotel Guilin<span class="badge todo">da pagare</span></span><span class="amt">€90 · €45,00 pp</span></div>
+<div class="cost-line"><span class="name">Hotel Zhangjiajie 1<span class="badge todo">da pagare</span></span><span class="amt">€77 · €38,50 pp</span></div>
+<div class="cost-line"><span class="name">Hotel Zhangjiajie 2<span class="badge todo">da pagare</span></span><span class="amt">€62 · €31,00 pp</span></div>
+<div class="cost-line"><span class="name">Hotel Xi'an<span class="badge done">pagato</span></span><span class="amt">€79 · €39,50 pp</span></div>
+<div class="cost-line"><span class="name">Hotel Shanghai<span class="badge todo">da pagare</span></span><span class="amt">€112 · €56,00 pp</span></div>
+<div class="totals">
+<div class="box"><span class="l">Totale</span><span class="n">€3.036</span></div>
+<div class="box"><span class="l">A persona</span><span class="n">€1.518</span></div>
+</div>
+<div class="estimate">
+<h2>Spese extra stimate</h2>
+<p class="hint">Per 2 persone — non ancora prenotate/pagate, prezzi indicativi a luglio 2026</p>
+<h3>Treni ancora da prenotare</h3>
+<div class="estimate-line"><span class="name">Hong Kong → Guilin<span class="sub">alta velocità, 2ª classe, ~3h</span></span><span class="amt">~€110</span></div>
+<div class="estimate-line"><span class="name">Guilin → Zhangjiajie<span class="sub">alta velocità, 2ª classe, ~7h</span></span><span class="amt">~€90</span></div>
+<h3>Cibo, nessun pasto incluso (~13 giorni)</h3>
+<div class="estimate-line"><span class="name">Stile street food / locali economici<span class="sub">~100 RMB a persona al giorno</span></span><span class="amt">~€340</span></div>
+<div class="estimate-line"><span class="name">Stile più comodo, ristoranti locali<span class="sub">~150 RMB a persona al giorno</span></span><span class="amt">~€500</span></div>
+<h3>Ingressi</h3>
+<div class="estimate-line"><span class="name">Zhangjiajie National Forest Park<span class="sub">pass 4 giorni, alta stagione</span></span><span class="amt">~€62</span></div>
+<div class="estimate-line"><span class="name">Esercito di Terracotta<span class="sub">alta stagione</span></span><span class="amt">~€39</span></div>
+<div class="estimate-line"><span class="name">Furong Ancient Town<span class="sub">opzionale, non nel programma attuale</span><span class="badge stima">extra</span></span><span class="amt">~€28</span></div>
+<h3>Didi (spostamenti eventuali)</h3>
+<div class="estimate-line"><span class="name">Xi'an ↔ Esercito di Terracotta<span class="sub">andata e ritorno, costo dell'auto</span></span><span class="amt">~€21–29</span></div>
+<div class="estimate-line"><span class="name">Corse brevi in città<span class="sub">stazioni, hotel, ristoranti — stimate 6-8 corse</span></span><span class="amt">~€25–35</span></div>
+<div class="estimate-line"><span class="name">Zhangjiajie → Furong Town<span class="sub">se in Didi anziché in treno (sconsigliato, più caro)</span><span class="badge stima">extra</span></span><span class="amt">~€39/tratta</span></div>
+<div class="estimate-total">
+<span class="l">Totale extra stimato (senza Furong)</span>
+<span class="n">~€650–800</span>
+</div>
+<p class="estimate-note">Con Furong Ancient Town incluso (ingresso + treno a/r): +~€50–70, per un totale di circa €700–870. Ad agosto i treni ad alta velocità hanno meno disponibilità: meglio prenotare le due tratte mancanti appena possibile.</p>
+</div>
+</section>
+<footer>Itinerario Cina · 9–22 agosto 2026</footer>
+</div></div>
+<script>
+(() => {
+  const days = [...document.querySelectorAll('.day[id]')];
+  const links = [...document.querySelectorAll('.day-nav a')];
+  if (!days.length || !links.length) return;
+  const activate = id => {
+    links.forEach(link => {
+      const on = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('active', on);
+      if (on && window.matchMedia('(max-width: 860px)').matches) {
+        const nav = link.parentElement;
+        const left = link.offsetLeft - Math.max(0, (nav.clientWidth - link.offsetWidth) / 2);
+        nav.scrollTo({left: Math.max(0, left), behavior:'smooth'});
+      }
+    });
+  };
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a,b) => Math.abs(a.boundingClientRect.top - 145) - Math.abs(b.boundingClientRect.top - 145));
+    if (visible[0]) activate(visible[0].target.id);
+  }, {rootMargin:'-120px 0px -58% 0px', threshold:[0,.15,.4]});
+  days.forEach(day => observer.observe(day));
+  links.forEach(link => link.addEventListener('click', () => activate(link.getAttribute('href').slice(1))));
+  activate(days[0].id);
+})();
+</script></body>
 </html>

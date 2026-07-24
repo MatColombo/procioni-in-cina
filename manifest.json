@@ -4,16 +4,16 @@
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   "CARICAMENTO-GITHUB.txt": {
-    "bytes": 792,
-    "sha256": "be875eb1a90ec66c6b06aa45848b25d91f6cf7fb355147027a202f8471e30441"
+    "bytes": 521,
+    "sha256": "9cafcb6a1a49efa60fb1b1af8b0e17cf93fbcfc7141dd3ddf0525c7fbd7178c2"
   },
   "DELETE-OLD-ROOT-FILES.txt": {
     "bytes": 373,
     "sha256": "039d8520af871ae14057d1b0eb20777cd8582b17a13d3fee6f4089d080439870"
   },
   "README.md": {
-    "bytes": 1318,
-    "sha256": "7d4e723fb5d50dbab77d027532410f757276ad462de9fc9009f833133a27281d"
+    "bytes": 922,
+    "sha256": "386be3dff1a346a7fed7131dae08029e69bc9f9e170d9d2358e88164691067c2"
   },
   "assets/detailed-itinerary.js": {
     "bytes": 13974,
@@ -31,6 +31,26 @@
     "bytes": 2901,
     "sha256": "741bd8bbf9a6a9a1cc0fb1809beeccb0fc021ca99f0c49d09f895897053bdc51"
   },
+  "assets/media-enhancements.css": {
+    "bytes": 2441,
+    "sha256": "10883e5177c1e1bd65f3c756a0306ae4cffbc223d7242753e33aba42604df104"
+  },
+  "assets/phrases-data.js": {
+    "bytes": 52267,
+    "sha256": "818ce1027c996baaa5bdec21a08bcf70dbe6b6e3c07f7543b86a4b1b5407d69b"
+  },
+  "assets/phrases.css": {
+    "bytes": 11325,
+    "sha256": "d84ce829fa3978c9d5cee38d6bd731957ce254e0a55c08c949a315339814b38f"
+  },
+  "assets/phrases.js": {
+    "bytes": 11981,
+    "sha256": "124dbcc965771b319cab1998ce8d735483ff9613db511a0c254d35e7e50d2cec"
+  },
+  "assets/remote-images.js": {
+    "bytes": 5330,
+    "sha256": "46034628a64b0aada1b8e9bb3f935efacb254f80aba28da36d2e43f09bf5b15f"
+  },
   "assets/site-shell.css": {
     "bytes": 10320,
     "sha256": "99615b429f637ff2bae3726dc4833b2a0cf72470243a1698d5669e75a71e3588"
@@ -44,19 +64,23 @@
     "sha256": "ed1f1a63d6e3779c50de38f9504594b049cab9c8bae84cb1fcb448249a857937"
   },
   "attrazioni.html": {
-    "bytes": 251288,
-    "sha256": "ca65de4d9dcf9b04c3ca92c165e76eda8c1ac5893a7f123e4729f505c58f0cd7"
+    "bytes": 251249,
+    "sha256": "e93266dcfe0090e2bd5fec62ef40f768e9324d5c93dbed5ea21804b8d9efc52a"
   },
   "cibi.html": {
-    "bytes": 147092,
-    "sha256": "869e952f1f4beca83fd5c70052657f769f8bf2cdd0362e7a70d52a0cd75059fb"
+    "bytes": 147399,
+    "sha256": "8b92de69f16b56342af14dab7c32be1aac3875507b25ca5eaa302da50bb26415"
+  },
+  "frasi.html": {
+    "bytes": 7629,
+    "sha256": "54e5f628c188d1ecd5259c61a4e0ad102acea0b1839f13e9e81b3f9f2f222d93"
   },
   "index.html": {
-    "bytes": 91648,
-    "sha256": "19c47d954260c9fe0cffea62b3dbfcc90b1d0bfc47fb6f34d9bc284d6f7d328e"
+    "bytes": 92062,
+    "sha256": "1c680b77f9105587236deb5cd044c7c1d8f36e6a2cc668e98a9c15f0d013850a"
   },
   "itinerario-dettagliato.html": {
-    "bytes": 7367,
-    "sha256": "c5c34ed4ee62885903c78fea275330ef428ea0eb2129a89e5e0e5e3420ef4efe"
+    "bytes": 7439,
+    "sha256": "20ac7fea9c22382a8d277992f86721fb68141dd7dce7e1fb0e874e3efa2d2bcb"
   }
 }
