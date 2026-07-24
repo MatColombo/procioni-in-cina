@@ -1,0 +1,282 @@
+/*
+  Shared top-level navigation and summary-page visual alignment.
+  This file is deliberately loaded last by every page.
+*/
+:root{
+  --global-paper:#F8F1E3;
+  --global-paper-strong:#FFFDF7;
+  --global-ink:#211915;
+  --global-jade:#216A58;
+  --global-jade-dark:#17463B;
+  --global-jade-light:#DDEBE4;
+  --global-seal:#B72D24;
+  --global-seal-dark:#7B171A;
+  --global-gold:#C49A2F;
+  --global-gold-light:#F5E6B9;
+  --global-line:rgba(73,45,31,.15);
+}
+
+/* One identical page menu everywhere. */
+.quicknav.site-nav{
+  position:sticky!important;
+  top:0!important;
+  z-index:1000!important;
+  display:block!important;
+  width:100%!important;
+  padding:0!important;
+  overflow:visible!important;
+  background:rgba(255,250,239,.965)!important;
+  border:0!important;
+  border-bottom:1px solid rgba(123,23,26,.18)!important;
+  box-shadow:0 7px 24px rgba(73,35,22,.09)!important;
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+}
+.quicknav.site-nav .site-nav__inner{
+  width:min(1180px,100%);
+  min-height:62px;
+  margin:0 auto;
+  padding:8px 20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.quicknav.site-nav a.site-brand{
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:9px!important;
+  margin:0!important;
+  padding:0!important;
+  color:var(--global-seal-dark)!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  text-decoration:none!important;
+  box-shadow:none!important;
+  white-space:nowrap;
+}
+.site-brand__mark{
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  flex:0 0 38px;
+  border:2px solid var(--global-seal);
+  color:var(--global-seal);
+  background:rgba(255,253,247,.78);
+  font:700 18px/1 'Noto Serif TC',serif;
+  transform:rotate(-2deg);
+}
+.site-brand__mark:after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid currentColor;
+  opacity:.75;
+}
+.site-brand__name{
+  display:flex;
+  flex-direction:column;
+  font:700 14px/1.05 'Noto Serif TC',serif;
+}
+.site-brand__name small{
+  margin-top:3px;
+  color:#8a7769;
+  font:600 8.5px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.site-tabs{
+  min-width:0;
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:6px;
+  overflow-x:auto;
+  padding:1px;
+  scrollbar-width:none;
+}
+.site-tabs::-webkit-scrollbar{display:none}
+.quicknav.site-nav .site-tabs a.page-tab{
+  flex:0 0 auto!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  min-height:39px;
+  margin:0!important;
+  padding:9px 12px!important;
+  color:var(--global-seal-dark)!important;
+  background:#FFF8E8!important;
+  border:1px solid rgba(183,45,36,.22)!important;
+  border-radius:999px!important;
+  font:600 11px/1 'IBM Plex Mono',monospace!important;
+  text-decoration:none!important;
+  white-space:nowrap;
+  box-shadow:none!important;
+  transition:background .16s ease,color .16s ease,border-color .16s ease,transform .16s ease;
+}
+.quicknav.site-nav .site-tabs a.page-tab:hover{
+  transform:translateY(-1px);
+  background:#F8E7C8!important;
+  border-color:rgba(183,45,36,.36)!important;
+}
+.quicknav.site-nav .site-tabs a.page-tab.active,
+.quicknav.site-nav .site-tabs a.page-tab[aria-current="page"]{
+  color:#fff!important;
+  background:linear-gradient(135deg,var(--global-seal),#8F1D1D)!important;
+  border-color:var(--global-seal)!important;
+  box-shadow:0 5px 14px rgba(123,23,26,.18)!important;
+}
+.quicknav.site-nav .site-tabs .ti{font-size:15px;line-height:1}
+.tab-label-short{display:none}
+
+/* Page-specific anchors are a separate, non-sticky row. */
+.section-nav{
+  width:min(1080px,100%);
+  margin:0 auto;
+  padding:10px 20px 1px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.section-nav::-webkit-scrollbar{display:none}
+.section-nav__label{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  color:#887567;
+  font:600 9.5px/1 'IBM Plex Mono',monospace;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.section-nav a{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  min-height:31px;
+  padding:7px 10px;
+  color:var(--global-jade-dark);
+  background:rgba(221,235,228,.82);
+  border:1px solid rgba(33,106,88,.15);
+  border-radius:999px;
+  font:600 10.5px/1 'IBM Plex Mono',monospace;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.section-nav a:hover{background:var(--global-gold-light);color:var(--global-seal-dark)}
+
+/* Bring the summary into the same visual family as the three thematic pages. */
+.summary-page .hero{
+  position:relative;
+  overflow:hidden;
+  padding:calc(30px + env(safe-area-inset-top)) 24px 34px!important;
+  color:#FFF9E9!important;
+  background:
+    radial-gradient(circle at 82% 20%,rgba(245,230,185,.14),transparent 12rem),
+    linear-gradient(135deg,#6F1118 0%,#A61F23 55%,#721419 100%)!important;
+  border-bottom:5px solid var(--global-gold)!important;
+}
+.summary-page .hero:before{
+  content:"旅";
+  position:absolute;
+  right:5vw;
+  bottom:-68px;
+  width:auto;
+  height:auto;
+  border:0;
+  border-radius:0;
+  color:rgba(255,246,215,.065);
+  font:700 220px/1 'Noto Serif TC',serif;
+  transform:rotate(-8deg);
+  pointer-events:none;
+}
+.summary-page .hero:after{
+  content:"";
+  position:absolute;
+  right:-42px;
+  top:-48px;
+  width:190px;
+  height:190px;
+  border:1px solid rgba(255,249,233,.14);
+  border-radius:50%;
+}
+.summary-page .hero>.wrap{
+  position:relative;
+  z-index:1;
+  max-width:1080px!important;
+  margin:0 auto!important;
+  padding:0!important;
+}
+.summary-page .hero-eyebrow{
+  margin:0 0 10px!important;
+  color:#F0D589!important;
+  font:500 12px/1.4 'IBM Plex Mono',monospace!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase;
+}
+.summary-page .hero h1{
+  margin:0 0 10px!important;
+  color:#FFF9E9!important;
+  font:700 clamp(42px,7vw,72px)/1.05 'Noto Serif TC',serif!important;
+}
+.summary-page .hero .dates{color:#F7E7C2!important;font-size:15px!important}
+.summary-page .hero .stats{display:flex!important;gap:10px!important;flex-wrap:wrap!important;margin-top:22px!important;overflow:visible!important}
+.summary-page .hero .stat{
+  min-width:115px!important;
+  padding:10px 13px!important;
+  color:#FFF9E9!important;
+  background:rgba(255,248,229,.10)!important;
+  border:1px solid rgba(255,248,229,.25)!important;
+  border-radius:12px!important;
+}
+.summary-page .hero .stat .n{display:block;font:600 19px/1.25 'IBM Plex Mono',monospace!important}
+.summary-page .hero .stat .l{color:#F0D589!important;font-size:11px!important;text-transform:uppercase;letter-spacing:.06em}
+.summary-page .page-hub{margin-top:18px}
+.summary-page .page-card.current{background:linear-gradient(145deg,#FFFDF7,#F9E8CC)}
+
+/* Correct desktop sticky offsets now that only the global menu remains sticky.
+   Tablet/mobile rules in the page styles remain authoritative because their
+   horizontal sidebars intentionally reserve a second sticky row. */
+@media(min-width:861px){
+  .itinerary-page .sidebar,
+  .food-page .sidebar,
+  .attractions-page .sidebar{top:76px}
+  .itinerary-page .page-tools,
+  .food-page .controls,
+  .attractions-page .attraction-controls{top:70px}
+}
+
+@media(max-width:760px){
+  .quicknav.site-nav .site-nav__inner{min-height:56px;padding:7px 10px;gap:8px}
+  .site-brand__mark{width:35px;height:35px;flex-basis:35px;font-size:17px}
+  .site-brand__name{display:none}
+  .site-tabs{justify-content:flex-start;margin-left:0;gap:5px}
+  .quicknav.site-nav .site-tabs a.page-tab{min-height:36px;padding:8px 9px!important;font-size:10.5px!important;gap:5px!important}
+  .quicknav.site-nav .site-tabs .ti{font-size:14px}
+  .tab-label-full{display:none}
+  .tab-label-short{display:inline}
+  .section-nav{padding:8px 12px 0;gap:6px}
+  .section-nav__label{display:none}
+  .section-nav a{min-height:30px;padding:7px 9px;font-size:10px}
+  .summary-page .hero{padding-left:18px!important;padding-right:18px!important}
+  .summary-page .hero .stats{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .summary-page .hero .stat{min-width:0!important}
+  .summary-page .hero:before{right:-12px;font-size:170px}
+}
+
+@media(max-width:390px){
+  .quicknav.site-nav .site-nav__inner{padding-left:8px;padding-right:8px}
+  .quicknav.site-nav .site-tabs a.page-tab{padding-left:8px!important;padding-right:8px!important;font-size:10px!important}
+  .quicknav.site-nav .site-tabs .ti{display:none}
+}
+
+@media print{
+  .quicknav.site-nav,.section-nav{display:none!important}
+}
